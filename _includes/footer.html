@@ -25,6 +25,12 @@
             {% include icon-twitter.html username=site.twitter_username %}
           </li>
           {% endif %}
+
+          {% if site.goodreads_link %}
+          <li>
+            {% include icon-goodreads.html link=site.goodreads_link username=site.goodreads_username %}
+          </li>
+          {% endif %}
         </ul>
       </div>
 
