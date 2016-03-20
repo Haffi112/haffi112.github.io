@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Welcome"
+date:   2016-03-20 14:04:22 +0100
+categories: update
+---
+There will be some content here soon enough.
+
+In the meantime [here is my CV]({{site.url}}/assets/cv_Q12016.pdf).
