@@ -4,27 +4,44 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  Hey there! This website is currently under construction. Please excuse
+  the lack of content.
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+I am a PhD candidate in computer science at ETHZ in Switzerland. I have a
+background in *mathematics* and *theoretical computer science*.
 
-There are currently two themes built on Poole:
+My thesis work is in the field of computational neuroscience. The brain
+can be thought of as a massively parallel computational machine. There
+are multiple hypothesis of how the brain does computation. Many of them
+are hard to test experimentally and the data we already have is
+insufficient to make good predictions.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+With difficulty obtaining data it thus becomes interesting to study
+models. I find questions such as *"What are the necessary components to
+build a brain?"* fascinating. Saying that my work is about understanding
+the brain is a huge overstatement though. There is so little we
+currently understand.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+An easier and more concrete starting point is to study questions such
+as:
 
-## Setup
+* How can complexity arise from simple components?
+* When a system is more than a sum of its parts can we understand why?
 
-Some fun facts about the setup of this project include:
+As an example one of the holy grails of such research is to find the so
+called [*canonical
+microcircuit*](https://en.wikipedia.org/wiki/Cortical_column). This
+circuit is believed to be the computational substrate of the brain. It
+is conjectured to be quite small, perhaps in the order of 100.000
+neurons or less. No one has so far managed to identify it or describe
+it. It forms the basis of the columnar organisational hypothesis, that
+our brain is made by stacking such circuits in parallel.
 
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
+From my point of view it is thus interesting to study what properties we
+need to build such a circuit starting from the most basic building
+blocks. I plan to write a couple of blog posts about my work in this
+direction. It is extremely far from producing anything resembling a
+canonical microcircuit but it might yield some insight into what we can
+achieve with only simple components and simple rules to connect them.
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
