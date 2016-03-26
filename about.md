@@ -5,7 +5,8 @@ title: About
 
 <p class="message">
   Hey there! This website is currently under construction. Please excuse
-  the lack of content.
+  the lack of content. You can find a short CV <a
+  href="{{site.baseurl}}/assets/cv.pdf">here</a>.
 </p>
 
 I am a PhD candidate in computer science at ETHZ in Switzerland. I have a
