@@ -22,5 +22,19 @@ author:
 # Custom vars
 version:             0.0.1
 
+social:
+- user:              hafsteinn
+  url:               https://twitter.com/hafsteinn
+  logo:              /assets/twitter-logo.svg
+- user:              Hafsteinn
+  url:               https://www.linkedin.com/in/hafsteinn-einarsson-619a3711
+  logo:              /assets/linkedin-logo.svg
+- user:              Hafsteinn
+  url:               https://www.goodreads.com/user/show/3584182-haffi
+  logo:              /assets/goodreads-logo.svg
+- user:              Haffi112
+  url:               https://github.com/Haffi112
+  logo:              /assets/github-logo.svg
+
 # Gems
 gems:                [jekyll-paginate]
