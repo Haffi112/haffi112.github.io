@@ -6,7 +6,9 @@ title: About
 <p class="message">
   Hey there! This website is currently under construction. Please excuse
   the lack of content. You can find a short CV <a
-  href="{{site.baseurl}}/assets/cv.pdf">here</a>.
+  href="{{site.baseurl}}/assets/cv.pdf">here</a>. If you want to be a
+  guest blogger on my site please feel free to contact me through any of
+  the mediums in the menu on the left.
 </p>
 
 I am a PhD candidate in computer science at ETHZ in Switzerland. I have a

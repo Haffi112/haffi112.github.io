@@ -107,9 +107,12 @@ percolates, that is almost every vertex turns active.
 
 You can play with the process on the random graph below. The parameters
 can be chosen below and additionally you can turn the vertices between
-an active and inactive state by clicking on them. The simulation was
+an active and an inactive state by clicking on them. The simulation was
 made with [visjs](http://visjs.org) and the code is available on my
-github page.
+github page. Please note that at the moment the code scales
+quadratically in *n* so simulations for large values of *n* will be
+slow. Additionally the network layout has a hard time converging to a
+stable state when there are many vertices and the graph is not sparse.
 
 <div id="mynetwork" style="max-width: 720px; height: 720px;border: 1px solid lightgray;"></div>
 
