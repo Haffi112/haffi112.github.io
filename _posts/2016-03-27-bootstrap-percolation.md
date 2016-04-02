@@ -168,6 +168,10 @@ stable state when there are many vertices and the graph is not sparse.
 
 </p>
 
+## Acknowledgements
+Thanks to [Guðmundur](http://www2.compute.dtu.dk/~guei/) for reading a
+draft of this post.
+
 ## References
 
 {% bibliography --cited %}
