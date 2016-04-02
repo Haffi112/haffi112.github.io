@@ -89,6 +89,8 @@ function draw(){
   var active_color = '#7BE141';
   var inactive_color = '#96c1f9', inactive_border = '#3c84e5';
   network.on("click", function (params) {
+        vxs = data.nodes.get();
+        es = data.edges.get();
         if(params.nodes.length > 0) {
           if(!vxs[params.nodes[0]].active) {
             vxs[params.nodes[0]].state = 0;
@@ -117,8 +119,12 @@ function draw(){
           }
           data.nodes.update(vxs[params.nodes[0]]);
           for(var j = 0; j < vxs.length; j++) {
+            if(vxs[j].active) {
+              vxs[j].color = active_color;
+            }
             vxs[j].processed = false;
             vxs[j].state = 0;
+            vxs[j].label='';
             data.nodes.update(vxs[j]);
           }
         }

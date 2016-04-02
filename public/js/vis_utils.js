@@ -56,6 +56,7 @@ function step_percolation(graph,K,step_number) {
           graph.nodes.update(vxs[es[j].from]);
         }
       }
+      vxs[i].label = String(step_number);
       vxs[i].processed = true;
       graph.nodes.update(vxs[i]);
     }
@@ -64,7 +65,6 @@ function step_percolation(graph,K,step_number) {
   for(var i = 0; i < vxs.length; i++) {
     if(!vxs[i].active && vxs[i].state >= K) {
       vxs[i].active = true;
-      //vxs[i].color = shadeColor2(active_color,1.0-1.0/Math.sqrt(step_number));
       vxs[i].color = blendColors(active_color,'#ffffcc', 1.0-1.0/(1.5*Math.sqrt(step_number)));
       graph.nodes.update(vxs[i]);
       for(var j = 0; j < es.length; ++j) {
@@ -105,7 +105,7 @@ function getRandomNetwork(nodeCount, p) {
   for (var i = 0; i < nodeCount; i++) {
     nodes.add({
       id: i,
-      label: String(i),
+      label: '',
       active: false,
       processed: false,
       state: 0

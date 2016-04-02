@@ -57,13 +57,13 @@ of becoming infected increase. My favorite example of bootstrap
 percolation is the way neurons communicate in the brain. Neurons
 communcate by sending
 [spikes](https://en.wikipedia.org/wiki/Neural_coding) to their
-neighbors. If a neuron receives enough many spikes it will also spike
-and thus inform all of its neighbors, quite amazing. Finally
+neighbors. If a neuron receives a couple of spike signals it will also
+spike and thus inform all of its neighbors, quite amazing. Finally
 percolation can be described by a [cellular
 automaton](https://en.wikipedia.org/wiki/Cellular_automaton) which is
 the setting in which it was first studied {% cite chalupa1979bootstrap
-%} (but motivated by physics) and since then it has been
-extensively studied on the grid in arbitrarily many dimensions {% cite
+%} (but motivated by physics) and since then it has been extensively
+studied on the grid in arbitrarily many dimensions {% cite
 balogh2012sharp %}.
 
 As you might have realised percolation is literally everywhere around
@@ -128,7 +128,8 @@ stable state when there are many vertices and the graph is not sparse.
 </tr>
 <tr>
   <td>
-  <label for="nNeighbours">Expected degree (<i>np</i>)</label>
+  <label for="nNeighbours">Expected degree (<i>np</i>), average number
+  of neighbors</label>
   </td>
   <td>
     <input id="nNeighbours" type="text" value="5" style="width: 50px;">
@@ -136,7 +137,7 @@ stable state when there are many vertices and the graph is not sparse.
 </tr>
 <tr>
   <td>
-  <label for="kPerc">Percolation threshold (<i>K</i>)</label>
+  <label for="kPerc">Activation threshold (<i>K</i>)</label>
   </td>
   <td>
     <input id="kPerc" type="text" value="2" style="width: 50px;">
@@ -144,7 +145,7 @@ stable state when there are many vertices and the graph is not sparse.
 </tr>
 <tr>
   <td>
-  <label for="pBootstrap">Probability of being in bootstrap</label>
+  <label for="pBootstrap">Probability of being in the bootstrap</label>
   </td>
   <td>
     <input id="pBootstrap" type="text" value="0.2" style="width: 50px;">
