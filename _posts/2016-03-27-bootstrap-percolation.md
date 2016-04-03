@@ -17,10 +17,17 @@ about brewing coffee unless you want to get really creative but bear in
 mind that copious amounts of caffeine were part of its creative process
 regardless.
 
-*So what kind of percolation are you talking about then? Please ELI5.*
+*So what kind of percolation are you talking about then? Please explain
+like I'm five.*
 
-Imagine that your friend just got a new shiny toy. He shows it to you,
-you are amazed and you express to your parents how your whole mental
+Imagine that your friend just got a new shiny toy. He shows it to you
+and you want it. You ask your parents but they say no. In time more of
+your friends get the toy and you still want it. Still your parents say
+no but they realise this will be a great gift and they buy the toy for
+your next birthday.
+
+<!---
+and you express to your parents how your whole mental
 model of what is important in the world has radically changed. You
 parents resist, you are torn and broken but life goes on. Suddenly more
 of your friends get this new toy. The situation becomes different, you
@@ -32,6 +39,7 @@ chanting dark summoning rituals in recess. Eventually, after realising
 antidepressants are not an efficient treatment for this condition, your
 parents give in to societal pressures and buy you the new toy. The
 balance of the world is restored.
+-->
 
 You probably already made the connection of how this short example
 relates to brewing coffee. If not let me explain. Think of yourself as
