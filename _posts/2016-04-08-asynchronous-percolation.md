@@ -109,6 +109,7 @@ perfect candidate to perform these simulations.
 
 </p>
 
+## References
 
 {% bibliography --cited %}
 
