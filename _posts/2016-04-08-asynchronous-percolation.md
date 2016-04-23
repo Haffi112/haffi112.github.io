@@ -9,7 +9,7 @@ custom_js:
 ---
 In the [previous post]({% post_url 2016-03-27-bootstrap-percolation %})
 we discussed bootstrap percolation, a process which models the
-disseminaiton of information in a graph. In this post we will see a
+dissemination of information in a graph. In this post we will see a
 slight variation of the process. Percolation is traditionally defined to
 be round based. However, in reality processes such as rumor spreading,
 disease transmission and neural signals are usually not synchronous.
