@@ -24,7 +24,7 @@ arrived, corresponding to a time delay of 1. In the asynchronous setting
 these delays can be arbitrary. In {% cite einarsson2014bootstrap %} we
 studied for instance the case when all the edges draw their delay from
 an exponential distribution with expected delay 1. Recall that as in {%
-cite janson2012bootstrap %} we studied the process on $$G_{n,p}$$. The
+cite janson2012bootstrap %} we studied the process on $$G_{n,p}$$, the
 Erdős–Rényi [random
 graph](https://en.wikipedia.org/wiki/Erdős–Rényi_model) model. As it
 turned out, such a slight modification had an interesting quantitative
