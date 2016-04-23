@@ -19,7 +19,7 @@ author:
   url:               https://twitter.com/hafsteinn
   email:             haffie@gmail.com
 
-markdown: redcarpet
+#markdown: redcarpet
 
 # Custom vars
 version:             0.0.1
