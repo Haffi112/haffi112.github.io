@@ -19,6 +19,8 @@ author:
   url:               https://twitter.com/hafsteinn
   email:             haffie@gmail.com
 
+markdown: redcarpet
+
 # Custom vars
 version:             0.0.1
 
@@ -35,6 +37,7 @@ social:
 - user:              Haffi112
   url:               https://github.com/Haffi112
   logo:              /assets/github-logo.svg
+
 
 # Gems
 gems:                ['jekyll-paginate', 'jekyll/scholar']
