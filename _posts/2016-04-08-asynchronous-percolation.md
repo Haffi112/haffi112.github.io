@@ -7,7 +7,7 @@ custom_js:
 - d3/d3.min
 - async_percolation
 ---
-In the [previous post]({% post_url _posts/2016-03-27-bootstrap-percolation %})
+In the [previous post]({% post_url 2016-03-27-bootstrap-percolation %})
 we discussed bootstrap percolation, a process which models the
 disseminaiton of information in a graph. In this post we will see a
 slight variation of the process. Percolation is traditionally defined to
