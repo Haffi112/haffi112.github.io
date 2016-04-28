@@ -1,10 +1,12 @@
 var threshold = 3;
 // Random graph
-var n_num = 100;
-var p = 2*threshold/n_num;
+var e_num = 100;
+var i_num = 50;
+var p = 2*threshold/e_num;
 var p_bootstrap = 0.2;
-var active_color = "#96F387";
-var inactive_color = "#FF948E";
+var excitatory_color = "#96F387";
+var inhibitory_color = "#FF948E" ;
+var inactive_color = "#4F4949"; //C4C4C4
 var width = 500,
     height = 500;
 var rate = 1.0; // For the exponential
@@ -16,10 +18,9 @@ var num_percolate = 0;
 
 var fill, force, svg, rect, nodes, links, node, link;
 
-var adj_list, bootstrap;
+var adj_list, bootstrap, adj_list_edge_copies;
 
 function translateAlongLine(u,v) {
-    var l = ldist;
     return function(i) {
       return function(t) {
         var x = (1-t)*u.x + t*v.x;
@@ -34,21 +35,23 @@ function create_graph() {
   width = d3.select("#simulation").node().getBoundingClientRect().width;
   num_percolate++;
   // Set parameters
-  threshold = document.getElementById('kPerc').value;
-  n_num = document.getElementById('nodeCount').value;
-  p = document.getElementById('nNeighbours').value/n_num;
-  p_bootstrap = document.getElementById('pBootstrap').value;
+  threshold = parseInt(document.getElementById('kPerc').value);
+  e_num = parseInt(document.getElementById('nodeCount').value);
+  i_num = parseInt(document.getElementById('inodeCount').value);
+  p = parseFloat(document.getElementById('nNeighbours').value)/e_num;
+  p_bootstrap = parseFloat(document.getElementById('pBootstrap').value);
 
   fill = d3.scale.category20();
 
+  // TODO: Change layout!
   // Force graph layout
   force = d3.layout.force()
       .size([width, height])
       .nodes([{}]) // initialize with a single node
       .linkDistance(ldist)
       .linkStrength(0.05)
-      //.charge(-50)
-      .on("tick", tick);
+      //.charge(-10)
+      .on("tick", tick).start();
   //console.log(d3.select("#simulation").node().getBoundingClientRect().width);
   // Location of display
   if(typeof svg == 'undefined') {
@@ -81,26 +84,33 @@ function create_graph() {
 
   nodes[0].state = 0;
   nodes[0].processed = false;
+  nodes[0].signal = 1;
   restart();
 
 
   // Vertices
-  for(var i = 1; i < n_num; ++i) {
-    nodes.push({x: width/2, y: height/2, state: 0, processed: false});
+  for(var i = 1; i < e_num; ++i) {
+    nodes.push({x: width/2, y: height/2, state: 0, processed: false, signal: 1});
+  }
+  for(var i = 0; i < i_num; ++i) {
+    nodes.push({x: width/2, y: height/2, state: 0, processed: false, signal: -1});
   }
   // Edges
   adj_list = [];
-  for(var i = 0; i < n_num; ++i) {
+  adj_list_edge_copies = [];
+  for(var i = 0; i < e_num + i_num; ++i) {
     adj_list.push([]);
+    adj_list_edge_copies.push([]);
   }
-  // TODO: Make more efficient?
-  for(var i = 0; i < n_num; ++i) {
-    for(var j = i+1; j < n_num; ++j) {
+  for(var i = 0; i < Math.floor(e_num) + Math.floor(i_num); ++i) {
+    for(var j = i+1; j < e_num + i_num; ++j) {
       if(Math.random() <= p) {
         var edge = {source: nodes[i], target: nodes[j]};
         links.push(edge);
         adj_list[i].push(j);
         adj_list[j].push(i);
+        adj_list_edge_copies[i].push(edge);
+        adj_list_edge_copies[j].push(edge);
       }
     }
   }
@@ -121,11 +131,24 @@ function create_graph() {
   });
 }
 
-function tick() {
+function tick(e) {
+    var k = 15 * e.alpha;
+
+    nodes.forEach(function(o, i) {
+      //o.y += i & 1 ? k : -k;
+      o.x += o.signal>0 ? -k : k;
+    });
+
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("y2", function(d) { return d.target.y; })
+        .attr("opacity", function(d) {if(d.source.processed || d.target.processed) {
+          return 0.25;
+        }
+        else {
+          return 0.75;
+        }});
 
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
@@ -137,18 +160,21 @@ function restart() {
     link.enter().insert("line", ".node")
         .attr("class", "link");
 
-
     node = node.data(nodes);
 
     // Update the color based on the state
+    // TODO: Change inactive color to match type as well!
     node.attr("fill", function(d){
-          if(d.state >= threshold){
-            return active_color;
+          if(d.state >= threshold && d.signal > 0){
+            return excitatory_color;
+          }
+          else if(d.state >= threshold && d.signal < 0) {
+            return inhibitory_color;
           }
           return inactive_color;
         });
     node.attr("r",function(d) {
-          return 5 + 5*Math.min(threshold,d.state)/threshold;
+          return 5 + 5*Math.min(threshold,Math.max(0,d.state))/threshold;
     });
 
     // Adds new nodes
@@ -177,16 +203,30 @@ function expose_vertex(source) {
       .attr("r",10)
       .duration(100)
       .transition()
-      .attr("fill",active_color)
+      .attr("fill",function(d) {
+        if(d.state >= threshold && d.signal > 0){
+            return excitatory_color;
+          }
+          else if(d.state >= threshold && d.signal < 0) {
+            return inhibitory_color;
+          }
+          return inactive_color;
+      })
       .duration(1000);
-    adj_list[source].forEach(function(target) {
+    adj_list[source].forEach(function(target,idx) {
       if(!nodes[target].processed) {
         /* Create particle */
         var delay = (-Math.log(Math.random())/rate)*time_unit;
         var marker = svg.append("circle");
         marker.attr("r", 3)
           .attr("opacity", 0.5)
-          .attr("fill", "green")
+          .attr("fill", function() {
+            if(nodes[source].signal>0){
+              return "green";
+            }
+            else {
+              return "red";
+            }})
           .attr("transform", "translate(" + nodes[source].x +","+nodes[source].y  + ")");
         marker.transition()
           .duration(delay)
@@ -198,11 +238,11 @@ function expose_vertex(source) {
           // activating vertices if the user presses the restart button
           // while the process is still running.
           if(tmp_perc == num_percolate) {
-            nodes[target].state += 1;
+            nodes[target].state += nodes[source].signal;
             if(!nodes[target].processed) {
               d3.select(node[0][target])
               .transition()
-              .attr("r",5 + 5*Math.min(threshold,nodes[target].state)/threshold)
+              .attr("r",5 + 5*Math.min(threshold,Math.max(0,nodes[target].state))/threshold)
               .duration(50)
               .each("end",function() {
                 if(!nodes[target].processed && nodes[target].state >= threshold) {
@@ -218,6 +258,7 @@ function expose_vertex(source) {
   }
 
 window.onload = function() {
+  width = d3.select("#simulation").node().getBoundingClientRect().width;
   create_graph();
 
   restart();

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bootstrap Percolation
+title: Bootstrap percolation
 custom_js:
 - vis.min
 - vis_utils
@@ -121,6 +121,9 @@ github page. Please note that at the moment the code scales
 quadratically in *n* so simulations for large values of *n* will be
 slow. Additionally the network layout has a hard time converging to a
 stable state when there are many vertices and the graph is not sparse.
+
+The [next post]({% post_url 2016-04-08-asynchronous-percolation %})
+discusses a variation of the process which is not round based.
 
 <div id="mynetwork" style="max-width: 720px; height: 720px;border: 1px solid lightgray;"></div>
 

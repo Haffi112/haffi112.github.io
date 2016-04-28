@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Asynchronous Bootstrap Percolation
+title: Asynchronous bootstrap percolation
 custom_css:
 - async_percolation
 custom_js:
@@ -53,6 +53,9 @@ choose the parameters nicely you will notice that the slow messages are
 usually too slow to make any difference. The simulation was made using
 [d3js](https://d3js.org). Since javascript is asynchronous it is a
 perfect candidate to perform these simulations.
+
+The [next post]({% post_url 2016-04-25-percolation-with-inhibition %}) extends this
+process with inhibitory vertices.
 
 <div id="simulation">
 </div>
