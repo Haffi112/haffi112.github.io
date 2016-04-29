@@ -33,11 +33,15 @@ which I will highlight in follow up posts.
 Below you can see an implementation of asynchronous bootstrap
 percolation with inhibition made with [d3js](https://d3js.org). The
 green nodes send positive messages and the red nodes send negative
-messages. A vertex turns active (and remains active) if the number of
-positive vertices it has received ever exceeds the number of negative
-messages it has received by at least $$K$$. You can try to control which
-fraction of the excitatory vertices turn active by changing the number
-of inhibitory neurons.
+messages. Each vertex keeps track of how many positive messages it has
+seen minus the number of negative vertices. We refer to this as the
+*potential* of the vertex. A vertex turns active (and remains active) if
+its potential ever reaches $$K$$. You can try to control which fraction
+of the green vertices turn active by changing the number of negative
+vertices. When the potential of a vertex becomes negative we color the
+vertex blue. Vertices which reach this state have a lower chance of ever
+turning active. They can but for most of them they are essentially
+frozen.
 
 <div id="simulation">
 </div>
@@ -48,7 +52,7 @@ of inhibitory neurons.
   <table style="max-width: 720px; font-size:75%; margin-bottom:10px">
   <tr>
     <td>
-    <label for="nodeCount">Number of vertices</label>
+    <label for="nodeCount">Number of positive vertices (green)</label>
     </td>
     <td>
       <input id="nodeCount" type="text" value="50" style="width: 50px;">
@@ -56,7 +60,7 @@ of inhibitory neurons.
   </tr>
   <tr>
     <td>
-    <label for="inodeCount">Number of inhibitory </label>
+    <label for="inodeCount">Number of negative vertices (red) </label>
     </td>
     <td>
       <input id="inodeCount" type="text" value="50" style="width: 50px;">

@@ -41,7 +41,7 @@ function create_graph() {
   p = parseFloat(document.getElementById('nNeighbours').value)/e_num;
   p_bootstrap = parseFloat(document.getElementById('pBootstrap').value);
 
-  fill = d3.scale.category20();
+  fill = d3.scale.category20c();
 
   // TODO: Change layout!
   // Force graph layout
@@ -166,12 +166,21 @@ function restart() {
     // TODO: Change inactive color to match type as well!
     node.attr("fill", function(d){
           if(d.state >= threshold && d.signal > 0){
-            return excitatory_color;
+            return fill.range()[10];
           }
           else if(d.state >= threshold && d.signal < 0) {
-            return inhibitory_color;
+            return fill.range()[6];
           }
-          return inactive_color;
+          return fill.range()[18];
+        }).
+      attr("stroke",function(d){
+          if(d.state >= threshold && d.signal > 0){
+            return fill.range()[8];
+          }
+          else if(d.state >= threshold && d.signal < 0) {
+            return fill.range()[4];
+          }
+          return fill.range()[16];
         });
     node.attr("r",function(d) {
           return 5 + 5*Math.min(threshold,Math.max(0,d.state))/threshold;
@@ -205,27 +214,36 @@ function expose_vertex(source) {
       .transition()
       .attr("fill",function(d) {
         if(d.state >= threshold && d.signal > 0){
-            return excitatory_color;
+            return fill.range()[10];
           }
           else if(d.state >= threshold && d.signal < 0) {
-            return inhibitory_color;
+            return fill.range()[6];
           }
-          return inactive_color;
+          return fill.range()[18];
       })
-      .duration(1000);
+      .duration(1000)
+      .attr("stroke",function(d){
+          if(d.state >= threshold && d.signal > 0){
+            return fill.range()[8];
+          }
+          else if(d.state >= threshold && d.signal < 0) {
+            return fill.range()[4];
+          }
+          return fill.range()[16];
+        });
     adj_list[source].forEach(function(target,idx) {
       if(!nodes[target].processed) {
         /* Create particle */
         var delay = (-Math.log(Math.random())/rate)*time_unit;
         var marker = svg.append("circle");
         marker.attr("r", 3)
-          .attr("opacity", 0.5)
+          .attr("opacity", 0.65)
           .attr("fill", function() {
             if(nodes[source].signal>0){
-              return "green";
+              return fill.range()[8];
             }
             else {
-              return "red";
+              return fill.range()[5];
             }})
           .attr("transform", "translate(" + nodes[source].x +","+nodes[source].y  + ")");
         marker.transition()
@@ -247,6 +265,20 @@ function expose_vertex(source) {
               .each("end",function() {
                 if(!nodes[target].processed && nodes[target].state >= threshold) {
                   expose_vertex(target);
+                }
+                else if(nodes[target].state < 0) {
+                  d3.select(node[0][target])
+                    .transition()
+                    .attr("fill", function() {
+                         return d3.rgb(fill.range()[1]).darker(-nodes[target].state-2);
+                    })
+                }
+                else {
+                  d3.select(node[0][target])
+                    .transition()
+                    .attr("fill",function() {
+                          return fill.range()[18];
+                    });
                 }
               });
             }
