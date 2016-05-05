@@ -11,7 +11,7 @@ var width = 500,
     height = 500;
 var rate = 1.0; // For the exponential
 var ldist = 100;
-var time_unit = 5000;
+var time_unit = 1000;
 
 var percolate;
 var num_percolate = 0;

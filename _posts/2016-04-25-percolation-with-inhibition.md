@@ -96,7 +96,7 @@ frozen.
     <label for="delay">Expected edge delay (seconds)</label>
     </td>
     <td>
-      <input id="delay" type="text" value="5.0" style="width: 50px;">
+      <input id="delay" type="text" value="1.0" style="width: 50px;">
     </td>
   </tr>
 </table>
