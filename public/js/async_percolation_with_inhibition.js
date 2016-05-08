@@ -266,14 +266,14 @@ function expose_vertex(source) {
                 if(!nodes[target].processed && nodes[target].state >= threshold) {
                   expose_vertex(target);
                 }
-                else if(nodes[target].state < 0) {
+                else if(!nodes[target].processed && nodes[target].state < 0) {
                   d3.select(node[0][target])
                     .transition()
                     .attr("fill", function() {
                          return d3.rgb(fill.range()[1]).darker(-nodes[target].state-2);
                     })
                 }
-                else {
+                else if (!nodes[target].processed) {
                   d3.select(node[0][target])
                     .transition()
                     .attr("fill",function() {
