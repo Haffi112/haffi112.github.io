@@ -16,10 +16,11 @@ article.
 There are
 [multiple](https://en.wikipedia.org/wiki/Biological_neuron_model)
 existing models for biological neurons, some which even contradict each
-other. In this post we explore the leaky-integrate and fire neuron model
-(LIF) which is commonly used in simulations. It has the advantage of
-being simple while also capturing the large scale dynamics of how a
-single neuron functions.
+other. In this post we explore the *leaky-integrate and fire* neuron
+model (LIF) which is commonly used in simulations which mimic neural
+networks found in the brain. It has the advantage of being simple while
+also capturing the large scale dynamics of how a single neuron
+functions.
 
 Note that not all of the cells in our brains *spike* (i.e.
 transmit digital signals) and behave like the one we discuss below. Most
@@ -28,23 +29,27 @@ acknowledged that the signals they send amongst themselves form the
 basis of information dissemination and computation in the brain.
 
 The LIF neuron corresponds to what is called a *membrane voltage* model.
-It is inspired by experiments, first carried out by Hodgin and Huxley in
-the 1950s, which measure the voltage difference inside and outside a
-neuron. The model is quite simple, we can give some input to the neuron,
-in the form of an electrical current, and we can observe how the voltage
-across the membrane changes over time.
+It is inspired by
+[experiments](https://en.wikipedia.org/wiki/Squid_giant_axon), first
+carried out by
+[Hodgin](https://en.wikipedia.org/wiki/Alan_Lloyd_Hodgkin) and
+[Huxley](https://en.wikipedia.org/wiki/Andrew_Huxley) in the 1950s,
+which measure the voltage difference inside and outside a neuron. The
+model is quite simple, we can give some input to the neuron, in the form
+of an electrical current, and we can observe how the voltage across the
+membrane changes over time.
 
-Before the experiments of Hodgin and Huxley the integrate-and-fire
-neuron model had already been proposed. It is in fact a variant of the
-model we have used in the previous posts on [bootstrap percolation]({%
-post_url 2016-04-25-percolation-with-inhibition %}). In that model a
-neuron never *forgets* the input it received in the past. If it requires
-two input spikes in order to spike itself it is even allowed that these
-two spikes come a year apart from each other. In reality this is a
-different story and any trace of the first spike would vanish a few
-milliseconds later. Do note however that integrate-and-fire models are
-still useful, for example when modelling phenomena which occurs at a
-very short timescale.
+Before the experiments of Hodgin and Huxley the *integrate-and-fire*
+neuron model (note that the *leaky* part is missing) had already been
+proposed. It is in fact a variant of the model we have used in the
+previous posts on [bootstrap percolation]({% post_url
+2016-04-25-percolation-with-inhibition %}). In that model a neuron never
+*forgets* the input it received in the past. If it requires two input
+spikes in order to spike itself it is even allowed that these two spikes
+come a year apart from each other. In reality this is a different story
+and any trace of the first spike would vanish a few milliseconds later.
+Do note however that integrate-and-fire models are still useful, for
+example when modelling phenomena which occurs at a very short timescale.
 
 The fact that neurons forget old spikes corresponds to the *leaky* part
 in the name. You can think of a neuron as a bucket. When it receives
@@ -107,19 +112,19 @@ membrane voltage is reset to a fixed value, denoted by
 $$V_{\text{reset}}$$ which is called the *reset potential*.
 
 Below you can see an interactive simulation of a LIF neuron following
-the dynamics described above. You can press the neuron on the left hand
-side to give input to the neuron on the right hand side. You can
-visualise the membrane potential of the target neuron via the radius of
-the circle representing it. The dynamics of the membrane potential are
-100 times slower than in reality (otherwise you would not see much
-happening) and the parameters as seen above are set to somewhat
-realistic values. Note however that the time to deliver the spike
-between the two neurons and the time in the refractory period is
-exaggarated for demonstration purposes. If you want to run large scale
-simulations using this type of neuron you can do so using the
+the dynamics described above. You can press the input neuron on the left
+to send a spike to the output neuron on the right. You can visualise the
+membrane potential of the target neuron via the radius of the circle
+representing it. The dynamics of the membrane potential are 100 times
+slower than in reality (otherwise you would not see much happening) and
+the parameters as seen above are set to somewhat realistic values. Note
+however that the time to deliver the spike between the two neurons and
+the time in the refractory period is exaggarated for demonstration
+purposes. If you want to run large scale simulations using this type of
+neuron you can do so using the
 [nest-simulator](http://www.nest-initiative.org/) and the
 [$$\mathtt{iaf\_cond\_exp}$$](https://github.com/nest/nest-simulator/blob/master/models/iaf_cond_exp.cpp)
-neuron model.
+neuron model (the parameters chosen are from there).
 
 <div id="neuron"></div>
 
