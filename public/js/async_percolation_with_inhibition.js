@@ -141,13 +141,13 @@ function tick(e) {
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; })
-        .attr("opacity", function(d) {if(d.source.processed || d.target.processed) {
+        .attr("y2", function(d) { return d.target.y; });
+        /*.attr("opacity", function(d) {if(d.source.processed || d.target.processed) {
           return 0.25;
         }
         else {
           return 0.75;
-        }});
+        }});*/
 
     node.attr("cx", function(d) { d.x += d.signal>0 ? -k : k; return d.x; })
         .attr("cy", function(d) { return d.y; });
