@@ -55,7 +55,7 @@ frozen.
     <label for="nodeCount">Number of positive vertices (green)</label>
     </td>
     <td>
-      <input id="nodeCount" type="text" value="50" style="width: 50px;">
+      <input id="nodeCount" type="text" value="30" style="width: 50px;">
     </td>
   </tr>
   <tr>
@@ -63,7 +63,7 @@ frozen.
     <label for="inodeCount">Number of negative vertices (red) </label>
     </td>
     <td>
-      <input id="inodeCount" type="text" value="50" style="width: 50px;">
+      <input id="inodeCount" type="text" value="30" style="width: 50px;">
     </td>
   </tr>
   <tr>

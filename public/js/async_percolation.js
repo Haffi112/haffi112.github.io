@@ -86,7 +86,7 @@ function create_graph() {
 
   // Vertices
   for(var i = 1; i < n_num; ++i) {
-    nodes.push({x: width/2, y: height/2, state: 0, processed: false});
+    nodes.push({x: (0.5*Math.random()*width)+width/4.0, y: (0.5*Math.random()*height)+height/4.0, state: 0, processed: false});
   }
   // Edges
   adj_list = [];

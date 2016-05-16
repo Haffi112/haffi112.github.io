@@ -1,6 +1,6 @@
 var threshold = 3;
 // Random graph
-var e_num = 100;
+var e_num = 50;
 var i_num = 50;
 var p = 2*threshold/e_num;
 var p_bootstrap = 0.2;
@@ -90,10 +90,10 @@ function create_graph() {
 
   // Vertices
   for(var i = 1; i < e_num; ++i) {
-    nodes.push({x: width/2, y: height/2, state: 0, processed: false, signal: 1});
+    nodes.push({x: 0.25*Math.random()*width+0.25*width, y: 0.5*Math.random()*height+height/4.0, state: 0, processed: false, signal: 1});
   }
   for(var i = 0; i < i_num; ++i) {
-    nodes.push({x: width/2, y: height/2, state: 0, processed: false, signal: -1});
+    nodes.push({x: 0.25*Math.random()*width + width/2, y: 0.5*Math.random()*height+height/4.0, state: 0, processed: false, signal: -1});
   }
   // Edges
   adj_list = [];
