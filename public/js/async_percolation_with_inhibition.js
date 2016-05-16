@@ -133,10 +133,10 @@ function create_graph() {
 function tick(e) {
     var k = 15 * e.alpha;
 
-    nodes.forEach(function(o, i) {
+    /*nodes.forEach(function(o, i) {
       //o.y += i & 1 ? k : -k;
       o.x += o.signal>0 ? -k : k;
-    });
+    });*/
 
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
@@ -149,7 +149,7 @@ function tick(e) {
           return 0.75;
         }});
 
-    node.attr("cx", function(d) { return d.x; })
+    node.attr("cx", function(d) { d.x += d.signal>0 ? -k : k; return d.x; })
         .attr("cy", function(d) { return d.y; });
   }
 
