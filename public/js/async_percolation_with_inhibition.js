@@ -43,15 +43,14 @@ function create_graph() {
 
   fill = d3.scale.category20c();
 
-  // TODO: Change layout!
   // Force graph layout
   force = d3.layout.force()
       .size([width, height])
       .nodes([{}]) // initialize with a single node
       .linkDistance(ldist)
       .linkStrength(0.05)
-      //.charge(-10)
-      .on("tick", tick).start();
+      //.charge(-50)
+      .on("tick", tick);
   //console.log(d3.select("#simulation").node().getBoundingClientRect().width);
   // Location of display
   if(typeof svg == 'undefined') {
