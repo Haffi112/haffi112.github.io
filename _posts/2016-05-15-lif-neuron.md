@@ -33,11 +33,11 @@ It is inspired by
 [experiments](https://en.wikipedia.org/wiki/Squid_giant_axon), first
 carried out by
 [Hodgin](https://en.wikipedia.org/wiki/Alan_Lloyd_Hodgkin) and
-[Huxley](https://en.wikipedia.org/wiki/Andrew_Huxley) in the 1950s,
-which measure the voltage difference inside and outside a neuron. The
-model is quite simple, we can give some input to the neuron, in the form
-of an electrical current, and we can observe how the voltage across the
-membrane changes over time.
+[Huxley](https://en.wikipedia.org/wiki/Andrew_Huxley) in the 1950s {%
+cite hodgkin1952quantitative %}, which measure the voltage difference
+inside and outside a neuron. The model is quite simple, we can give some
+input to the neuron, in the form of an electrical current, and we can
+observe how the voltage across the membrane changes over time.
 
 Before the experiments of Hodgin and Huxley the *integrate-and-fire*
 neuron model (note that the *leaky* part is missing) had already been
@@ -48,7 +48,7 @@ previous posts on [bootstrap percolation]({% post_url
 spikes in order to spike itself it is even allowed that these two spikes
 come a year apart from each other. In reality this is a different story
 and any trace of the first spike would vanish a few milliseconds later.
-Do note however that integrate-and-fire models are still useful, for
+Note however that integrate-and-fire models are still useful, for
 example when modelling phenomena which occurs at a very short timescale.
 
 The fact that neurons forget old spikes corresponds to the *leaky* part
@@ -124,7 +124,8 @@ purposes. If you want to run large scale simulations using this type of
 neuron you can do so using the
 [nest-simulator](http://www.nest-initiative.org/) and the
 [$$\mathtt{iaf\_cond\_exp}$$](https://github.com/nest/nest-simulator/blob/master/models/iaf_cond_exp.cpp)
-neuron model (the parameters chosen are from there).
+neuron model {% cite meffin2004analytical %} where the parameters are
+from.
 
 <div id="neuron"></div>
 
@@ -340,4 +341,8 @@ neuron.append("text").attr("text-anchor", "middle")
 
 </script>
 
+
+## References
+
+{% bibliography --cited %}
 
