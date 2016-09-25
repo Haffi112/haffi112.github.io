@@ -8,7 +8,6 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 <style type="text/css">
@@ -43,6 +42,15 @@ rect {
     top: 10px;
     left: 0;
 }
+/* For histogram */
+.bar rect {
+  fill: steelblue;
+}
+
+.bar text {
+  fill: #fff;
+  font: 10px sans-serif;
+}
 </style>
 
   <script>
@@ -55,8 +63,9 @@ rect {
     ga('send', 'pageview');
   </script>
 
+  <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
   <script src="/public/js/d3/d3.min.js"></script>
-  <script src="/public/js/round_based_bp.js"></script>
+  <script src="/public/js/dscaling.js"></script>
 
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
@@ -66,12 +75,16 @@ rect {
 </div>
 
 <form onsubmit="create_graph(); return false;" style="margin-bottom:20px">
-  <input type="button" value="Build graph" onclick="create_graph()">
-  <input type="button" value="Percolate" onclick="percolate()">
+  <input id="btn1" type="button" value="Restart and updata parameters" onclick="create_graph()">
+  <input id="btn2" type="button" value="Trigger up phase" onclick="up_phase()">
+  <br>
+  <input id="btn3" type="button" value="Start up phase loop" onclick="up_phase_loop()">
+  <input id="btn4" type="button" value="Faster" onclick="faster()">
+  <input id="btn5" type="button" value="Slower" onclick="slower()">
   <table style="max-width: 720px; font-size:75%; margin-bottom:10px">
   <tr>
     <td>
-    <label for="nodeCount">Number of positive vertices (green)</label>
+    <label for="nodeCount">Number of input vertices</label>
     </td>
     <td>
       <input id="nodeCount" type="text" value="30" style="width: 50px;">
@@ -79,19 +92,10 @@ rect {
   </tr>
   <tr>
     <td>
-    <label for="inodeCount">Number of negative vertices (red) </label>
+    <label for="startd">Strong in-degree at start</label>
     </td>
     <td>
-      <input id="inodeCount" type="text" value="30" style="width: 50px;">
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <label for="nNeighbours">Expected degree (<i>np</i>), average number
-    of neighbors</label>
-    </td>
-    <td>
-      <input id="nNeighbours" type="text" value="6" style="width: 50px;">
+      <input id="startd" type="text" value="15" style="width: 50px;">
     </td>
   </tr>
   <tr>
@@ -99,23 +103,55 @@ rect {
     <label for="kPerc">Activation threshold (<i>K</i>)</label>
     </td>
     <td>
-      <input id="kPerc" type="text" value="2" style="width: 50px;">
+      <input id="kPerc" type="text" value="10" style="width: 50px;">
     </td>
   </tr>
   <tr>
     <td>
-    <label for="pBootstrap">Probability of being in the bootstrap</label>
+    <label for="tl">Lower memory threshold</label>
     </td>
     <td>
-      <input id="pBootstrap" type="text" value="0.2" style="width: 50px;">
+      <input id="tl" type="text" value="-0.25" style="width: 50px;">
     </td>
   </tr>
   <tr>
     <td>
-    <label for="delay">Expected edge delay (seconds)</label>
+    <label for="th">Upper memory threshold</label>
     </td>
     <td>
-      <input id="delay" type="text" value="1.0" style="width: 50px;">
+      <input id="th" type="text" value="0.25" style="width: 50px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="p01">Transition probability, 0 to 1</label>
+    </td>
+    <td>
+      <input id="p01" type="text" value="0.1" style="width: 50px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="p10">Transition probability, 1 to 0</label>
+    </td>
+    <td>
+      <input id="p10" type="text" value="0.1" style="width: 50px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="upl">Up phase length (s)</label>
+    </td>
+    <td>
+      <input id="upl" type="text" value="0.2" style="width: 50px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="delay">Edge delay</label>
+    </td>
+    <td>
+      <input id="delay" type="text" value="0.1" style="width: 50px;">
     </td>
   </tr>
 </table>
