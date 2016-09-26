@@ -16,6 +16,9 @@ var start_process, pause_process, restart_process;
 
 var fill, force, svg, rect, nodes, links, node, link;
 
+// For the weight plot
+var weightdata = d3.range(100).map(() => d1), weight_plot_update = function(){};
+
 // Requirement: d3.js
 fill = d3.scale.category20c();
 
@@ -162,6 +165,7 @@ function translateAlongLine(u,v) {
 function update_global_params() {
   // Set parameters
   theta = parseInt(document.getElementById('kPerc').value);
+  gamma = parseFloat(document.getElementById('gamma').value);
   d_old = parseInt(document.getElementById('nodeCount').value);
   d1 = parseInt(document.getElementById('startd').value);
   tl = parseFloat(document.getElementById('tl').value);
@@ -304,6 +308,11 @@ function create_graph() {
   }
   update_thresholds();
 
+  // Draw the bar plot
+  var data = ms.map(function(d){return d.memory});
+  update_data(data);
+  // Draw weight plot
+  weight_data_plot()
 }
 
 function tick(e) {
@@ -335,6 +344,8 @@ function restart() {
     node.enter().insert("circle")
         .attr("class", "node")
         .attr("r", node_radius)
+        .attr("fill", fill_node)
+        .attr("stroke", fill_node)
         .call(force.drag);
 
     force.start();
@@ -462,6 +473,7 @@ function up_phase() {
   Promise.all(processing).then(function(){
     // example to use http://bl.ocks.org/mbostock/1933560
     var data = ms.map(function(d){return d.memory});
+    update_data(data);
   });
 }
 
@@ -510,3 +522,190 @@ window.onload = function() {
       force.size([width,height]);
     });
 };
+
+function update_data(data) {
+  //var data = irwinHallDistribution(10000, 10);
+  var barplot = d3.select(".bars");
+  barplot.selectAll("*").remove();
+  d3.select("body")
+    .datum(data)
+  .call(histogramChart()
+    .bins(d3.scale.linear().domain([-1,1]).ticks(21))
+    .tickFormat(d3.format(".01f")));
+  
+  // Update weight data
+  // Push a new data point onto the back.
+  weight_plot_update();
+}
+
+function histogramChart() {
+  var margin = {top: 10, right: 0, bottom: 10, left: 0};
+
+  var histogram = d3.layout.histogram(),
+      x = d3.scale.ordinal(),
+      y = d3.scale.linear(),
+      xAxis = d3.svg.axis().scale(x).orient("bottom").tickSize(6, 0);
+
+  function chart(selection) {
+    selection.each(function(data) {
+
+      // Compute the histogram.
+      data = histogram(data);
+
+      // Update the x-scale.
+      x   .domain(data.map(function(d) { return d.x; }))
+          .rangeRoundBands([nodes[1].x, nodes[d+1].x], .1);
+          //.rangeRoundBands([0, width - margin.left - margin.right], .1);
+
+      // Update the y-scale.
+      y   .domain([0, d]) //d3.max(data, function(d) { return d.y; })
+          .range([nodes[1].y - margin.top - margin.bottom, margin.top]);
+
+      // Select the svg element, if it exists.
+      //var svg = d3.select(this).selectAll("svg").data([data]);
+      svg.data([data]);
+
+      // Otherwise, create the skeletal chart.
+      var gEnter = svg.append("g");
+      gEnter.append("g").attr("class", "bars");
+      gEnter.append("g").attr("class", "x axis");
+
+      // Update the outer dimensions.
+      /*svg .attr("width", width)
+          .attr("height", height);*/
+
+      // Update the inner dimensions.
+      var g = svg.select("g");
+          //.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      // Update the bars.
+      var bar = svg.select(".bars").selectAll(".bar").data(data);
+      bar.enter().append("rect");
+      bar.exit().remove();
+      bar .attr("width", x.rangeBand())
+          .attr("x", function(d) { return x(d.x); })
+          .attr("y", function(d) { return y(d.y); })
+          .attr("height", function(d) { return y.range()[0] - y(d.y); })
+          .order();
+
+      // Update the x-axis.
+      /*g.select(".x.axis")
+          .attr("transform", "translate(0," + y.range()[0] + ")")
+          .call(xAxis);*/
+    });
+  }
+
+  chart.margin = function(_) {
+    if (!arguments.length) return margin;
+    margin = _;
+    return chart;
+  };
+
+  chart.width = function(_) {
+    if (!arguments.length) return width;
+    width = _;
+    return chart;
+  };
+
+  chart.height = function(_) {
+    if (!arguments.length) return height;
+    height = _;
+    return chart;
+  };
+
+  // Expose the histogram's value, range and bins method.
+  d3.rebind(chart, histogram, "value", "range", "bins");
+
+  // Expose the x-axis' tickFormat method.
+  d3.rebind(chart, xAxis, "tickFormat");
+
+  return chart;
+}
+
+var n = 100, random = d3.random.normal(0, .2);
+
+function chart(domain, interpolation, tick) {
+  var data = d3.range(n).map(function(){return d1;});
+
+  var margin = {top: 6, right: 0, bottom: 6, left: 0};
+
+  var x = d3.scale.linear()
+      .domain(domain)
+      .range([0, nodes[1].x-2*radius()]);
+
+  var y = d3.scale.linear()
+      .domain([0, d])
+      .range([nodes[d].y, nodes[1].y]);
+
+  var line = d3.svg.line()
+      .interpolate(interpolation)
+      .x(function(d, i) { return x(i); })
+      .y(function(d, i) { return y(d); });
+
+  /*var svg = d3.select("body").append("p").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .style("margin-left", -margin.left + "px")*/
+  svg.append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.append("defs").append("clipPath")
+      .attr("id", "clip")
+    .append("rect")
+      .attr("width", width)
+      .attr("height", height);
+
+  /*svg.append("g")
+      .attr("class", "y axis")
+      .call(d3.svg.axis().scale(y).ticks(5).orient("left"));*/
+
+  var path = svg.append("g")
+      .attr("clip-path", "url(#clip)")
+    .append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line);
+  weight_plot_update = function() {
+    tick(path, line, data, x);
+  } 
+}
+
+function weight_data_plot() {
+  
+  chart([0, n-1], "linear", function tick(path, line, data, x) {
+    // push a new data point onto the back
+    var strong_input_weight = ws.map(function(d){return d.weight;}).reduce((a, b) => a + b, 0);
+    data.push(strong_input_weight);
+    
+    // redraw the line, and then slide it to the left
+    path
+        .attr("d", line)
+        .attr("transform", null)
+      .transition()
+        .attr("transform", "translate(" + x(-1) + ")");
+
+    // pop the old data point off the front
+    data.shift();
+  });
+
+  /*chart([0, n-1], "linear", function tick(path, line, data, x) {
+    
+    transition = transition.each(function() {
+      // push a new data point onto the back
+      var strong_input_weight = ws.map(function(d){return d.weight;}).reduce((a, b) => a + b, 0);
+      data.push(strong_input_weight);
+      
+      // redraw the line, and then slide it to the left
+      path
+          .attr("d", line)
+          .attr("transform", null)
+        .transition()
+          .attr("transform", "translate(" + x(-1) + ")");
+
+      // pop the old data point off the front
+      data.shift();
+
+    }).transition().each("start", function() { tick(path, line, data, x); });
+  });*/
+
+}

@@ -43,16 +43,32 @@ rect {
     left: 0;
 }
 
-.axis {
-   font: 10px sans-serif;
- }
+.bars rect {
+  fill: steelblue;
+}
 
- .axis path,
- .axis line {
-   fill: none;
-   stroke: #000;
-   shape-rendering: crispEdges;
- }
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+.x.axis line {
+  shape-rendering: auto;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+
 </style>
 
   <script>
@@ -106,6 +122,14 @@ rect {
     </td>
     <td>
       <input id="kPerc" type="text" value="10" style="width: 50px;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="gamma">Memory decay</label>
+    </td>
+    <td>
+      <input id="gamma" type="text" value="0.95" style="width: 50px;">
     </td>
   </tr>
   <tr>
