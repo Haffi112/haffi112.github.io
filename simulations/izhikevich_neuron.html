@@ -101,6 +101,11 @@ table {
   stroke-width:0;
 }
 
+#instructions {
+  margin: 10px;
+  text-align: left;
+}
+
 </style>
 
   <script>
@@ -253,6 +258,15 @@ table {
     </tr>
   </table>
   </form>
+  <br><br>
+  <p id="instructions">
+    <b>Instructions:</b> Press the yellow square to turn DC current on/off.
+    Press the green or red circle to simulate incoming excitatory and 
+    inhibitory spikes using conductance based dynamics. The behaviour of the <a href="http://www.izhikevich.org/publications/spikes.htm">Izhikevich</a> neuron
+    is determined by four parameters: a, b, c, and d. The buttons in the 
+    upper left corner hold seven different sets of these parameters.
+  </p>
+  <p style="text-align:left"><b>Created by:</b> <a href="http://haffi112.github.io">Hafsteinn Einarsson</a></p>
 </div>
 
 </body>
