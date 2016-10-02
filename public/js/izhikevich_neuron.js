@@ -23,9 +23,9 @@ var u = v;
 var tau_ampa = 5e-3, g_ampa = 0;
 var tau_gaba = 10e-3, g_gaba = 0, e_rev_gaba = -80e-3;
 
-var pos_weight = 0.2;
+var pos_weight = 0.2, neg_weight = 0.2;
 
-var n = 500;
+var n = 2000;
 
 var plot_margin = 10;
 
@@ -60,9 +60,14 @@ function update_parameters(setting={}){
     d = parseFloat(document.getElementById('dparam').value);
   }
   dtpersec = parseFloat(document.getElementById('dtpersec').value);
-  dt = parseFloat(document.getElementById('resolution').value);
+  dt = parseFloat(document.getElementById('resolution').value)/1000;
   delay = parseFloat(document.getElementById('delay').value);
-  n = parseInt(document.getElementById('n_points').value)
+  n = parseInt(document.getElementById('n_points').value);
+  pos_weight = parseFloat(document.getElementById('ampa_weight').value);
+  neg_weight = parseFloat(document.getElementById('gaba_weight').value);
+  on_current_value = parseFloat(document.getElementById('current_weight').value);
+  tau_ampa = parseFloat(document.getElementById('tau_ampa').value)/1000;
+  tau_gaba = parseFloat(document.getElementById('tau_gaba').value)/1000;
 
   rescale();
 }
@@ -126,7 +131,7 @@ function add_play_button() {
             g_ampa += pos_weight;
           }
           else {
-            g_gaba += pos_weight;
+            g_gaba += neg_weight;
           }
         })
       .remove();
@@ -317,7 +322,7 @@ function g_ampa_plot() {
 
 function current_plot() {
   var data = d3.range(n).map(function(){return 0;});
-  update_current_plot = chart(data, [0, n-1], [- 50, 200], [5*height / 6 - plot_margin, 4 * height / 6 + plot_margin], "linear", function tick(path, line, data, x) {
+  update_current_plot = chart(data, [0, n-1], [- 50, 100], [5*height / 6 - plot_margin, 4 * height / 6 + plot_margin], "linear", function tick(path, line, data, x) {
     // push a new data point onto the back
     data.push(-g_ampa * v  - g_gaba * (v - 1000*e_rev_gaba) + I);
     // redraw the line, and then slide it to the left
@@ -383,6 +388,7 @@ function draw_time_scale_line() {
 }
 
 function set_up_environment() {
+  update_parameters();
   rescale();
   initialize_svg();
   add_play_button();
@@ -402,19 +408,4 @@ window.onload = function() {
   set_up_environment();
 
   window.onresize = function(){ location.reload(); }
-  /*
-  create_graph();
-
-  restart();
-
-  var aspect = width / height;
-  d3.select(window)
-    .on("resize", function() {
-      width = d3.select("#simulation").node().getBoundingClientRect().width;
-      height = document.body.clientHeight;
-      var targetWidth = width;
-      var targetHeight = height;
-      force.size([width,height]);
-    });
-  */
 };

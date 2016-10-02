@@ -181,10 +181,10 @@ table {
     </tr>
     <tr>
       <td>
-      <label for="resolution">Time resolution, <i>dt</i></label>
+      <label for="resolution">Resolution, <i>dt</i> (ms)</label>
       </td>
       <td>
-        <input id="resolution" type="text" value="0.0001" style="width: 50px;">
+        <input id="resolution" type="text" value="0.1" style="width: 50px;">
       </td>
     </tr>
     <tr>
@@ -208,7 +208,47 @@ table {
       <label for="n_points">Samples on screen</label>
       </td>
       <td>
-        <input id="n_points" type="text" value="500" style="width: 50px;">
+        <input id="n_points" type="text" value="2000" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="ampa_weight">AMPA weight</label>
+      </td>
+      <td>
+        <input id="ampa_weight" type="text" value="0.2" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="gaba_weight">GABA weight</label>
+      </td>
+      <td>
+        <input id="gaba_weight" type="text" value="0.2" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="current_weight">Current weight</label>
+      </td>
+      <td>
+        <input id="current_weight" type="text" value="10" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="tau_ampa">&#964;<sub>AMPA</sub> (ms)</label>
+      </td>
+      <td>
+        <input id="tau_ampa" type="text" value="5" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="tau_gaba">&#964;<sub>GABA</sub> (ms)</label>
+      </td>
+      <td>
+        <input id="tau_gaba" type="text" value="10" style="width: 50px;">
       </td>
     </tr>
   </table>
