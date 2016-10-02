@@ -10,7 +10,7 @@ var inactive_color = "#4F4949"; //C4C4C4
 var width = 500,
     height = 500;
 var rate = 1.0; // For the exponential
-var ldist = 100;
+var ldist = height/2;
 var time_unit = 1000;
 
 var percolate;
@@ -51,6 +51,7 @@ function create_graph() {
       .linkStrength(0.05)
       //.charge(-50)
       .on("tick", tick);
+ 
   //console.log(d3.select("#simulation").node().getBoundingClientRect().width);
   // Location of display
   if(typeof svg == 'undefined') {
@@ -308,6 +309,4 @@ window.onload = function() {
       svg.attr("width", targetWidth);
       rect.attr("width", targetWidth);
     });
-
-
 };

@@ -68,6 +68,38 @@ rect {
   stroke-width: 1.5px;
 }
 
+#simulation {
+  z-index:10;
+}
+
+#paramform {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16%;
+  text-align: center;
+  background: lightgray;
+  height: 100%;
+}
+
+#btn {
+  width:70%;
+  margin:2px auto;
+}
+
+table {
+  margin:2px auto;
+}
+
+#inputbutton:hover {
+  stroke:black;
+  stroke-width:2;
+}
+
+#inputbutton:active {
+  stroke:black;
+  stroke-width:0;
+}
 
 </style>
 
@@ -83,7 +115,7 @@ rect {
 
   <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
   <script src="/public/js/d3/d3.min.js"></script>
-  <script src="/public/js/dscaling.js"></script>
+  <script src="/public/js/izhikevich_neuron.js"></script>
 
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
@@ -92,63 +124,95 @@ rect {
 <div id="simulation">
 </div>
 
-<form onsubmit="create_graph(); return false;" style="margin-bottom:20px">
-  <input id="btn1" type="button" value="Restart and updata parameters" onclick="create_graph()">
-  <input id="btn2" type="button" value="Trigger up phase" onclick="up_phase()">
-  <br>
-  <input id="btn3" type="button" value="Start up phase loop" onclick="up_phase_loop()">
-  <input id="btn4" type="button" value="Faster" onclick="faster()">
-  <input id="btn5" type="button" value="Slower" onclick="slower()">
-  <table style="max-width: 720px; font-size:75%; margin-bottom:10px">
-  <tr>
-    <td>
-    <label for="aparam"><i>a</i></label>
-    </td>
-    <td>
-      <input id="aparam" type="text" value="0.02" style="width: 50px;">
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <label for="bparam"><i>b</i></label>
-    </td>
-    <td>
-      <input id="bparam" type="text" value="0.2" style="width: 50px;">
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <label for="cparam"><i>c</i></label>
-    </td>
-    <td>
-      <input id="cparam" type="text" value="-65" style="width: 50px;">
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <label for="dparam"><i>d</i></label>
-    </td>
-    <td>
-      <input id="dparam" type="text" value="8" style="width: 50px;">
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <label for="slowdown">Slowdown factor</label>
-    </td>
-    <td>
-      <input id="slowdown" type="text" value="1000" style="width: 50px;">
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <label for="resolution">Time resolution, <i>dt</i></label>
-    </td>
-    <td>
-      <input id="resolution" type="text" value="0.0001" style="width: 50px;">
-    </td>
-  </tr>
-</table>
-</form>
+<div id="paramform">
+  <form  onsubmit="create_graph(); return false;">
+    <br>
+    <input id="btn" type="button" value="Regular spiking" onclick="update_parameters(rs)">
+    <br>
+    <input id="btn" type="button" value="Intrinsically bursting" onclick="update_parameters(ib)">
+    <br>
+    <input id="btn" type="button" value="Chattering" onclick="update_parameters(ch)">
+    <br>
+    <input id="btn" type="button" value="Fast spiking" onclick="update_parameters(fs)">
+    <br>
+    <input id="btn" type="button" value="Low-threshold spiking" onclick="update_parameters(lts)">
+    <br>
+    <input id="btn" type="button" value="Thalamo-cortical" onclick="update_parameters(tc)">
+    <br>
+    <input id="btn" type="button" value="Resonator" onclick="update_parameters(rz)">
+    <br>
+    <br>
+    <input id="btn" type="button" value="Restart" onclick="set_up_environment()">
+    <br>
+    <br>
+    <br>
+    <table style="max-width: 720px; font-size:75%; margin-bottom:10px">
+    <tr>
+      <td>
+      <label for="aparam"><i>a</i></label>
+      </td>
+      <td>
+        <input id="aparam" type="text" value="0.02" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="bparam"><i>b</i></label>
+      </td>
+      <td>
+        <input id="bparam" type="text" value="0.2" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="cparam"><i>c</i></label>
+      </td>
+      <td>
+        <input id="cparam" type="text" value="-65" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="dparam"><i>d</i></label>
+      </td>
+      <td>
+        <input id="dparam" type="text" value="8" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="resolution">Time resolution, <i>dt</i></label>
+      </td>
+      <td>
+        <input id="resolution" type="text" value="0.0001" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="dtpersec">Steps per second</label>
+      </td>
+      <td>
+        <input id="dtpersec" type="text" value="50" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="delay">Signal delay (ms)</label>
+      </td>
+      <td>
+        <input id="delay" type="text" value="1" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="n_points">Samples on screen</label>
+      </td>
+      <td>
+        <input id="n_points" type="text" value="500" style="width: 50px;">
+      </td>
+    </tr>
+  </table>
+  </form>
+</div>
 
 </body>
