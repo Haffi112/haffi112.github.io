@@ -77,7 +77,7 @@ function update_parameters(setting={}){
   tau_ampa = parseFloat(document.getElementById('tau_ampa').value)/1000;
   tau_gaba = parseFloat(document.getElementById('tau_gaba').value)/1000;
   tau_nmda = parseFloat(document.getElementById('tau_nmda').value)/1000;
-  max_g_nmda = parseFloat(document.getElementById('max_g_nmda').value)/1000;
+  max_g_nmda = parseFloat(document.getElementById('max_g_nmda').value);
 
   rescale();
 }
