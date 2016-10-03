@@ -20,8 +20,10 @@ var fill = d3.scale.category20c();
 var v = -65;
 var u = v;
 
+
 var tau_ampa = 5e-3, g_ampa = 0;
 var tau_gaba = 10e-3, g_gaba = 0, e_rev_gaba = -80e-3;
+var g_nmda = 0, tau_nmda = 100e-3, w_nmda = 0.0, max_g_nmda = 0.1;
 
 var pos_weight = 0.2, neg_weight = 0.2;
 
@@ -31,7 +33,9 @@ var plot_margin = 10;
 
 var on_current_value = 10;
 
-var update_v_plot, update_u_plot, update_g_ampa_plot, update_current_plot;
+var update_v_plot, update_u_plot, update_g_ampa_plot, update_current_plot, update_g_nmda_plot;
+
+var V_text;
 
 function rescale() {
   input = {"x":width/4,"y":height/12};
@@ -40,6 +44,9 @@ function rescale() {
   delay = ((delay/1000)/dt)/dtpersec; // Delay in seconds
   v = -65;
   u = b*v;
+  g_ampa = 0;
+  g_nmda = 0;
+  g_gaba = 0;
 }
 
 function update_parameters(setting={}){
@@ -65,9 +72,12 @@ function update_parameters(setting={}){
   n = parseInt(document.getElementById('n_points').value);
   pos_weight = parseFloat(document.getElementById('ampa_weight').value);
   neg_weight = parseFloat(document.getElementById('gaba_weight').value);
+  w_nmda = parseFloat(document.getElementById('nmda_weight').value);
   on_current_value = parseFloat(document.getElementById('current_weight').value);
   tau_ampa = parseFloat(document.getElementById('tau_ampa').value)/1000;
   tau_gaba = parseFloat(document.getElementById('tau_gaba').value)/1000;
+  tau_nmda = parseFloat(document.getElementById('tau_nmda').value)/1000;
+  max_g_nmda = parseFloat(document.getElementById('max_g_nmda').value)/1000;
 
   rescale();
 }
@@ -120,7 +130,8 @@ function add_play_button() {
         fill: fillcolor,
         r: neuronradius,
         "z-index":-1
-      })
+      });
+
     marker.transition()
       .duration(1000*delay)
       .ease("circle") // For more easing info check http://bl.ocks.org/hunzy/9929724
@@ -149,7 +160,7 @@ function add_play_button() {
   svg.append("text")
     .attr("text-anchor", "start")  // this makes it easy to centre the text as the transform is applied to the anchor
     .attr("font-size", 9)
-    .attr("transform", "translate("+ (width/6 + 20) +","+(input.y - 4.75*neuronradius)+")")  // text is drawn off the screen top left, move down and out and rotate
+    .attr("transform", "translate("+ (width/6 + 10) +","+(input.y - 4.75*neuronradius)+")")  // text is drawn off the screen top left, move down and out and rotate
     .text("AMPA spike");
   
   inhibitory.append("circle")
@@ -164,7 +175,7 @@ function add_play_button() {
   svg.append("text")
     .attr("text-anchor", "start")  // this makes it easy to centre the text as the transform is applied to the anchor
     .attr("font-size", 9)
-    .attr("transform", "translate("+ (width/6 + 20) +","+(input.y - 2.25*neuronradius)+")")  // text is drawn off the screen top left, move down and out and rotate
+    .attr("transform", "translate("+ (width/6 + 10) +","+(input.y - 2.25*neuronradius)+")")  // text is drawn off the screen top left, move down and out and rotate
     .text("GABA spike");
   
   current.append("rect")
@@ -187,7 +198,7 @@ function add_play_button() {
   svg.append("text")
     .attr("text-anchor", "start")  // this makes it easy to centre the text as the transform is applied to the anchor
     .attr("font-size", 9)
-    .attr("transform", "translate("+ (width/6 + 20) +","+(input.y + 2*neuronradius)+")")  // text is drawn off the screen top left, move down and out and rotate
+    .attr("transform", "translate("+ (width/6 + 10) +","+(input.y + 2*neuronradius)+")")  // text is drawn off the screen top left, move down and out and rotate
     .text("DC current");
 }
 
@@ -257,6 +268,14 @@ function v_plot() {
     .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
     .attr("transform", "translate("+ (input.x - 60) +","+(height/6 + height/12)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
     .text("Voltage (mV)");
+  
+  V_text = svg.append("text")
+    .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+    .attr("transform", "translate("+ (neuron.x + 30) +","+(height/6 + height/12 + 10)+")") 
+    .attr("font-size", 10)
+    .text(function() {
+      return "" + (d3.format(",.2f")(v)) + " mV";
+    });
 }
 
 function u_plot() {
@@ -283,7 +302,7 @@ function u_plot() {
 
 function g_ampa_plot() {
   var data = d3.range(n).map(function(){return g_ampa;});
-  update_g_ampa_plot = chart(data, [0, n-1], [0, 10*pos_weight], [4*height / 6 - plot_margin, 3 * height / 6 + plot_margin], "linear", function tick(path, line, data, x) {
+  update_g_ampa_plot = chart(data, [0, n-1], [0, 5*pos_weight], [4*height / 6 - plot_margin, 3 * height / 6 + plot_margin], "linear", function tick(path, line, data, x) {
     // push a new data point onto the back
     data.push(g_ampa);
     // redraw the line, and then slide it to the left
@@ -299,7 +318,7 @@ function g_ampa_plot() {
   });
 
   var data2 = d3.range(n).map(function(){return g_gaba;});
-  update_g_gaba_plot = chart(data2, [0, n-1], [0, 10*pos_weight], [4*height / 6 - plot_margin, 3 * height / 6 + plot_margin], "linear", function tick(path, line, data2, x) {
+  update_g_gaba_plot = chart(data2, [0, n-1], [0, 5*pos_weight], [4*height / 6 - plot_margin, 3 * height / 6 + plot_margin], "linear", function tick(path, line, data2, x) {
     // push a new data point onto the back
     data2.push(g_gaba);
     // redraw the line, and then slide it to the left
@@ -312,6 +331,22 @@ function g_ampa_plot() {
 
     // pop the old data point off the front
     data2.shift();
+  }, false);
+
+  var data3 = d3.range(n).map(function(){return g_nmda;});
+  update_g_nmda_plot = chart(data3, [0, n-1], [0, 5*pos_weight], [4*height / 6 - plot_margin, 3 * height / 6 + plot_margin], "linear", function tick(path, line, data3, x) {
+    // push a new data point onto the back
+    data3.push(g_nmda);
+    // redraw the line, and then slide it to the left
+    path
+        .attr("d", line)
+        .attr("transform", null)
+        .attr("style","stroke:blue")
+      .transition()
+        .attr("transform", "translate(" + (x(-1) - input.x) + ")");
+
+    // pop the old data point off the front
+    data3.shift();
   }, false);
 
   svg.append("text")
@@ -348,24 +383,38 @@ function time_step() {
   //console.log(v);
   //console.log(g_ampa);
 
-  var cur_ex = -g_ampa * v;
+  // We assume NMDA has reversal potential 0 mV (source: http://icwww.epfl.ch/~gerstner/SPNM/node16.html)
+  var cur_ex = -(g_ampa + g_nmda) * v;
   var cur_in = g_gaba * (v - 1000*e_rev_gaba);
 
   v = v + 1000*dt*(0.04*Math.pow(v,2)+5*v+140-u+I + cur_ex - cur_in);
   u = u + 1000*dt*a*(b*v - u);
 
-  g_ampa -= dt*g_ampa/tau_ampa;
-  g_gaba -= dt*g_gaba/tau_gaba;
+  V_text.remove();
+  V_text = svg.append("text")
+    .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+    .attr("transform", "translate("+ (neuron.x + 30) +","+(height/6 + height/12 + 10)+")") 
+    .attr("font-size", 10)
+    .text(function() {
+      return "" + (d3.format(",.2f")(v)) + " mV";
+    });
+
+  g_ampa -= dt * g_ampa / tau_ampa;
+  g_gaba -= dt * g_gaba / tau_gaba;
+  g_nmda -= dt * g_nmda / tau_nmda;
 
   if(v >= 30) {
     v = c;
     u += d;
+    g_nmda += w_nmda;
+    g_nmda = Math.min(g_nmda,max_g_nmda);
   }
 
   update_v_plot();
   update_u_plot();
   update_g_ampa_plot();
   update_g_gaba_plot();
+  update_g_nmda_plot();
   update_current_plot();
 
   setTimeout(time_step,1000/dtpersec);

@@ -80,6 +80,7 @@ rect {
   text-align: center;
   background: lightgray;
   height: 100%;
+  overflow-y: scroll;
 }
 
 #btn {
@@ -105,6 +106,10 @@ table {
   margin: 10px;
   text-align: left;
   font-size: 9.5px;
+}
+
+body {
+  overflow: hidden;
 }
 
 </style>
@@ -235,6 +240,14 @@ table {
     </tr>
     <tr>
       <td>
+      <label for="nmda_weight">NMDA weight</label>
+      </td>
+      <td>
+        <input id="nmda_weight" type="text" value="0.0" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
       <label for="current_weight">Current weight</label>
       </td>
       <td>
@@ -257,15 +270,38 @@ table {
         <input id="tau_gaba" type="text" value="10" style="width: 50px;">
       </td>
     </tr>
+    <tr>
+      <td>
+      <label for="tau_nmda">&#964;<sub>NMDA</sub> (ms)</label>
+      </td>
+      <td>
+        <input id="tau_nmda" type="text" value="100" style="width: 50px;">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="max_g_nmda">Max NMDA conductance</label>
+      </td>
+      <td>
+        <input id="max_g_nmda" type="text" value="0.1" style="width: 50px;">
+      </td>
+    </tr>
   </table>
   </form>
-  <br><br>
+  <br>
+  <p id="instructions">
+  This is a simulation of a variant of the <a href="http://www.izhikevich.org/publications/spikes.htm">Izhikevich neuron</a>. Feel free to use it for educational purposes.
+  </p>
   <p id="instructions">
     <b>Instructions:</b> Press the yellow square to turn DC current on/off.
     Press the green or red circle to simulate incoming excitatory and 
-    inhibitory spikes using conductance based dynamics. The behaviour of the <a href="http://www.izhikevich.org/publications/spikes.htm">Izhikevich</a> neuron
+    inhibitory spikes using conductance based dynamics. The behaviour of the Izhikevich neuron
     is determined by four parameters: a, b, c, and d. The buttons in the 
-    upper left corner hold seven different sets of these parameters.
+    upper left corner hold seven different sets of these parameters. We have
+    added simple NMDA inspired dynamics to the model. NMDA conductance (blue curve)
+    is increased by the 'NMDA weight' value for every spike of the neuron. Note that
+    this conductance term competes with the adaptation variable and can produce
+    oscillating behaviour from a single input spike.
   </p>
   <p id="instructions"><b>Created by:</b> <a href="http://haffi112.github.io">Hafsteinn Einarsson</a></p>
 </div>
