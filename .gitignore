@@ -1,6 +1,5 @@
 _site/
 .DS_Store
 .sass-cache/
-haffi112.github.io/
 public/js/vis.map
 public/js/vis.min.js

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Leaky integrate and fire neurons (LIF) &middot; Hafsteinn
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  
+    
+      <link rel="stylesheet" href="/public/css/lifneuron.css" media="screen" type="text/css">
+    
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  
+    
+    <script src='/public/js/d3/d3.min.js' type="text/javascript"></script>
+    
+  
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-23389050-6', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0d">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A blog by <a href="https://twitter.com/hafsteinn" target="_blank">@hafsteinn</a>.</p>
+    
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/simulations/">Simulations</a>
+        
+      
+    
+
+    <!--
+      <a class="sidebar-nav-item" href="/archive/v0.0.1.zip">Download</a>
+      <a class="sidebar-nav-item" href="">GitHub project</a>
+    -->
+    <span class="sidebar-nav-item">
+    
+      <a href="https://twitter.com/hafsteinn"><img class="logo svg" src="/assets/twitter-logo.svg" width="20px"></a>
+    
+      <a href="https://www.linkedin.com/in/hafsteinn-einarsson-619a3711"><img class="logo svg" src="/assets/linkedin-logo.svg" width="20px"></a>
+    
+      <a href="https://www.goodreads.com/user/show/3584182-haffi"><img class="logo svg" src="/assets/goodreads-logo.svg" width="20px"></a>
+    
+      <a href="https://github.com/Haffi112"><img class="logo svg" src="/assets/github-logo.svg" width="20px"></a>
+    
+    </span>
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Hafsteinn</a>
+            <small>a Computer Scientist with a background in Comp. Neuro and ML</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Leaky integrate and fire neurons (LIF)</h1>
+  <span class="post-date">15 May 2016</span>
+  <p class="message">
+This post assumes basic understanding of neurons. For a short
+introduction to neurons please see <a href="https://simple.wikipedia.org/wiki/Neuron">this</a> Wikipedia
+article.
+</p>
+
+<p>There are
+<a href="https://en.wikipedia.org/wiki/Biological_neuron_model">multiple</a>
+existing models for biological neurons, some which even contradict each
+other. In this post we explore the <em>leaky-integrate and fire</em> neuron
+model (LIF) which is commonly used in simulations which mimic neural
+networks found in the brain. It has the advantage of being simple while
+also capturing the large scale dynamics of how a single neuron
+functions.</p>
+
+<p>Note that not all of the cells in our brains <em>spike</em> (i.e.
+transmit digital signals) and behave like the one we discuss below. Most
+of the cells which we call neurons do spike however. It is commonly
+acknowledged that the signals they send amongst themselves form the
+basis of information dissemination and computation in the brain.</p>
+
+<p>The LIF neuron corresponds to what is called a <em>membrane voltage</em> model.
+It is inspired by
+<a href="https://en.wikipedia.org/wiki/Squid_giant_axon">experiments</a>, first
+carried out by
+<a href="https://en.wikipedia.org/wiki/Alan_Lloyd_Hodgkin">Hodgin</a> and
+<a href="https://en.wikipedia.org/wiki/Andrew_Huxley">Huxley</a> in the 1950s <a href="#hodgkin1952quantitative">(Hodgkin &amp; Huxley, 1952)</a>, which measure the voltage difference
+inside and outside a neuron. The model is quite simple, we can give some
+input to the neuron, in the form of an electrical current, and we can
+observe how the voltage across the membrane changes over time.</p>
+
+<p>Before the experiments of Hodgin and Huxley the <em>integrate-and-fire</em>
+neuron model (note that the <em>leaky</em> part is missing) had already been
+proposed. It is in fact a variant of the model we have used in the
+previous posts on <a href="/2016/04/25/percolation-with-inhibition/">bootstrap percolation</a>. In that model a neuron never
+<em>forgets</em> the input it received in the past. If it requires two input
+spikes in order to spike itself it is even allowed that these two spikes
+come a year apart from each other. In reality this is a different story
+and any trace of the first spike would vanish a few milliseconds later.
+Note however that integrate-and-fire models are still useful, for
+example when modelling phenomena which occurs at a very short timescale.</p>
+
+<p>The fact that neurons forget old spikes corresponds to the <em>leaky</em> part
+in the name. You can think of a neuron as a bucket. When it receives
+input a bit of water gets added to the bucket. When the bucket is full
+it spikes and that spike corresponds to adding a bit of water to all the
+neighbouring buckets. However, there is a catch, the bucket has a hole
+in the bottom so the water leaks out.</p>
+
+<p>If you want to skip the math part now is the time to scroll down to the
+bottom to see a live, interactive simulation of a LIF neuron.</p>
+
+<p>The water level in the bucket corresponds to the membrane voltage of the
+neuron. The neuron prefers to be a bit polarised and its <em>resting
+potential</em> (corresponding to an empty bucket) is at around <script type="math/tex">-70</script> mV.
+Whenever the neuron receives an input spike some channels will open on
+the membrane and ions will flow through which depolarises the neuron.
+The neuron has some ion pumps on the membrane which actively pump these
+ions back out which corresponds to the <em>leak</em>.</p>
+
+<p>Since the membrane voltage changes over time we can model it using a
+differential equation. Such an equation tells us how the membrane
+voltage changes in one moment. We denote the voltage at time <script type="math/tex">t</script> by
+<script type="math/tex">V(t)</script> and we denote the resting potential by <script type="math/tex">E_L</script> (also known as the
+<em>leak reversal potential</em>). Additionally we denote the input to the
+neuron at time <script type="math/tex">t</script> by <script type="math/tex">g_e(t)</script> and the excitatory reversal potential
+by <script type="math/tex">E_E</script> which is the membrane voltage which the input is driving the
+neuron towards.</p>
+
+<p>For a short time interval <script type="math/tex">\Delta t</script> the voltage changes as follows</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+V(t+\Delta t) =& V(t)\\& - \Delta t \cdot A\cdot g_L\cdot (V(t)-E_L) \\
+&- \Delta t\cdot B \cdot g_e(t)\cdot (V(t)-E_E)
+\end{align*} %]]></script>
+
+<p>where <script type="math/tex">A</script> and <script type="math/tex">B</script> are positive constants. So you see that on the one
+hand the voltage, <script type="math/tex">V(t)</script> is drawn towards <script type="math/tex">E_L</script> via the constant
+leak and on the other hand it is drawn towards <script type="math/tex">E_E</script> via the input
+current (here modelled as conductance). One popular approach to model
+the input conductance is via exponential decay, the conductance then
+simply behaves as</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+g_e(t+\Delta t) =& g_e(t) -\Delta t\cdot C\cdot g_e(t)
+\end{align*} %]]></script>
+
+<p>where <script type="math/tex">C</script> is also some positive constant. We additionally increase
+<script type="math/tex">g_e(t)</script> by some value <script type="math/tex">w</script> whenver the neuron receives an input
+where <script type="math/tex">w</script> corresponds to the weight of the incoming synapse. This
+still does not capture how the neuron spikes. As in the
+integrate-and-fire model it just needs to cross some threshold, which we
+denote by <script type="math/tex">V_{th}</script>. So whenever <script type="math/tex">V(t)</script> exceeds <script type="math/tex">V_{th}</script> the neuron
+emits a spike. Following the spike the neuron enters a <em>refractory
+period</em> where it ignores all incoming spikes. After that period the
+membrane voltage is reset to a fixed value, denoted by
+<script type="math/tex">V_{\text{reset}}</script> which is called the <em>reset potential</em>.</p>
+
+<p>Below you can see an interactive simulation of a LIF neuron following
+the dynamics described above. You can press the input neuron on the left
+to send a spike to the output neuron on the right. You can visualise the
+membrane potential of the target neuron via the radius of the circle
+representing it. The dynamics of the membrane potential are 100 times
+slower than in reality (otherwise you would not see much happening) and
+the parameters as seen above are set to somewhat realistic values. Note
+however that the time to deliver the spike between the two neurons and
+the time in the refractory period is exaggarated for demonstration
+purposes. If you want to run large scale simulations using this type of
+neuron you can do so using the
+<a href="http://www.nest-initiative.org/">nest-simulator</a> and the
+<a href="https://github.com/nest/nest-simulator/blob/master/models/iaf_cond_exp.cpp"><script type="math/tex">\mathtt{iaf\_cond\_exp}</script></a>
+neuron model <a href="#meffin2004analytical">(Meffin, Burkitt, &amp; Grayden, 2004)</a> where the parameters are
+from.</p>
+
+<div id="neuron"></div>
+
+<script>
+var width = d3.select("#neuron").node().getBoundingClientRect().width;
+var height = 300;
+var delay = 250;
+var neuronradius = 15;
+var msgradius = 5;
+
+var m_V = -70.0E-3; // Membrane voltage
+var g_E = 0.0; // Excitatory synaptic conductance
+var t_delta = 1E-4; // 0.1 ms, so we need to update every 10 ms
+
+var spike_effect = 1.0E-3;
+var membrane_capacitance = 250E-12; // Capacity of the membrance
+var E_E= 0.0; // Excitatory reversal potential
+var E_L = -70E-3;   // Leak reversal potential
+var g_L = 16.6667E-9; // Leak conductance, nS
+var V_T = -55E-3    // Threshold potential
+var V_reset = -60E-3 // Reset potential
+var t_ref = 2.5E-3 // Refractory period
+var weight = 1E-7;
+var t_syn = 0.2E-3;
+
+var realTimeDelay = 10;
+var realTimeRefractoryPeriod = 1000;
+
+var started = false;
+var spiking = false;
+var blowup = 3000;
+
+var thresholdradius = neuronradius + (V_T - E_L)*blowup;
+var resetradius = neuronradius + (V_reset-E_L)*blowup;
+
+var fill = d3.scale.category20c();
+
+
+var svg = d3.select("#neuron").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var play = svg.append("g")
+    .attr("class", "play");
+
+play.append("circle")
+    .attr("r", neuronradius)
+    .attr("stroke-width", ".5px")
+    .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")")
+    .on("mousedown", function() {
+      play.classed("mousedown", true);
+      d3.select(window).on("mouseup", function() { play.classed("mousedown", false);
+        // Input spike
+        var input_spike = svg.append("circle");
+        input_spike.attr({
+            cx: width/4.0,
+            cy: height/2.0,
+            fill: fill.range()[8],
+            r: neuronradius + (m_V-E_L)*blowup,
+            opacity:1.0
+          })
+        input_spike.transition()
+          .duration(150)
+          .ease("linear") // For more easing info check http://bl.ocks.org/hunzy/9929724
+          .attr("r",200)
+          .attr("opacity",0)
+          .remove();
+        // Message
+        var marker = svg.append("circle");
+        marker.attr({
+            cx: width/4.0,
+            cy: height/2.0,
+            fill: fill.range()[8],
+            r: neuronradius,
+            opacity:0.5
+          })
+        marker.transition()
+          .duration(delay)
+          .ease("circle") // For more easing info check http://bl.ocks.org/hunzy/9929724
+          .attr("cx",3*width/4.0)
+          .attr("r",msgradius)
+          .each("end", function(){
+            if(!spiking) {
+              g_E += weight;
+            }
+            if(!started) {
+              started=true;
+              setTimeout(update,10);
+            }
+           })
+          .remove();
+      });
+    })
+    .on("click", function() {
+      });
+
+var neuron = svg.append("g")
+  .attr("class", "neuron");
+
+var neuron_threshold = neuron.append("circle")
+    .attr({fill:"none",
+        "stroke-width":"1.5px",
+        stroke:"#000",
+        "stroke-linejoin":"round",
+        "opacity": 0.5,
+        "stroke-dasharray":"10,10"})
+    .attr("r", neuronradius + (V_T - E_L)*blowup)
+    .attr("transform", "translate(" + 3*width / 4 + "," + height / 2 + ")");
+
+var neuron_reset = neuron.append("circle")
+    .attr({fill:"none",
+        "stroke-width":".5px",
+        stroke:"#000",
+        "stroke-linejoin":"round"})
+    .attr("r", resetradius)
+    .attr("transform", "translate(" + 3*width / 4 + "," + height / 2 + ")");
+
+var neuroncircle = neuron.append("circle")
+    .attr("r", neuronradius)
+    .attr("fill",d3.rgb(fill.range()[8]).brighter((m_V-E_L)*150))
+    .attr("transform", "translate(" + 3*width / 4 + "," + height / 2 + ")")
+    .attr("opacity", 0.5);
+
+function update() {
+  spiking = false;
+  //console.log(m_V);
+  //console.log(g_E);
+  g_E = g_E - (t_delta/t_syn)*g_E;
+  m_V = m_V + (t_delta/membrane_capacitance)*( -g_L*(m_V - E_L) - g_E*(m_V - E_E));
+  neuroncircle.transition().duration(0).attr("r",neuronradius + (m_V-E_L)*blowup)
+  .attr("fill",d3.rgb(fill.range()[8]).brighter((m_V-E_L)*150));
+
+  if(!spiking && m_V > V_T) {
+    spiking = true;
+    m_V = V_reset;
+    neuroncircle.transition().duration(0)
+      .attr("r",neuronradius + (m_V-E_L)*blowup)
+      .attr("fill",fill.range()[4]);
+    var marker = svg.append("circle");
+    marker.attr({
+        cx: 3*width/4.0,
+        cy: height/2.0,
+        fill: fill.range()[8],
+        r: neuronradius + (m_V-E_L)*blowup,
+        opacity:1.0
+      })
+    marker.transition()
+      .duration(500)
+      .ease("linear") // For more easing info check http://bl.ocks.org/hunzy/9929724
+      .attr("r",200)
+      .attr("opacity",0)
+      .remove();
+    setTimeout(update,realTimeRefractoryPeriod);
+  }
+  else if(m_V - E_L < 0.0005) {
+    started = false;
+  }
+  else {
+    setTimeout(update,realTimeDelay);
+  }
+}
+
+var arc_margin = 1.1;
+var arc_margin2 = 1.05;
+
+// Threshold label
+
+//Create an SVG path
+svg.append("path")
+	.attr("id", "threshold_radius_margin") //very important to give the path element a unique ID to reference later
+	.attr("d", "M "+((3*width/4.0)-arc_margin*thresholdradius)+","+height/2.0+" A "+arc_margin*thresholdradius+","+arc_margin*thresholdradius+" 0 0,1 "+((3*width/4.0)+arc_margin*thresholdradius)+","+height/2.0+"") //Notation for an SVG path, from bl.ocks.org/mbostock/2565344
+	.style("fill", "none");
+
+//Create an SVG text element and append a textPath element
+svg.append("text")
+  .classed("unselectable",true)
+  .append("textPath") //append a textPath to the text element
+	.attr("xlink:href", "#threshold_radius_margin") //place the ID of the path here
+	.style("text-anchor","middle") //place the text halfway on the arc
+	.attr("startOffset", "50%")
+  .text("Spiking threshold")
+  .attr("font-size",14);
+
+// Reset potential label
+svg.append("path")
+	.attr("id", "reset_radius_margin") //very important to give the path element a unique ID to reference later
+	.attr("d", "M "+((3*width/4.0)-arc_margin2*resetradius)+","+height/2.0+" A "+arc_margin2*resetradius+","+arc_margin2*resetradius+" 0 0,1 "+((3*width/4.0)+arc_margin2*resetradius)+","+height/2.0+"") //Notation for an SVG path, from bl.ocks.org/mbostock/2565344
+	.style("fill", "none");
+
+//Create an SVG text element and append a textPath element
+svg.append("text")
+  .classed("unselectable",true)
+  .append("textPath") //append a textPath to the text element
+	.attr("xlink:href", "#reset_radius_margin") //place the ID of the path here
+	.style("text-anchor","middle") //place the text halfway on the arc
+	.attr("startOffset", "50%")
+  .text("Reset potential")
+  .attr("font-size",11);
+
+play.append("text").attr("text-anchor", "middle")
+  .attr("x",width/4.0)
+  .attr("dy",4*height/5.0)
+  .classed("unselectable",true)
+  .text("Input neuron")
+  .attr("font-size",14);
+
+neuron.append("text").attr("text-anchor", "middle")
+  .attr("x",3*width/4.0)
+  .attr("dy",4*height/5.0)
+  .classed("unselectable",true)
+  .text("Output neuron")
+  .attr("font-size",14);
+
+</script>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="hodgkin1952quantitative">Hodgkin, A. L., &amp; Huxley, A. F. (1952). A quantitative description of membrane current and its application to conduction and excitation in nerve. <i>The Journal of Physiology</i>, <i>117</i>(4), 500.</span></li>
+<li><span id="meffin2004analytical">Meffin, H., Burkitt, A. N., &amp; Grayden, D. B. (2004). An analytical model for the ‘large, fluctuating synaptic conductance state’typical of neocortical neurons in vivo. <i>Journal of Computational Neuroscience</i>, <i>16</i>(2), 159–175.</span></li></ol>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/04/29/percolation-with-inhibition-part2/">
+            Percolation with inhibition - part 2
+            <small>29 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/04/25/percolation-with-inhibition/">
+            Percolation with inhibition - part 1
+            <small>25 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/04/08/asynchronous-percolation/">
+            Asynchronous bootstrap percolation
+            <small>08 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

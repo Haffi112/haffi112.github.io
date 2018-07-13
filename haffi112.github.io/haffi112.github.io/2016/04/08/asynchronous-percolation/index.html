@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Asynchronous bootstrap percolation &middot; Hafsteinn
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  
+    
+      <link rel="stylesheet" href="/public/css/async_percolation.css" media="screen" type="text/css">
+    
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  
+    
+    <script src='/public/js/d3/d3.min.js' type="text/javascript"></script>
+    
+    <script src='/public/js/async_percolation.js' type="text/javascript"></script>
+    
+  
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-23389050-6', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0d">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A blog by <a href="https://twitter.com/hafsteinn" target="_blank">@hafsteinn</a>.</p>
+    
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/simulations/">Simulations</a>
+        
+      
+    
+
+    <!--
+      <a class="sidebar-nav-item" href="/archive/v0.0.1.zip">Download</a>
+      <a class="sidebar-nav-item" href="">GitHub project</a>
+    -->
+    <span class="sidebar-nav-item">
+    
+      <a href="https://twitter.com/hafsteinn"><img class="logo svg" src="/assets/twitter-logo.svg" width="20px"></a>
+    
+      <a href="https://www.linkedin.com/in/hafsteinn-einarsson-619a3711"><img class="logo svg" src="/assets/linkedin-logo.svg" width="20px"></a>
+    
+      <a href="https://www.goodreads.com/user/show/3584182-haffi"><img class="logo svg" src="/assets/goodreads-logo.svg" width="20px"></a>
+    
+      <a href="https://github.com/Haffi112"><img class="logo svg" src="/assets/github-logo.svg" width="20px"></a>
+    
+    </span>
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2018. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Hafsteinn</a>
+            <small>a Computer Scientist with a background in Comp. Neuro and ML</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Asynchronous bootstrap percolation</h1>
+  <span class="post-date">08 Apr 2016</span>
+  <p>In the <a href="/2016/03/27/bootstrap-percolation/">previous post</a>
+we discussed bootstrap percolation, a process which models the
+dissemination of information in a graph. In this post we will see a
+slight variation of the process. Percolation is traditionally defined to
+be round based. However, in reality processes such as rumor spreading,
+disease transmission and neural signals are usually not synchronous.
+This leads to an asynchronous variant of the process (scroll down if you
+are eager to see the visualisation).</p>
+
+<p>As before, when a vertex turns active, you can think of it as sending a
+message to all its neighbours notifying them of its new state (or
+infecting them with some disease). The messages do not arrive instantly.
+In the synchronous setting  we had to wait for one round until they
+arrived, corresponding to a time delay of 1. In the asynchronous setting
+these delays can be arbitrary. In <a href="#einarsson2014bootstrap">(Einarsson, Lengler, Panagiotou, Mousset, &amp; Steger, 2014)</a> we
+studied for instance the case when all the edges draw their delay from
+an exponential distribution with expected delay 1. Recall that as in <a href="#janson2012bootstrap">(Janson, Łuczak, Turova, &amp; Vallier, 2012)</a> we studied the process on <script type="math/tex">G_{n,p}</script>, the
+Erdős–Rényi <a href="https://en.wikipedia.org/wiki/Erdős–Rényi_model">random
+graph</a> model. As it
+turned out, such a slight modification had an interesting quantitative
+effect on the process. The activity percolated much faster!</p>
+
+<p>We showed that asymptotically such a process requires only constant time
+in expectation to activate all the vertices whereas the synchronous
+process can require up to <script type="math/tex">\sim\log\log(np)</script> rounds in expectation.
+This improved speed is due to the fact that once enough many messages
+are being delivered almost certainly some of them will be extremely fast
+which further fuels the process. You can think of the process in terms
+of three phases, the <em>startup phase</em>, which decides if the activity
+survives or not, the <em>explosion phase</em> where almost all the vertices
+turn active (and is the main contributor to the double exponential speed
+of the round based process) and finally the <em>clean up phase</em> where the
+last few vertices turn active. In our setting the explosion phase is
+instantaneous, formally it takes time <script type="math/tex">o(1)</script> (less than constant) to
+activate almost all the vertices (after the initial hurdle of getting
+the process started).</p>
+
+<p>Below you can see an implementation of asynchronous bootstrap
+percolation where the expected delay of a message is initially set to
+five seconds (you can play with the parameters in the box below, be
+warned though, too many vertices can slow down the performance). If you
+choose the parameters nicely you will notice that the slow messages are
+usually too slow to make any difference. The simulation was made using
+<a href="https://d3js.org">d3js</a>. Since javascript is asynchronous it is a
+perfect candidate to perform these simulations.</p>
+
+<p>The <a href="/2016/04/25/percolation-with-inhibition/">next post</a> extends this
+process with inhibitory vertices.</p>
+
+<div id="simulation">
+</div>
+
+<form onsubmit="create_graph(); return false;" style="margin-bottom:20px">
+  <input type="button" value="Build graph" onclick="create_graph()" />
+  <input type="button" value="Percolate" onclick="percolate()" />
+  <table style="max-width: 720px; font-size:75%; margin-bottom:10px">
+  <tr>
+    <td>
+    <label for="nodeCount">Number of vertices (<i>n</i>)</label>
+    </td>
+    <td>
+      <input id="nodeCount" type="text" value="50" style="width: 50px;" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="nNeighbours">Expected degree (<i>np</i>), average number
+    of neighbors</label>
+    </td>
+    <td>
+      <input id="nNeighbours" type="text" value="6" style="width: 50px;" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="kPerc">Activation threshold (<i>K</i>)</label>
+    </td>
+    <td>
+      <input id="kPerc" type="text" value="2" style="width: 50px;" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="pBootstrap">Probability of being in the bootstrap</label>
+    </td>
+    <td>
+      <input id="pBootstrap" type="text" value="0.2" style="width: 50px;" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="delay">Expected edge delay (seconds)</label>
+    </td>
+    <td>
+      <input id="delay" type="text" value="5.0" style="width: 50px;" />
+    </td>
+  </tr>
+</table>
+</form>
+
+<p class="message" id="message" style="visibility:hidden;">
+
+</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="einarsson2014bootstrap">Einarsson, H., Lengler, J., Panagiotou, K., Mousset, F., &amp; Steger, A. (2014). Bootstrap percolation with inhibition. <i>ArXiv Preprint ArXiv:1410.3291</i>.</span></li>
+<li><span id="janson2012bootstrap">Janson, S., Łuczak, T., Turova, T., &amp; Vallier, T. (2012). Bootstrap percolation on the random graph  G_ {n, p} . <i>The Annals of Applied Probability</i>, <i>22</i>(5), 1989–2047.</span></li></ol>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/05/15/lif-neuron/">
+            Leaky integrate and fire neurons (LIF)
+            <small>15 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/04/29/percolation-with-inhibition-part2/">
+            Percolation with inhibition - part 2
+            <small>29 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/04/25/percolation-with-inhibition/">
+            Percolation with inhibition - part 1
+            <small>25 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
