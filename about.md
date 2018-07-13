@@ -3,26 +3,18 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This website is currently under construction. Please excuse
-  the lack of content. You can find a short CV <a
-  href="{{site.baseurl}}/assets/cv.pdf">here</a>. If you want to be a
-  guest blogger on my site please feel free to contact me through any of
-  the mediums in the menu on the left.
-</p>
+I'm currently located in Iceland and work as a data scientist for Íslandsbanki.
 
-I am a PhD candidate in computer science at ETHZ in Switzerland. I have a
-background in *mathematics* and *theoretical computer science*.
+I did a PhD in computer science at ETHZ in Switzerland in the group of Prof. Angelika Steger.
 
 My thesis work is in the field of computational neuroscience. The brain
-can be thought of as a massively parallel computational machine. There
-are multiple hypothesis of how the brain does computation. Many of them
+can be thought of as a massively parallel machine. There
+are multiple hypothesis of how the brain computes. Many of them
 are hard to test experimentally and the data we already have is
 insufficient to make good predictions.
 
 With difficulty obtaining data it thus becomes interesting to study
-models. I find questions such as *"What are the necessary components to
-build a brain?"* fascinating. Saying that my work is about understanding
+models and emergent behaviour. Saying that my work is about understanding
 the brain is a huge overstatement though. There is so little we
 currently understand.
 
