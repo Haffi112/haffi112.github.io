@@ -12,5 +12,6 @@ aspects of the simulation.
 - [Synchronous bootstrap percolation](/simulations/standard-percolation.html)
 - [Local homeostatic plasticity](/simulations/dscaling.html)
 - [NMDA enhanced, conductance based Izhikevich neuron](/simulations/izhikevich_neuron.html)
+- [Dice parser](/simulations/dice_parser.html)
 
 
