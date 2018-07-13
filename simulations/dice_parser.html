@@ -1,8 +1,234 @@
-<script src="https://cdn.rawgit.com/Haffi112/droll/master/droll.js"></script>
-<script type="text/javascript">
+<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-  var result = droll.roll('3d6+1');
+    <script src="https://cdn.rawgit.com/Haffi112/droll/master/droll.js"></script>
 
-  console.log(result);
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
-</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-23389050-6', 'auto');
+    ga('send', 'pageview');
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+<style>
+    form { display: flex; }
+    input[type=text] { flex-grow: 1; }
+</style>
+</head>
+
+<body>
+
+    <div class="col-xs-12" style="height:50px;"></div>
+
+    <div class="container">
+
+        <div class="starter-template">
+        <h1>Dice roll parser</h1>
+        <p class="lead">This project is a fork of <a href="https://github.com/thebinarypenguin/droll">droll</a> 
+        and extends its syntax for dice rolling. We mostly follow 
+        <a href="https://en.wikipedia.org/wiki/Dice_notation">standard dice notation syntax</a> (see the examples below). To see the results of the dice in a roll please view the console output. </p>
+        </div>
+
+        <div id="mainInputDiv">
+            <form><input type="text" id="mainFormula" placeholder="Dice formula, e.g. 10d6K4H+6 to throw ten d6, keep four highest, and add a 6"></form>
+            <form><input type="text" id="thresholdPass" placeholder="Threshold for success"></form>
+            <form><input type="text" id="thresholdCritSuccess" placeholder="Threshold for critical success"></form>
+            <form><input type="text" id="thresholdCritFailure" placeholder="Threshold for critical failure"></form>
+            <input type="checkbox" id="showPassFailOnly"> Only show pass or fail
+        </div>
+        <div id="mainButton">
+            <br>
+        </div>
+        <div>
+            <br>
+            <p id=result>
+                Result: 
+            </p>
+        </div>
+
+        <div>
+            <h1>Examples</h1>
+            <div id="Example1">
+                <h2>Roll a single die</h2>
+                <p class="lead">Below we roll a single d6.</p>
+            </div>
+
+            <div id="Example2">
+                <h2>Roll multiple dice</h2>
+                <p class="lead">Below we roll a d6 ten times and add upp the results.</p>
+            </div>
+
+            <div id="Example3">
+                <h2>Keep lowest values</h2>
+                <p class="lead">Below we roll a d6 ten times and keep the five <b>lowest</b> rolls.</p>
+            </div>
+
+            <div id="Example4">
+                <h2>Keep highest values</h2>
+                <p class="lead">Below we roll a d6 ten times and keep the five <b>highest</b> rolls.</p>
+            </div>
+
+            <div id="Example5">
+                <h2>Add a constant</h2>
+                <p class="lead">Below we extend the roll from above by adding a constant. Please note that there is no space around the addition sign in this expression.</p>
+            </div>
+
+            <div id="Example6">
+                <h2>Multiply with a constant</h2>
+                <p class="lead">Below we extend the roll from above by multiplying the dice roll with a constant.</p>
+            </div>
+
+            <div id="Example7">
+                <h2>Repeat rolls</h2>
+                <p class="lead">Below we extend the roll from above by repeating the whole roll three times.</p>
+            </div>
+
+            <div id="Example8">
+                <h2>Combining multiple rolls</h2>
+                    <p class="lead">Below we extend the roll from above by adding it with another roll. Please note that the <b>space</b> before and after the addition/subtraction symbols is necessary for the parser to work.</p>
+                </div>
+        </div>
+
+    </div><!-- /.container -->    
+
+    <script type="text/javascript">
+        var result = droll.roll('3d6+1');
+
+        console.log(result);
+
+        
+
+        window.onload = function() {
+
+            var mainButton = document.getElementById("mainButton");
+
+            var inputElement = document.createElement('input');
+            inputElement.type = "button";
+            inputElement.value = "Roll";
+            inputElement.addEventListener('click', function(){
+                var formula = document.getElementById("mainFormula").value;
+                var result = droll.roll(formula);
+                console.log(result);
+
+                var passthreshold = document.getElementById("thresholdPass").value;
+                var critthreshold = document.getElementById("thresholdCritSuccess").value;
+                var critfailthreshold = document.getElementById("thresholdCritFailure").value;
+                var showPassFailOnly = document.getElementById("showPassFailOnly").checked;
+
+                if(!result) {
+                    document.getElementById("result").innerHTML="The dice formula is invalid, try 10d6K4H+6";
+                }
+                else if(result >= critthreshold) {
+                    var resultstring = "Result: Critical SUCCESS!";
+                    if(!showPassFailOnly) {
+                        resultstring = resultstring + " Dice value was " + result;
+                    }
+                    document.getElementById("result").innerHTML=resultstring;
+                }
+                else if(result >= passthreshold) {
+                    var resultstring = "Result: Success!";
+                    if(!showPassFailOnly) {
+                        resultstring = resultstring + " Dice value was " + result;
+                    }
+                    document.getElementById("result").innerHTML=resultstring;
+                }
+                else if(result <= critfailthreshold) {
+                    var resultstring = "Result: Critical FAILURE!";
+                    if(!showPassFailOnly) {
+                        resultstring = resultstring + " Dice value was " + result;
+                    }
+                    document.getElementById("result").innerHTML=resultstring;
+                }
+                else {
+                    var resultstring = "Result: Did not pass.";
+                    if(!showPassFailOnly) {
+                        resultstring = resultstring + " Dice value was " + result;
+                    }
+                    document.getElementById("result").innerHTML=resultstring;
+                }
+
+                
+
+                //var resultbox = document.getElementById(divId+'output');
+                //resultbox.innerHTML = "<br>Rolled value: " + result;
+            });
+            mainButton.appendChild(inputElement);
+
+
+
+            var add_example = function(divId,formula) {
+                var parentdiv = document.getElementById(divId);
+
+                var surround = document.createElement('form');
+                surround.id=divId+"surround";
+
+                parentdiv.appendChild(surround);
+                var parentdiv2 = document.getElementById(divId+"surround");
+
+                var inputText = document.createElement('input');
+                inputText.type="text";
+                inputText.value=formula;
+                inputText.id = divId+'input';
+                //inputText.style['width'] = '300px';
+
+                parentdiv2.appendChild(inputText);
+
+                parentdiv.appendChild(document.createTextNode (" "));
+
+                var inputElement = document.createElement('input');
+                inputElement.type = "button";
+                inputElement.value = "Roll";
+                inputElement.addEventListener('click', function(){
+                    var formula = document.getElementById(divId+'input').value;
+                    var result = droll.roll(formula);
+                    var resultbox = document.getElementById(divId+'output');
+                    resultbox.innerHTML = "<br>Rolled value: " + result;
+                });
+                
+                parentdiv2.appendChild(inputElement);
+
+                var outputText = document.createElement('p');
+                outputText.id = divId+'output';
+                outputText.innerHTML = "<br>Rolled value: ";
+                outputText.className="lead";
+
+                parentdiv.appendChild(outputText);
+            }
+            add_example("Example1","1d6");
+
+            add_example("Example2","10d6");
+
+            add_example("Example3","10d6K5L");
+
+            add_example("Example4","10d6K5H");
+
+            add_example("Example5","10d6K4H+6");
+
+            add_example("Example6","10d6K4Hx5+6");
+            
+            add_example("Example7","3x(10d6K4Hx5+6)");
+
+            add_example("Example8","3x(10d6K4Hx5+6) + 5d6 - 7d100");
+
+        }
+
+    </script>
+</body>
