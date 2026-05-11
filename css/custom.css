@@ -1,0 +1,13 @@
+.logo {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 18px;
+    opacity: 0.5;
+    fill: #fff;
+    margin: 0;
+}
+
+.logo:hover {
+    opacity: 1.0;
+}

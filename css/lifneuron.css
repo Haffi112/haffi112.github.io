@@ -1,0 +1,42 @@
+.mesh {
+  fill: none;
+  stroke: #333;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.play circle {
+  fill: white;
+  stroke: black;
+}
+
+.play.mousedown circle {
+  fill: green;
+  fill-opacity: 0.5;
+}
+
+.play.mousedown path {
+  fill: white;
+}
+
+.play rect {
+  fill: none;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.ring {
+  fill: none;
+  stroke: red;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

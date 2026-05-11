@@ -1,224 +1,42 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-  <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-  <title>
-    
-      Hafsteinn &middot; a Computer Scientist with a background in Comp. Neuro and ML
-    
-  </title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="/public/css/custom.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-  
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-  
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-23389050-6', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="/public/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-</head>
-
-
-  <body class="theme-base-0d">
-
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <p>A blog by <a href="https://twitter.com/hafsteinn" target="_blank">@hafsteinn</a>.</p>
-    
-  </div>
-
-  <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="/">Home</a>
-
-    
-
-    
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/about/">About</a>
-        
-      
-    
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/simulations/">Simulations</a>
-        
-      
-    
-
-    <!--
-      <a class="sidebar-nav-item" href="/archive/v0.0.1.zip">Download</a>
-      <a class="sidebar-nav-item" href="">GitHub project</a>
-    -->
-    <span class="sidebar-nav-item">
-    
-      <a href="https://twitter.com/hafsteinn"><img class="logo svg" src="/assets/twitter-logo.svg" width="20px"></a>
-    
-      <a href="https://www.linkedin.com/in/hafsteinn-einarsson-619a3711"><img class="logo svg" src="/assets/linkedin-logo.svg" width="20px"></a>
-    
-      <a href="https://www.goodreads.com/user/show/3584182-haffi"><img class="logo svg" src="/assets/goodreads-logo.svg" width="20px"></a>
-    
-      <a href="https://github.com/Haffi112"><img class="logo svg" src="/assets/github-logo.svg" width="20px"></a>
-    
-    </span>
-    <span class="sidebar-nav-item">Currently v0.0.1</span>
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      &copy; 2018. All rights reserved.
-    </p>
-  </div>
-</div>
-
-
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Hafsteinn</a>
-            <small>a Computer Scientist with a background in Comp. Neuro and ML</small>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-        <div class="posts">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/05/15/lif-neuron/">
-        Leaky integrate and fire neurons (LIF)
-      </a>
-    </h1>
-
-    <span class="post-date">15 May 2016</span>
-    This post assumes basic understanding of neurons. For a short introduction to neurons please see this Wikipedia article. There are multiple existing models for biological neurons, some which even contradict each other. In this post we explore the leaky-integrate and fire neuron model (LIF) which is commonly used in simulations...
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/04/29/percolation-with-inhibition-part2/">
-        Percolation with inhibition - part 2
-      </a>
-    </h1>
-
-    <span class="post-date">29 Apr 2016</span>
-    This part 2 in the series on percolation with inhbition. If you have not yet read part 1 you can find it here. In this post we will try to get an intuition for how many vertices eventually turn active in the process. Let us assume that we have vertices...
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/04/25/percolation-with-inhibition/">
-        Percolation with inhibition - part 1
-      </a>
-    </h1>
-
-    <span class="post-date">25 Apr 2016</span>
-    In the previous posts we have discussed synchronous and asynchronous bootstrap percolation, processes which model the dissemination of information in a graph. In these previous models we only studied vertices which could excite their neighbours. This is a good basic model for the spread of diseases or gossip. However in...
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/04/08/asynchronous-percolation/">
-        Asynchronous bootstrap percolation
-      </a>
-    </h1>
-
-    <span class="post-date">08 Apr 2016</span>
-    In the previous post we discussed bootstrap percolation, a process which models the dissemination of information in a graph. In this post we will see a slight variation of the process. Percolation is traditionally defined to be round based. However, in reality processes such as rumor spreading, disease transmission and...
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2016/03/27/bootstrap-percolation/">
-        Bootstrap percolation
-      </a>
-    </h1>
-
-    <span class="post-date">27 Mar 2016</span>
-    If you have ever heard about percolation it might have been in the context of making coffee. That is, when brewing by filtering water through grinded coffee beans it is a desireable feature that the water can eventually pass through. Consequently the particles need to be large enough for the...
-  </div>
-  
-</div>
-
-<div class="pagination">
-  
-    <span class="pagination-item older">Older</span>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
-</div>
-
-
-      </div>
-    </div>
-
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
-
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Home · Hafsteinn Einarsson</title><meta name="description" content="Hafsteinn Einarsson — Associate Professor at the University of Iceland and Research Scientist at deCODE genetics."><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://rsms.me"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap"><script>
+      // No-FOUC theme init: must run before paint.
+      (() => {
+        const saved = localStorage.getItem('theme');
+        const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved ?? (sysDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><link rel="stylesheet" href="/_astro/index.B_WCVw3v.css"></head> <body class="bg-bg text-ink"> <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-bg-elev focus:p-2 focus:border focus:border-accent-primary">Skip to content</a> <header class="sticky top-0 z-20 bg-bg/80 backdrop-blur-md border-b border-rule"> <nav class="max-w-page mx-auto px-6 h-14 flex items-center justify-between"> <a href="/" class="font-semibold tracking-tight text-ink">Hafsteinn Einarsson</a> <ul class="hidden md:flex items-center gap-6 text-sm"> <li> <a href="/research/" class="transition-colors text-ink-muted hover:text-ink">Research</a> </li><li> <a href="/publications/" class="transition-colors text-ink-muted hover:text-ink">Publications</a> </li><li> <a href="/teaching/" class="transition-colors text-ink-muted hover:text-ink">Teaching</a> </li><li> <a href="/group/" class="transition-colors text-ink-muted hover:text-ink">Group</a> </li><li> <a href="/blog/" class="transition-colors text-ink-muted hover:text-ink">Blog</a> </li><li> <a href="/about/" class="transition-colors text-ink-muted hover:text-ink">About</a> </li> </ul> <div class="flex items-center gap-2"> <button id="theme-toggle" type="button" aria-label="Toggle color scheme" class="p-2 rounded-full text-ink-muted hover:text-accent-warm transition-colors"> <svg class="hidden dark:block" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m17.07-7.07-1.41 1.41M6.34 17.66l-1.41 1.41m13.07 0-1.41-1.41M6.34 6.34 4.93 4.93"></path></svg> <svg class="block dark:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> </button> <script type="module">const n=document.getElementById("theme-toggle");n?.addEventListener("click",()=>{const t=document.documentElement,e=t.dataset.theme==="dark"?"light":"dark";t.dataset.theme=e,localStorage.setItem("theme",e)});</script> </div> </nav> </header> <main id="main"> <section class="max-w-page mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20"> <div class="grid md:grid-cols-[180px_1fr] gap-8 md:gap-12 items-start"> <img src="/img/hafsteinn.png" alt="Hafsteinn Einarsson" width="180" height="225" class="w-36 md:w-44 rounded-xl border border-rule" loading="eager" fetchpriority="high"> <div> <h1 class="text-display font-semibold tracking-tight text-ink leading-tight">
+Hafsteinn Einarsson
+</h1> <p class="mt-3 text-lg text-ink-muted">
+Associate Professor, University of Iceland<br>
+Research Scientist, deCODE genetics
+</p> <p class="mt-6 prose-body max-w-prose">
+I lead a research group working on natural-language processing for
+        low-resource Germanic languages — Icelandic and Faroese — with active
+        projects in computer vision for the natural sciences, clinical AI,
+        and human genetics.
+</p> <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm"> <li><a href="/research/">Research →</a></li> <li><a href="/publications/">Publications →</a></li> <li><a href="/cv.pdf">Download CV ↓</a></li> </ul> </div> </div> </section> <section class="max-w-page mx-auto px-6 py-12"> <div class="flex items-baseline justify-between"> <h2 class="text-2xl font-semibold text-ink">News</h2> </div> <ul class="mt-4 max-w-prose"> <li class="flex gap-4 py-2 border-t border-rule first:border-t-0"> <span class="font-mono text-xs text-ink-muted shrink-0 w-16 mt-1 flex items-center gap-1.5"> <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent-energy" aria-hidden></span> 2026-04 </span> <p class="text-ink"> <a href="https://doi.org/10.1016/j.ecoinf.2025.103462">New paper on temporal vision-language features for fish classification (Ecological Informatics).</a> </p> </li><li class="flex gap-4 py-2 border-t border-rule first:border-t-0"> <span class="font-mono text-xs text-ink-muted shrink-0 w-16 mt-1 flex items-center gap-1.5">  2026-02 </span> <p class="text-ink"> Microsoft Lingua grant funded: developing LLM red-teaming datasets for Icelandic. </p> </li><li class="flex gap-4 py-2 border-t border-rule first:border-t-0"> <span class="font-mono text-xs text-ink-muted shrink-0 w-16 mt-1 flex items-center gap-1.5">  2025-09 </span> <p class="text-ink"> <a href="https://arxiv.org/abs/2507.20395">MazeEval preprint: a benchmark for sequential decision-making in language models.</a> </p> </li><li class="flex gap-4 py-2 border-t border-rule first:border-t-0"> <span class="font-mono text-xs text-ink-muted shrink-0 w-16 mt-1 flex items-center gap-1.5">  2025-05 </span> <p class="text-ink"> FoQA: A Faroese question-answering dataset (RESOURCEFUL 2025). </p> </li><li class="flex gap-4 py-2 border-t border-rule first:border-t-0"> <span class="font-mono text-xs text-ink-muted shrink-0 w-16 mt-1 flex items-center gap-1.5">  2025-01 </span> <p class="text-ink"> Co-organized NB-REAL 2025 (Nordic-Baltic Responsible Evaluation and Alignment of LMs) at NoDaLiDa / Baltic-HLT. </p> </li> </ul> </section> <section class="max-w-page mx-auto px-6 py-12"> <div class="flex items-baseline justify-between"> <h2 class="text-2xl font-semibold text-ink">Selected publications</h2> <a href="/publications/" class="text-sm">All publications →</a> </div> <div class="mt-4"> <article class="py-5 border-t border-rule first:border-t-0 bg-bg-elev rounded-xl border border-rule p-6 mb-3"> <div class="flex items-center gap-3 mb-2"> <span class="inline-flex items-center rounded-full font-medium text-xs px-2.5 py-0.5 bg-accent-warm-soft text-accent-warm">NLP for Icelandic &amp; Germanic</span> <span class="text-xs uppercase tracking-wide text-accent-warm">Selected</span> </div> <h3 class="text-lg md:text-xl font-semibold text-ink leading-snug"> FoQA: A Faroese question-answering dataset </h3> <p class="mt-1 text-sm text-ink-muted"> Simonsen, A., Nielsen, D. S., <strong class="text-ink">Einarsson, H.</strong> <span class="text-ink-muted"> · Proceedings of the third workshop on resources and representations for under-resourced languages and domains (RESOURCEFUL-2025)</span> <span class="text-ink-muted"> · 2025</span> </p> <p class="mt-2 text-ink prose-body max-w-prose">Introduces FoQA, the first dedicated question-answering dataset for
+Faroese, with extractive and generative variants. The dataset is
+constructed via translation and adaptation of existing QA
+benchmarks combined with native-speaker validation, and is
+accompanied by baseline evaluations of multilingual and Faroese-
+tuned language models. Establishes a reference benchmark for
+Faroese reading comprehension. RESOURCEFUL 2025 (NoDaLiDa
+co-located workshop).
+</p> <ul class="mt-3 flex flex-wrap gap-3 text-sm"> <li> <a href="https://aclanthology.org/2025.resourceful-1.7/">PDF →</a> </li> </ul> </article><article class="py-5 border-t border-rule first:border-t-0 bg-bg-elev rounded-xl border border-rule p-6 mb-3"> <div class="flex items-center gap-3 mb-2"> <span class="inline-flex items-center rounded-full font-medium text-xs px-2.5 py-0.5 bg-accent-warm-soft text-accent-warm">NLP for Icelandic &amp; Germanic</span> <span class="text-xs uppercase tracking-wide text-accent-warm">Selected</span> </div> <h3 class="text-lg md:text-xl font-semibold text-ink leading-snug"> Application of ChatGPT for automated problem reframing across academic domains </h3> <p class="mt-1 text-sm text-ink-muted"> <strong class="text-ink">Einarsson, H.</strong>, Lund, S. H., Jónsdóttir, A. H. <span class="text-ink-muted"> · Computers and Education: Artificial Intelligence</span> <span class="text-ink-muted"> · 2024</span> </p> <p class="mt-2 text-ink prose-body max-w-prose">Studies the use of ChatGPT for automated problem reframing in
+academic settings, where the same underlying task is rewritten as a
+series of alternative problem statements to support student
+learning and assessment design. Reports on prompting strategies,
+quality control, and human evaluation across multiple academic
+domains. First-author paper in Computers and Education: Artificial
+Intelligence; one of the early systematic studies of generative AI
+in higher-education problem authoring.
+</p> <ul class="mt-3 flex flex-wrap gap-3 text-sm"> <li> <a href="https://doi.org/10.1016/j.caeai.2024.100194">DOI →</a> </li> </ul> </article><article class="py-5 border-t border-rule first:border-t-0 bg-bg-elev rounded-xl border border-rule p-6 mb-3"> <div class="flex items-center gap-3 mb-2"> <span class="inline-flex items-center rounded-full font-medium text-xs px-2.5 py-0.5 bg-bg text-ink-muted border border-rule">Genetics</span> <span class="text-xs uppercase tracking-wide text-accent-warm">Selected</span> </div> <h3 class="text-lg md:text-xl font-semibold text-ink leading-snug"> Sequence variants associated with BMI affect disease risk through BMI itself </h3> <p class="mt-1 text-sm text-ink-muted"> Einarsson, G., Thorleifsson, G., Steinthorsdottir, V., Zink, F., Helgason, H., Olafsdottir, T., Rognvaldsson, S., Tragante, V., Ulfarsson, M. O., Sveinbjornsson, G., others,  <span class="text-ink-muted"> · Nature Communications</span> <span class="text-ink-muted"> · 2024</span> </p> <p class="mt-2 text-ink prose-body max-w-prose">deCODE-led genome-wide study (Nature Communications 2024) showing
+that sequence variants associated with body mass index influence
+downstream disease risk primarily through BMI itself, rather than
+via independent pleiotropic effects. Uses Mendelian-randomisation
+and stratified-association analyses across the Icelandic
+population. Among the few Nature Communications papers in the
+collection.
+</p> <ul class="mt-3 flex flex-wrap gap-3 text-sm"> <li> <a href="https://doi.org/10.1038/s41467-024-53568-9">DOI →</a> </li> </ul> </article> </div> </section> </main> <footer class="border-t border-rule mt-24"> <div class="max-w-page mx-auto px-6 py-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between text-sm text-ink-muted"> <span>© 2026 Hafsteinn Einarsson</span> <ul class="flex flex-wrap gap-4"> <li><a href="https://scholar.google.com/citations?user=BVPxKzgAAAAJ">Scholar</a></li><li><a href="https://orcid.org/0000-0001-5072-3678">ORCID</a></li><li><a href="https://github.com/Haffi112">GitHub</a></li><li><a href="https://www.linkedin.com/in/hafsteinn-einarsson-619a3711">LinkedIn</a></li><li><a href="https://twitter.com/hafsteinn">X</a></li><li><a href="/atom.xml">RSS</a></li> </ul> </div> </footer> </body></html>
