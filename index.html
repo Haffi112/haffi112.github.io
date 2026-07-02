@@ -218,6 +218,10 @@
                                 // needed before a node activates
     const POT_MS = 2600;        // how long collected potential lingers
     const FANOUT = 4;           // messages sent per activation
+    const MAX_GEN = 6;          // cascade depth: spikes this many hops
+                                // from the seed stop transmitting, so a
+                                // wave always fades instead of reverbing
+                                // through the graph forever
     const MAX_MSGS = 260;       // global particle cap
     let w = 0, h = 0, nodes = [], msgs = [];
 
@@ -260,10 +264,11 @@
        Targeting rested nodes only is what keeps a wave travelling: the
        nearest neighbours of a fresh spike are mostly the refractory
        nodes behind the wavefront, where messages would be wasted. */
-    const fire = (n, ts, from) => {
+    const fire = (n, ts, from, gen = 0) => {
       n.state = 1;
       n.stateT = ts;
       n.pot = 0;
+      if (gen >= MAX_GEN) return; // wave has run its course — glow only
       const targets = nodes
         .filter((m) => m !== n && m !== from && m.state === 0)
         .map((m) => ({ m, d2: (m.x - n.x) ** 2 + (m.y - n.y) ** 2 }))
@@ -272,7 +277,7 @@
         .slice(0, FANOUT);
       for (const { m, d2 } of targets) {
         if (msgs.length >= MAX_MSGS) break;
-        msgs.push({ a: n, b: m, start: ts, dur: Math.sqrt(d2) / MSG_SPEED });
+        msgs.push({ a: n, b: m, start: ts, dur: Math.sqrt(d2) / MSG_SPEED, gen: gen + 1 });
       }
     };
 
@@ -356,21 +361,30 @@
 
       /* Message delivery: bootstrap percolation with threshold K — an
          arriving message raises the target's potential; the node only
-         fires once K messages have accumulated. */
+         fires once K messages have accumulated.
+
+         Arrivals are collected first and delivered AFTER the filter
+         reassigns `msgs`. Firing inside the filter callback would push
+         the new generation of messages onto the array being replaced,
+         silently discarding them — cascades would spike but never
+         visibly transmit onward. */
+      const arrivals = [];
       msgs = msgs.filter((p) => {
         const prog = (ts - p.start) / p.dur;
         if (prog >= 1) {
-          if (p.b.state === 0) {
-            p.b.pot += 1;
-            p.b.potT = ts;
-            if (p.b.pot >= K) fire(p.b, ts, p.a);
-          }
+          arrivals.push(p);
           return false;
         }
         /* Drop messages whose endpoints drifted apart (edge vanished). */
         const dx = p.a.x - p.b.x, dy = p.a.y - p.b.y;
         return dx * dx + dy * dy < (LINK_DIST * 1.35) ** 2;
       });
+      for (const p of arrivals) {
+        if (p.b.state !== 0) continue;
+        p.b.pot += 1;
+        p.b.potT = ts;
+        if (p.b.pot >= K) fire(p.b, ts, p.a, p.gen);
+      }
 
       /* Ambient activity: fire a random rested node plus its nearest
          rested neighbour every few seconds. Two adjacent seeds give
@@ -379,15 +393,18 @@
       if (ts >= nextAmbient) {
         const rested = nodes.filter((n) => n.state === 0);
         if (rested.length) {
+          /* Ambient seeds start mid-generation: unattended ripples run
+             ~3 hops and fade, while pointer-triggered cascades get the
+             full MAX_GEN depth. */
           const seed = rested[(Math.random() * rested.length) | 0];
-          fire(seed, ts);
+          fire(seed, ts, undefined, 3);
           let best = null, bestD2 = LINK_DIST * LINK_DIST;
           for (const m of rested) {
             if (m === seed) continue;
             const d2 = (m.x - seed.x) ** 2 + (m.y - seed.y) ** 2;
             if (d2 < bestD2) { best = m; bestD2 = d2; }
           }
-          if (best) fire(best, ts);
+          if (best) fire(best, ts, undefined, 3);
         }
         nextAmbient = ts + rand(2200, 4800);
       }
