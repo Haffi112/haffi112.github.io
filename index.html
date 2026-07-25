@@ -228,20 +228,20 @@ Click to ignite · hold to widen the ignition front
       return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
     };
 
-    /* Ink alphas are tuned against the dark surface. The same values over
-       paper read far too faintly — a 5% black wash on near-white barely
-       registers, where a 5% white wash on near-black does — so the light
-       theme scales them up. Accent-coloured elements (spikes, sparks, the
-       firing glow) are already saturated and are left alone. */
-    const LIGHT_BOOST = 1.9;
-    let boost = 1;
-    const A = {
-      edge: 0.047,
-      node: 0.22,
-      refracDot: 0.11,
-      refracArc: 0.18
+    /* Ink alphas per surface, listed rather than derived from one another:
+       a 5% white wash on near-black reads clearly, while 5% black on
+       near-white barely registers, and the two surfaces don't need the same
+       ratios anyway. Edges carry the biggest difference — as hairlines they
+       are the first thing to disappear on a low-contrast or badly
+       calibrated panel, so on paper they sit far above a scaled version of
+       the dark value. Accent-coloured elements (spikes, sparks, the firing
+       glow) are already saturated and are left alone. */
+    const ALPHA = {
+      dark:  { edge: 0.047, node: 0.22, refracDot: 0.11, refracArc: 0.18 },
+      light: { edge: 0.16,  node: 0.42, refracDot: 0.24, refracArc: 0.38 }
     };
-    const ink = (key) => A[key] * boost;
+    let A = ALPHA.light;
+    const ink = (key) => A[key];
 
     const resolveColors = () => {
       const probe = document.createElement('span');
@@ -255,7 +255,7 @@ Click to ignite · hold to widen the ignition front
       accent = grab('--color-accent-energy') || accent;
       const bg = grab('--color-bg');
       probe.remove();
-      boost = luminance(bg) < 0.25 ? 1 : LIGHT_BOOST;
+      A = luminance(bg) < 0.25 ? ALPHA.dark : ALPHA.light;
     };
     resolveColors();
 
