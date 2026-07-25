@@ -208,6 +208,41 @@ Click to ignite · hold to widen the ignition front
        surface. Alpha belongs on ctx.globalAlpha instead. */
     let inkColor = 'rgb(28,26,23)';
     let accent = 'rgb(182,76,43)';
+
+    /* A 1x1 scratch canvas is the safe way to get real components out of a
+       colour in any space: let the canvas parse it and read the pixel back,
+       rather than parsing the CSS string ourselves. */
+    const scratch = document.createElement('canvas');
+    scratch.width = scratch.height = 1;
+    const sctx = scratch.getContext('2d', { willReadFrequently: true });
+    const luminance = (css) => {
+      sctx.clearRect(0, 0, 1, 1);
+      sctx.fillStyle = '#000';
+      sctx.fillStyle = css; // an unparseable value simply leaves it black
+      sctx.fillRect(0, 0, 1, 1);
+      const [r, g, b] = sctx.getImageData(0, 0, 1, 1).data;
+      const f = (c) => {
+        c /= 255;
+        return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+      };
+      return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+    };
+
+    /* Ink alphas are tuned against the dark surface. The same values over
+       paper read far too faintly — a 5% black wash on near-white barely
+       registers, where a 5% white wash on near-black does — so the light
+       theme scales them up. Accent-coloured elements (spikes, sparks, the
+       firing glow) are already saturated and are left alone. */
+    const LIGHT_BOOST = 1.9;
+    let boost = 1;
+    const A = {
+      edge: 0.047,
+      node: 0.22,
+      refracDot: 0.11,
+      refracArc: 0.18
+    };
+    const ink = (key) => A[key] * boost;
+
     const resolveColors = () => {
       const probe = document.createElement('span');
       probe.style.display = 'none';
@@ -218,7 +253,9 @@ Click to ignite · hold to widen the ignition front
       };
       inkColor = grab('--color-ink') || inkColor;
       accent = grab('--color-accent-energy') || accent;
+      const bg = grab('--color-bg');
       probe.remove();
+      boost = luminance(bg) < 0.25 ? 1 : LIGHT_BOOST;
     };
     resolveColors();
 
@@ -238,6 +275,19 @@ Click to ignite · hold to widen the ignition front
     let nodes = [], edges = [], msgs = [], pulses = [], sparks = [], flashes = [];
     let sinceLink = 0, ambient = 1.2, mouseCool = 0;
     const hold = { on: false, x: 0, y: 0, r: 0, acc: 0 };
+
+    /* ---- Toroidal space --------------------------------------------------
+       The field wraps: a node leaving the right edge re-enters on the left,
+       and two nodes on opposite edges are neighbours. Everything that
+       measures a distance therefore uses the minimum-image convention —
+       the shortest of the displacement and its wrapped alternatives — and
+       anything drawn between two points has to be drawn twice when the
+       short path crosses a boundary, once running off each side. */
+    const wrapD = (d, s) => (s ? d - s * Math.round(d / s) : d);
+    const wrapP = (v, s) => (s ? ((v % s) + s) % s : v);
+    const dxOf = (ax, bx) => wrapD(bx - ax, W);
+    const dyOf = (ay, by) => wrapD(by - ay, H);
+    const dist = (ax, ay, bx, by) => Math.hypot(dxOf(ax, bx), dyOf(ay, by));
 
     /* User-controlled modes. */
     const mode = { sound: false, auto: false, expDelay: false };
@@ -360,8 +410,8 @@ Click to ignite · hold to widen the ignition front
       for (const nd of nodes) nd.nb = [];
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
+          const dx = dxOf(nodes[i].x, nodes[j].x);
+          const dy = dyOf(nodes[i].y, nodes[j].y);
           const d2 = dx * dx + dy * dy;
           if (d2 >= RADIUS * RADIUS) continue;
           edges.push([i, j]);
@@ -402,7 +452,7 @@ Click to ignite · hold to widen the ignition front
 
       for (const j of nd.nb.slice(0, FANOUT)) {
         if (nodes[j].st !== 0) continue;
-        const d = Math.hypot(nodes[j].x - nd.x, nodes[j].y - nd.y);
+        const d = dist(nd.x, nd.y, nodes[j].x, nodes[j].y);
         const mean = Math.max(0.16, d / MSG_V);
         /* Inverse-transform sampling of Exp(1/mean) when asynchronous
            delays are on; otherwise the deterministic transit time. */
@@ -417,10 +467,11 @@ Click to ignite · hold to widen the ignition front
     /* ---- Integration ----------------------------------------------------- */
     const step = (dt) => {
       for (const nd of nodes) {
-        nd.x += nd.vx * dt;
-        nd.y += nd.vy * dt;
-        if (nd.x < 4 || nd.x > W - 4) { nd.vx *= -1; nd.x = Math.min(W - 4, Math.max(4, nd.x)); }
-        if (nd.y < 4 || nd.y > H - 4) { nd.vy *= -1; nd.y = Math.min(H - 4, Math.max(4, nd.y)); }
+        /* Wrap rather than bounce: on a torus there are no walls, so the
+           drift never reverses and the field never develops the pile-up
+           along the edges that reflection produces. */
+        nd.x = wrapP(nd.x + nd.vx * dt, W);
+        nd.y = wrapP(nd.y + nd.vy * dt, H);
         nd.t += dt;
         if (nd.st === 1 && nd.t > FIRE) { nd.st = 2; nd.t = 0; }
         else if (nd.st === 2 && nd.t > REFRAC) { nd.st = 0; nd.t = 0; }
@@ -456,8 +507,8 @@ Click to ignite · hold to widen the ignition front
         s.t += dt;
         if (s.t > s.life) { sparks.splice(k, 1); continue; }
         if (s.ring) continue;
-        s.x += s.vx * dt;
-        s.y += s.vy * dt;
+        s.x = wrapP(s.x + s.vx * dt, W);
+        s.y = wrapP(s.y + s.vy * dt, H);
         s.vx *= 1 - 2.6 * dt;
         s.vy *= 1 - 2.6 * dt;
         s.vy += 14 * dt; // a whisper of gravity so bursts settle
@@ -476,7 +527,7 @@ Click to ignite · hold to widen the ignition front
           const cand = [];
           for (let i = 0; i < nodes.length; i++) {
             if (nodes[i].st !== 0) continue;
-            if (Math.hypot(nodes[i].x - hold.x, nodes[i].y - hold.y) < hold.r) cand.push(i);
+            if (dist(hold.x, hold.y, nodes[i].x, nodes[i].y) < hold.r) cand.push(i);
           }
           if (cand.length) {
             const n = Math.max(1, Math.round(cand.length * 0.16));
@@ -507,6 +558,35 @@ Click to ignite · hold to widen the ignition front
 
     /* ---- Rendering -------------------------------------------------------- */
     const TAU = Math.PI * 2;
+
+    /* Add a segment to the current path, drawn the short way round. When
+       the short path leaves the canvas it is drawn twice — once running off
+       each side — so the line appears continuous across the seam. Anything
+       off-canvas is clipped for free. */
+    const segment = (ax, ay, bx, by) => {
+      const dx = dxOf(ax, bx);
+      const dy = dyOf(ay, by);
+      ctx.moveTo(ax, ay);
+      ctx.lineTo(ax + dx, ay + dy);
+      if (ax + dx !== bx || ay + dy !== by) {
+        ctx.moveTo(bx, by);
+        ctx.lineTo(bx - dx, by - dy);
+      }
+    };
+
+    /* Draw a radial effect once per wrapped image that could reach the
+       canvas, so rings and discs near a seam continue on the far side. */
+    const radial = (x, y, r, paint) => {
+      for (let ox = -1; ox <= 1; ox++) {
+        for (let oy = -1; oy <= 1; oy++) {
+          const px = x + ox * W;
+          const py = y + oy * H;
+          if (px + r < 0 || px - r > W || py + r < 0 || py - r > H) continue;
+          paint(px, py);
+        }
+      }
+    };
+
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
       ctx.save();
@@ -514,26 +594,28 @@ Click to ignite · hold to widen the ignition front
       /* Edges: one batched path at low alpha, so the mesh reads as texture
          rather than wireframe and costs a single stroke call. (0.62 × 0.075
          from the original two-stage alpha, folded into one value.) */
-      ctx.globalAlpha = 0.047;
+      ctx.globalAlpha = ink('edge');
       ctx.lineWidth = 1;
       ctx.strokeStyle = inkColor;
       ctx.beginPath();
       for (const e of edges) {
-        ctx.moveTo(nodes[e[0]].x, nodes[e[0]].y);
-        ctx.lineTo(nodes[e[1]].x, nodes[e[1]].y);
+        const a = nodes[e[0]], b = nodes[e[1]];
+        segment(a.x, a.y, b.x, b.y);
       }
       ctx.stroke();
 
       if (hold.on) {
         ctx.strokeStyle = accent;
-        ctx.globalAlpha = 0.3;
-        ctx.lineWidth = 1.2;
-        ctx.beginPath();
-        ctx.arc(hold.x, hold.y, hold.r, 0, TAU);
-        ctx.stroke();
-        ctx.globalAlpha = 0.06;
         ctx.fillStyle = accent;
-        ctx.fill();
+        ctx.lineWidth = 1.2;
+        radial(hold.x, hold.y, hold.r, (x, y) => {
+          ctx.globalAlpha = 0.3;
+          ctx.beginPath();
+          ctx.arc(x, y, hold.r, 0, TAU);
+          ctx.stroke();
+          ctx.globalAlpha = 0.06;
+          ctx.fill();
+        });
       }
 
       /* Edge flashes on links currently transmitting. */
@@ -544,8 +626,7 @@ Click to ignite · hold to widen the ignition front
         if (!a || !b) continue;
         ctx.globalAlpha = 0.3 * (1 - f.t / 0.45);
         ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
+        segment(a.x, a.y, b.x, b.y);
         ctx.stroke();
       }
 
@@ -554,17 +635,22 @@ Click to ignite · hold to widen the ignition front
       for (const p of pulses) {
         const k = p.t / 0.9;
         const e = 1 - Math.pow(1 - k, 3);
-        ctx.globalAlpha = (p.big ? 0.4 : 0.28) * (1 - k);
-        ctx.lineWidth = (p.big ? 1.8 : 1.3) * (1 - k * 0.6);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 4 + e * (p.big ? 40 : 26), 0, TAU);
-        ctx.stroke();
-        if (p.big && k < 0.55) {
-          ctx.globalAlpha = 0.22 * (1 - k / 0.55);
+        const r1 = 4 + e * (p.big ? 40 : 26);
+        const r2 = 4 + e * 62;
+        const wide = p.big && k < 0.55 ? r2 : r1;
+        radial(p.x, p.y, wide, (x, y) => {
+          ctx.globalAlpha = (p.big ? 0.4 : 0.28) * (1 - k);
+          ctx.lineWidth = (p.big ? 1.8 : 1.3) * (1 - k * 0.6);
           ctx.beginPath();
-          ctx.arc(p.x, p.y, 4 + e * 62, 0, TAU);
+          ctx.arc(x, y, r1, 0, TAU);
           ctx.stroke();
-        }
+          if (p.big && k < 0.55) {
+            ctx.globalAlpha = 0.22 * (1 - k / 0.55);
+            ctx.beginPath();
+            ctx.arc(x, y, r2, 0, TAU);
+            ctx.stroke();
+          }
+        });
       }
 
       /* Spark particles: a few are drawn as motion streaks. */
@@ -614,19 +700,19 @@ Click to ignite · hold to widen the ignition front
         } else if (nd.st === 2) {
           const k = Math.min(1, nd.t / REFRAC);
           ctx.fillStyle = inkColor;
-          ctx.globalAlpha = 0.11;
+          ctx.globalAlpha = ink('refracDot');
           ctx.beginPath();
           ctx.arc(nd.x, nd.y, 3, 0, TAU);
           ctx.fill();
           ctx.strokeStyle = inkColor;
-          ctx.globalAlpha = 0.18;
+          ctx.globalAlpha = ink('refracArc');
           ctx.lineWidth = 1.3;
           ctx.beginPath();
           ctx.arc(nd.x, nd.y, 6.5, -Math.PI / 2, -Math.PI / 2 + k * TAU);
           ctx.stroke();
         } else {
           ctx.fillStyle = inkColor;
-          ctx.globalAlpha = 0.22;
+          ctx.globalAlpha = ink('node');
           ctx.beginPath();
           ctx.arc(nd.x, nd.y, 2.7, 0, TAU);
           ctx.fill();
@@ -646,8 +732,10 @@ Click to ignite · hold to widen the ignition front
       for (const m of msgs) {
         const a = nodes[m.a], b = nodes[m.b];
         if (!a || !b) continue;
-        const x = a.x + (b.x - a.x) * m.p;
-        const y = a.y + (b.y - a.y) * m.p;
+        /* Travel along the short way round, then wrap back onto the canvas
+           so a spike crossing the seam reappears on the far side. */
+        const x = wrapP(a.x + dxOf(a.x, b.x) * m.p, W);
+        const y = wrapP(a.y + dyOf(a.y, b.y) * m.p, H);
         ctx.globalAlpha = 0.85;
         ctx.beginPath();
         ctx.arc(x, y, 1.9, 0, TAU);
@@ -697,7 +785,7 @@ Click to ignite · hold to widen the ignition front
       if (mouseCool > 0) return;
       let best = -1, bd = 1e9;
       for (let i = 0; i < nodes.length; i++) {
-        const d = Math.hypot(nodes[i].x - p.x, nodes[i].y - p.y);
+        const d = dist(p.x, p.y, nodes[i].x, nodes[i].y);
         if (d < bd) { bd = d; best = i; }
       }
       if (best >= 0 && bd < 110 && nodes[best].st === 0) {
