@@ -1,4 +1,9 @@
 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#5B3A78"/>
-  <path d="M8 7 L12 7 L12 14.5 L20 14.5 L20 7 L24 7 L24 25 L20 25 L20 17.5 L12 17.5 L12 25 L8 25 Z" fill="#FAFAF6"/>
+  <style>
+    .tile { fill: #1C1A17 } .mark { fill: #F7F5F0 }
+    @media (prefers-color-scheme: dark) { .tile { fill: #F7F5F0 } .mark { fill: #1C1A17 } }
+  </style>
+  <rect class="tile" width="32" height="32" rx="3"/>
+  <path class="mark" d="M11.32 9.72L11.32 23.07L13.54 23.66L13.54 25.24L3.78 25.24L3.78 23.67L5.99 23.07L5.99 9.72L3.78 9.14L3.78 7.56L13.54 7.56L13.54 9.12L11.32 9.72ZM23.61 9.72L23.61 23.07L25.82 23.66L25.82 25.24L16.06 25.24L16.06 23.67L18.28 23.07L18.28 9.72L16.06 9.14L16.06 7.56L25.82 7.56L25.82 9.12L23.61 9.72ZM21.09 17.75L8.52 17.75L8.52 14.67L21.09 14.67L21.09 17.75Z"/>
+  <circle cx="26.6" cy="5.6" r="2.6" fill="#C8673A"/>
 </svg>

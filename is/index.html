@@ -1,0 +1,1408 @@
+<!DOCTYPE html><html lang="is"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Forsíða · Hafsteinn Einarsson</title><meta name="description" content="Hafsteinn Einarsson – dósent við Háskóla Íslands og vísindamaður hjá Íslenskri erfðagreiningu."><link rel="canonical" href="https://hafst1.is/is/"><link rel="alternate" hreflang="en" href="https://hafst1.is/"><link rel="alternate" hreflang="is" href="https://hafst1.is/is/"><link rel="alternate" hreflang="x-default" href="https://hafst1.is/"><!-- OpenGraph --><meta property="og:type" content="website"><meta property="og:site_name" content="Hafsteinn Einarsson"><meta property="og:title" content="Forsíða · Hafsteinn Einarsson"><meta property="og:description" content="Hafsteinn Einarsson – dósent við Háskóla Íslands og vísindamaður hjá Íslenskri erfðagreiningu."><meta property="og:url" content="https://hafst1.is/is/"><meta property="og:image" content="https://hafst1.is/og/default-is.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="is_IS"><meta property="og:locale:alternate" content="en_GB"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@hafsteinn"><meta name="twitter:title" content="Forsíða · Hafsteinn Einarsson"><meta name="twitter:description" content="Hafsteinn Einarsson – dósent við Háskóla Íslands og vísindamaður hjá Íslenskri erfðagreiningu."><meta name="twitter:image" content="https://hafst1.is/og/default-is.png"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" type="font/woff2" href="/_astro/newsreader-latin-wght-normal.CCVVNp6i.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2" crossorigin><link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"><link rel="alternate" type="application/rss+xml" title="RSS" href="/is/atom.xml"><script>
+      // No-FOUC theme init: must run before paint.
+      // Mirror the ids in src/styles/global.css and ThemeToggle.astro.
+      (() => {
+        // Signals to CSS that JS is running (gates scroll-reveal styling).
+        document.documentElement.classList.add('js');
+        const VALID = new Set(['light', 'dark']);
+        // Dark-leaning names from the retired 35-theme set (and the
+        // retired "reader" theme, which was light): returning visitors keep
+        // a theme of the same polarity instead of snapping to light.
+        const DARKISH = new Set([
+          'business', 'forest', 'aqua', 'coffee', 'luxury', 'black',
+          'dim', 'night', 'sunset', 'synthwave', 'halloween', 'dracula',
+          'abyss', 'mono'
+        ]);
+        let saved = localStorage.getItem('theme');
+        if (saved && !VALID.has(saved)) {
+          saved = DARKISH.has(saved) ? 'dark' : 'light';
+          localStorage.setItem('theme', saved);
+        }
+        const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved ?? (sysDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Hafsteinn Einarsson","jobTitle":"Associate Professor of Computer Science and Head of Faculty","affiliation":[{"@type":"Organization","name":"University of Iceland","url":"https://www.hi.is/"},{"@type":"Organization","name":"Amgen deCODE","url":"https://www.decode.com/"}],"url":"https://hafst1.is/","image":"https://hafst1.is/img/hafsteinn-einarsson.jpg","sameAs":["https://orcid.org/0000-0001-5072-3678","https://github.com/Haffi112","https://scholar.google.com/citations?user=QH69Qk8AAAAJ&hl=en","https://www.linkedin.com/in/hafsteinn-einarsson-619a3711","https://twitter.com/hafsteinn","https://www.youtube.com/@hafsteinneinarsson5462","https://www.tiktok.com/@hafsteinneinarsso"],"alumniOf":{"@type":"CollegeOrUniversity","name":"ETH Zurich"},"knowsAbout":["Natural Language Processing","Computational Neuroscience","Low-resource language modelling","Icelandic language","Machine learning for natural sciences","AI safety and AI risk communication"]}</script><link rel="stylesheet" href="/_astro/BaseLayout.BG9ftrjX.css"><style>.perc-panel[data-astro-cid-yvrryb2f]{box-shadow:0 14px 34px color-mix(in oklch, var(--color-ink) 14%, transparent)}.perc-hud[data-astro-cid-yvrryb2f]{background:color-mix(in oklch, var(--color-bg) 80%, transparent);-webkit-backdrop-filter:blur(3px);border:1px solid color-mix(in oklch, var(--color-ink) 12%, transparent);font-family:var(--font-mono);color:var(--color-ink-faint);font-variant-numeric:tabular-nums;padding:.75rem .875rem .8125rem;font-size:.6875rem;line-height:1.5}.perc-hud[data-astro-cid-yvrryb2f] dd[data-astro-cid-yvrryb2f]{text-align:right}.perc-hud__msg[data-astro-cid-yvrryb2f]{min-height:1.5em;transition:color var(--motion-base) var(--ease-out)}.perc-hud__msg[data-astro-cid-yvrryb2f].is-hot{color:var(--color-accent-primary)}.perc-chip[data-astro-cid-yvrryb2f],.perc-seg[data-astro-cid-yvrryb2f]{border:1px solid color-mix(in oklch, var(--color-ink) 22%, transparent);font-family:var(--font-mono);letter-spacing:.02em;color:var(--color-ink-muted);cursor:pointer;transition:border-color var(--motion-fast) var(--ease-out), color var(--motion-fast) var(--ease-out), background-color var(--motion-fast) var(--ease-out);background:0 0;align-items:center;gap:.4375rem;padding:.4375rem .6875rem;font-size:.6875rem;display:inline-flex}.perc-chip[data-astro-cid-yvrryb2f]:hover,.perc-seg[data-astro-cid-yvrryb2f]:hover{border-color:color-mix(in oklch, var(--color-ink) 50%, transparent);color:var(--color-ink)}.perc-seg[data-astro-cid-yvrryb2f]+.perc-seg[data-astro-cid-yvrryb2f]{margin-left:-1px}.perc-seg[data-astro-cid-yvrryb2f][aria-pressed=true]{background:var(--color-ink);border-color:var(--color-ink);color:var(--color-bg);position:relative}.perc-dot[data-astro-cid-yvrryb2f]{background:color-mix(in oklch, var(--color-ink) 22%, transparent);width:.375rem;height:.375rem;transition:background-color var(--motion-fast) var(--ease-out);border-radius:50%}.perc-chip[data-astro-cid-yvrryb2f][aria-pressed=true]{color:var(--color-ink)}.perc-chip[data-astro-cid-yvrryb2f][aria-pressed=true] .perc-dot[data-astro-cid-yvrryb2f]{background:var(--color-accent-energy)}
+.hero-grid[data-astro-cid-ge2uvauf]{grid-template-columns:minmax(0,1fr);grid-template-areas:"eyebrow""portrait""name""affil""bio""cta";justify-items:start;row-gap:.875rem}.hero-grid[data-astro-cid-ge2uvauf]>.hero-portrait[data-astro-cid-ge2uvauf]{width:clamp(5rem,20vw,7.5rem);margin-bottom:.25rem}@media (width>=32rem){.hero-grid[data-astro-cid-ge2uvauf]{grid-template-columns:minmax(0,max-content) clamp(7rem,26vw,11rem);grid-template-areas:"eyebrow.""name portrait""affil portrait""bio bio""cta cta";justify-content:start;column-gap:clamp(1.25rem,3vw,2.5rem)}.hero-grid[data-astro-cid-ge2uvauf]>.hero-portrait[data-astro-cid-ge2uvauf]{align-self:start;width:100%;margin-bottom:0}}@media (width>=768px){.hero-grid[data-astro-cid-ge2uvauf]{grid-template-columns:minmax(0,max-content) 11rem;grid-template-areas:"eyebrow.""name portrait""affil portrait""bio portrait""cta portrait";column-gap:clamp(1.75rem,3.5vw,3rem)}}@media (width>=1024px){.hero-grid[data-astro-cid-ge2uvauf]{grid-template-columns:minmax(0,max-content) 14rem}}@media (width>=1280px){.hero-grid[data-astro-cid-ge2uvauf]{grid-template-columns:minmax(0,max-content) 16.5rem}}.hero-portrait[data-astro-cid-ge2uvauf]{background:repeating-linear-gradient(45deg, var(--color-base-300) 0 6px, var(--color-bg-elev) 6px 12px);box-shadow:0 18px 44px color-mix(in oklch, var(--color-ink) 18%, transparent)}[data-theme=dark] .hero-portrait[data-astro-cid-ge2uvauf]{box-shadow:0 18px 44px #00000080}.pub-disclosure[data-astro-cid-e2brg7im] summary[data-astro-cid-e2brg7im]::-webkit-details-marker{display:none}.pub-disclosure[data-astro-cid-e2brg7im] summary[data-astro-cid-e2brg7im]:hover .pub-title[data-astro-cid-e2brg7im]{color:var(--color-accent-primary)}.pub-disclosure[data-astro-cid-e2brg7im] summary[data-astro-cid-e2brg7im]:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}.pub-disclosure[data-astro-cid-e2brg7im][open] .pub-marker[data-astro-cid-e2brg7im]{font-size:0}.pub-disclosure[data-astro-cid-e2brg7im][open] .pub-marker[data-astro-cid-e2brg7im]:after{content:"–";font-size:.75rem}@media (prefers-reduced-motion:no-preference) and (width>=1024px){.series-figure[data-astro-cid-j5luqaxz]{transition:transform var(--motion-slow) var(--ease-out);transform:rotate(-1.2deg)}.series-figure[data-astro-cid-j5luqaxz]:hover{transform:rotate(0)}}
+</style></head> <body class="bg-bg text-ink"> <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-bg-elev focus:p-2 focus:border focus:border-accent-primary">Fara beint í efnið</a> <header data-site-header class="sticky top-0 z-20 bg-bg/85 backdrop-blur-md border-b border-rule"> <nav class="max-w-page mx-auto px-6 h-15 flex items-center justify-between gap-3"> <!-- The wordmark is set in the display serif at its plain weight; in a
+         paper design the name doesn't need bolding to read as the masthead. --><a href="/is/" class="font-display text-[1.0625rem] text-ink shrink-0">Hafsteinn Einarsson</a> <!-- Mono caps are appreciably wider than the sans they replaced, so the
+         row is tuned to survive its tightest moment: 768px, where the
+         desktop nav first appears and the theme switcher is still present.
+         Type steps up and the CV button joins only once there is room. --> <ul class="hidden md:flex items-center gap-[clamp(0.75rem,1.5vw,1.625rem)] font-mono text-[0.71875rem] lg:text-[0.78125rem] uppercase tracking-[0.03em] lg:tracking-[0.04em]"> <li> <a href="/is/research/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Rannsóknir</a> </li><li> <a href="/is/publications/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Ritaskrá</a> </li><li> <a href="/is/teaching/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Kennsla</a> </li><li> <a href="/is/group/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Hópurinn</a> </li><li> <a href="/is/writing/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Skrif</a> </li><li> <a href="/is/about/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Um mig</a> </li> <li class="hidden lg:block"> <a href="/cv.pdf" hreflang="en" class="btn-editorial px-3 py-[0.4375rem] text-[0.78125rem]">Ferilskrá ↓</a> </li> </ul> <div class="flex items-center gap-2"> <!-- Language switcher. From md it sits beside the theme toggle,
+           stretched to the toggle's height (self-stretch: the hamburger,
+           the only taller item, is gone by then); below md it lives in the
+           mobile menu, where there is room to spell the language out. --><a href="/" hreflang="en" lang="en" aria-label="English" title="English" class="hidden md:inline-flex self-stretch items-center px-2.5 font-mono text-[0.75rem] tracking-[0.04em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft border border-rule transition-colors">EN</a> <div class="relative" data-theme-switcher> <button type="button" id="theme-switcher-button" aria-haspopup="menu" aria-expanded="false" aria-label="Skipta um útlit" class="flex items-center gap-2 px-2.5 py-1.5 font-mono text-[0.75rem] uppercase tracking-[0.04em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft border border-rule transition-colors"> <span data-theme-dot class="w-3 h-3 rounded-full border border-rule shrink-0" style="background:#888" aria-hidden="true"></span> <span class="hidden sm:inline" data-theme-label>Ljóst</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="theme-switcher-menu" role="menu" aria-labelledby="theme-switcher-button" class="hidden absolute right-0 mt-2 w-64 max-h-[28rem] overflow-y-auto origin-top-right bg-bg-elev border border-rule shadow-lg z-30 p-1"> <button type="button" role="menuitemradio" data-theme-option="light" title="Ljóst" class="w-full flex items-start gap-3 px-3 py-2 text-sm text-ink hover:bg-accent-primary-soft cursor-pointer transition-colors"> <span data-theme-swatch="light" class="w-4 h-4 mt-0.5 rounded-full border border-rule shrink-0" aria-hidden="true"></span> <span class="flex-1 text-left"> <span class="block">Ljóst</span> </span> <svg data-theme-check="light" class="hidden w-3.5 h-3.5 mt-0.5 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="20 6 9 17 4 12"></polyline> </svg> </button><button type="button" role="menuitemradio" data-theme-option="dark" title="Dökkt" class="w-full flex items-start gap-3 px-3 py-2 text-sm text-ink hover:bg-accent-primary-soft cursor-pointer transition-colors"> <span data-theme-swatch="dark" class="w-4 h-4 mt-0.5 rounded-full border border-rule shrink-0" aria-hidden="true"></span> <span class="flex-1 text-left"> <span class="block">Dökkt</span> </span> <svg data-theme-check="dark" class="hidden w-3.5 h-3.5 mt-0.5 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="20 6 9 17 4 12"></polyline> </svg> </button> </div> </div> <script>(function(){const THEMES = [{"id":"light","label":"Ljóst"},{"id":"dark","label":"Dökkt"}];
+
+  (() => {
+    const root = document.documentElement;
+    const wrap = document.querySelector('[data-theme-switcher]');
+    const btn = document.getElementById('theme-switcher-button');
+    const menu = document.getElementById('theme-switcher-menu');
+    if (!wrap || !btn || !menu) return;
+
+    const themeById = Object.fromEntries(THEMES.map((t) => [t.id, t]));
+    const valid = new Set(THEMES.map((t) => t.id));
+
+    /* Legacy theme names are migrated by BaseLayout's no-FOUC script
+       before this runs, so localStorage only ever holds a valid id here. */
+
+    /* Probe `--color-primary` for each theme by briefly setting data-theme on
+       an off-screen <div>. Runs once at mount; results cached into a map. */
+    const probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;left:-9999px;width:0;height:0;';
+    document.body.appendChild(probe);
+    const swatches = {};
+    for (const t of THEMES) {
+      probe.dataset.theme = t.id;
+      const v = getComputedStyle(probe).getPropertyValue('--color-primary').trim();
+      swatches[t.id] = v || '#888';
+    }
+    probe.remove();
+
+    /* Paint every swatch dot in the menu now that we have the values. */
+    document.querySelectorAll('[data-theme-swatch]').forEach((el) => {
+      const id = el.dataset.themeSwatch;
+      if (swatches[id]) el.style.background = swatches[id];
+    });
+
+    const current = () => {
+      const t = root.dataset.theme || 'light';
+      return valid.has(t) ? t : 'light';
+    };
+
+    const apply = (id) => {
+      if (!valid.has(id)) return;
+      root.dataset.theme = id;
+      localStorage.setItem('theme', id);
+      paintButton(id);
+      paintMenu(id);
+    };
+
+    const paintButton = (id) => {
+      const t = themeById[id];
+      const dot = wrap.querySelector('[data-theme-dot]');
+      const label = wrap.querySelector('[data-theme-label]');
+      if (dot && swatches[id]) dot.style.background = swatches[id];
+      if (label) label.textContent = t.label;
+    };
+
+    const paintMenu = (id) => {
+      menu.querySelectorAll('[data-theme-check]').forEach((el) => {
+        el.classList.toggle('hidden', el.dataset.themeCheck !== id);
+      });
+    };
+
+    const open = () => {
+      menu.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      /* Scroll the active option into view inside the menu. */
+      const active = menu.querySelector(`[data-theme-option="${current()}"]`);
+      if (active) active.scrollIntoView({ block: 'nearest' });
+    };
+    const close = () => {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.contains('hidden') ? open() : close();
+    });
+
+    menu.querySelectorAll('[data-theme-option]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        apply(el.dataset.themeOption);
+        close();
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    paintButton(current());
+    paintMenu(current());
+  })();
+})();</script> <button type="button" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu-panel" aria-label="Opna valmynd" data-label-open="Opna valmynd" data-label-close="Loka valmynd" class="md:hidden inline-flex items-center justify-center w-9 h-9 border border-rule text-ink-muted hover:text-ink hover:bg-accent-primary-soft transition-colors"> <svg data-menu-icon="open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="4" y1="7" x2="20" y2="7"></line> <line x1="4" y1="12" x2="20" y2="12"></line> <line x1="4" y1="17" x2="20" y2="17"></line> </svg> <svg data-menu-icon="close" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="6" y1="6" x2="18" y2="18"></line> <line x1="18" y1="6" x2="6" y2="18"></line> </svg> </button> </div> </nav> <div id="mobile-menu-panel" class="md:hidden grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none" style="grid-template-rows: 0fr"> <div class="min-h-0 overflow-hidden"> <ul class="border-t border-rule px-3 py-2 flex flex-col gap-0.5"> <li> <a href="/is/research/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Rannsóknir </a> </li><li> <a href="/is/publications/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Ritaskrá </a> </li><li> <a href="/is/teaching/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Kennsla </a> </li><li> <a href="/is/group/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Hópurinn </a> </li><li> <a href="/is/writing/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Skrif </a> </li><li> <a href="/is/about/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Um mig </a> </li> <li> <a href="/cv.pdf" hreflang="en" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] text-ink hover:bg-accent-primary-soft transition-colors">Ferilskrá ↓</a> </li> <li class="border-t border-rule-soft mt-1 pt-1"> <a href="/" hreflang="en" lang="en" class="relative flex items-center gap-3 min-h-11 px-4 font-mono text-[0.8125rem] tracking-[0.06em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft transition-colors"><span class="text-ink-faint" aria-hidden="true">EN</span>English</a> </li> </ul> </div> </div> </header> <script>
+  (() => {
+    const btn = document.getElementById('mobile-menu-button');
+    const panel = document.getElementById('mobile-menu-panel');
+    if (!btn || !panel) return;
+
+    const iconOpen = btn.querySelector('[data-menu-icon="open"]');
+    const iconClose = btn.querySelector('[data-menu-icon="close"]');
+
+    const setOpen = (state) => {
+      btn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      btn.setAttribute('aria-label', state ? btn.dataset.labelClose : btn.dataset.labelOpen);
+      panel.style.gridTemplateRows = state ? '1fr' : '0fr';
+      iconOpen?.classList.toggle('hidden', state);
+      iconClose?.classList.toggle('hidden', !state);
+    };
+
+    const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(!isOpen());
+    });
+
+    /* Close after tapping a link so the destination page lands clean. */
+    panel.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setOpen(false));
+    });
+
+    /* Escape closes and returns focus to the trigger. */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    /* Click outside the panel + button closes. */
+    document.addEventListener('click', (e) => {
+      if (!isOpen()) return;
+      if (panel.contains(e.target) || btn.contains(e.target)) return;
+      setOpen(false);
+    });
+
+    /* If the viewport grows past md the desktop nav takes over — collapse. */
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = (e) => { if (e.matches) setOpen(false); };
+    mq.addEventListener ? mq.addEventListener('change', onChange) : mq.addListener(onChange);
+  })();
+</script> <main id="main">  <section class="relative overflow-hidden border-b border-rule" data-astro-cid-ge2uvauf> <!-- Live percolation field, its own readability wash, and the controls
+       that go with it. Everything below stacks above it. --><div class="absolute inset-0" data-perc-root data-decimal="," data-msg-idle="smelltu hvar sem er til að hefja keðjuverkun" data-msg-perc="hálft netið kviknaði á {s} s" data-msg-of="{n} af {m}" data-astro-cid-yvrryb2f> <canvas data-perc-canvas class="w-full h-full block" aria-hidden="true" data-astro-cid-yvrryb2f></canvas> <!-- Readability wash: a soft radial lift over the side the hero type
+       sits on, plus a fade into the page background at the bottom edge so
+       the full-bleed section ends cleanly. --> <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background:
+      radial-gradient(120% 90% at 12% 45%, color-mix(in oklch, var(--color-bg) 34%, transparent) 0%, color-mix(in oklch, var(--color-bg) 16%, transparent) 50%, transparent 80%),
+      linear-gradient(to bottom, transparent 60%, color-mix(in oklch, var(--color-bg) 55%, transparent) 88%, var(--color-bg) 100%);" data-astro-cid-yvrryb2f></div> <!-- Instrument readout. Desktop only: below lg the hero text owns the
+       whole width and the readout would sit on top of the buttons. --> <div data-perc-hud hidden class="perc-hud absolute z-10 right-6 bottom-7 w-[15.5rem] pointer-events-none" aria-hidden="true" data-astro-cid-yvrryb2f> <div class="flex items-baseline justify-between" data-astro-cid-yvrryb2f> <span lang="en" data-astro-cid-yvrryb2f>bootstrap percolation</span> <span data-hud-r class="text-ink" data-astro-cid-yvrryb2f>r = 2</span> </div> <canvas data-hud-spark class="mt-2 block w-full h-9" data-astro-cid-yvrryb2f></canvas> <dl class="mt-2 grid grid-cols-[1fr_auto] gap-x-3 gap-y-0.5" data-astro-cid-yvrryb2f> <dt data-astro-cid-yvrryb2f>virkir</dt><dd data-hud-firing class="text-ink" data-astro-cid-yvrryb2f>0</dd> <dt data-astro-cid-yvrryb2f>síðasta keðjuverkun</dt><dd data-hud-last class="text-ink" data-astro-cid-yvrryb2f>–</dd> <dt data-astro-cid-yvrryb2f>þitt met</dt><dd data-hud-best class="text-ink" data-astro-cid-yvrryb2f>–</dd> </dl> <p data-hud-msg class="perc-hud__msg mt-2" data-astro-cid-yvrryb2f>smelltu hvar sem er til að hefja keðjuverkun</p> </div> <div data-perc-controls hidden class="absolute z-20 right-4 top-4 md:right-6 md:top-5 flex flex-col items-end gap-2.5" data-astro-cid-yvrryb2f> <button type="button" data-perc-toggle-panel aria-expanded="false" aria-controls="perc-panel" aria-label="Um þessa hreyfimynd og stillingar hennar" class="order-1 inline-flex items-center justify-center w-7 h-7 rounded-full border border-ink/25 bg-bg/70 backdrop-blur-[2px] font-display italic text-sm leading-none text-ink-muted hover:border-ink/50 hover:text-ink transition-colors cursor-help" data-astro-cid-yvrryb2f>i</button> <div id="perc-panel" data-perc-panel hidden class="perc-panel order-2 w-[min(88vw,24rem)] p-5 bg-bg/95 border border-ink/15 backdrop-blur-[3px]" data-astro-cid-yvrryb2f> <p class="prose-body text-[0.96875rem] leading-[1.55] text-ink-muted" data-astro-cid-yvrryb2f>
+Hver punktur er eining í neti sem er á sífelldri hreyfingu. Einingin
+          kviknar þegar <em data-astro-cid-yvrryb2f>r</em> nágrannar hennar hafa sent henni boð innan
+          skamms tíma og hvílist svo. Blágráu ferningarnir eru hamlandi: hvert
+          boð frá þeim vegur upp á móti hálfu örvandi boði. Keðjuverkun ýmist
+          fjarar út eða fer um allt netið. Þetta er líkanið úr doktorsverkefninu
+          mínu um <a href="/2016/04/25/percolation-with-inhibition/" hreflang="en" data-astro-cid-yvrryb2f><span lang="en" data-astro-cid-yvrryb2f>bootstrap percolation</span> með hömlun</a>.
+</p> <p class="mt-3 font-mono text-[0.6875rem] text-ink-faint" data-astro-cid-yvrryb2f> Smelltu til að hefja keðjuverkun. Haltu inni til að stækka svæðið sem kviknar. </p> <div class="mt-4 flex items-center gap-3" data-astro-cid-yvrryb2f> <span id="perc-r-label" class="font-mono text-[0.6875rem] text-ink-muted" data-astro-cid-yvrryb2f>Þröskuldur</span> <div role="group" aria-labelledby="perc-r-label" class="flex" data-astro-cid-yvrryb2f> <button type="button" data-perc-r="1" aria-pressed="false" aria-label="Þröskuldur 1" class="perc-seg" data-astro-cid-yvrryb2f><em class="font-display" data-astro-cid-yvrryb2f>r</em>&thinsp;=&thinsp;1</button><button type="button" data-perc-r="2" aria-pressed="true" aria-label="Þröskuldur 2" class="perc-seg" data-astro-cid-yvrryb2f><em class="font-display" data-astro-cid-yvrryb2f>r</em>&thinsp;=&thinsp;2</button><button type="button" data-perc-r="3" aria-pressed="false" aria-label="Þröskuldur 3" class="perc-seg" data-astro-cid-yvrryb2f><em class="font-display" data-astro-cid-yvrryb2f>r</em>&thinsp;=&thinsp;3</button> </div> </div> <div class="mt-3 flex flex-wrap gap-2" data-astro-cid-yvrryb2f> <button type="button" data-perc-toggle="inhibition" aria-pressed="true" class="perc-chip" data-astro-cid-yvrryb2f> <span class="perc-dot" aria-hidden="true" data-astro-cid-yvrryb2f></span>Hömlun </button> <button type="button" data-perc-toggle="expDelay" aria-pressed="false" class="perc-chip" data-astro-cid-yvrryb2f> <span class="perc-dot" aria-hidden="true" data-astro-cid-yvrryb2f></span>Slembnar tafir </button> <button type="button" data-perc-toggle="auto" aria-pressed="true" class="perc-chip" data-astro-cid-yvrryb2f> <span class="perc-dot" aria-hidden="true" data-astro-cid-yvrryb2f></span>Sjálfvirkar bylgjur </button> <button type="button" data-perc-toggle="sound" aria-pressed="false" class="perc-chip" data-astro-cid-yvrryb2f> <span class="perc-dot" aria-hidden="true" data-astro-cid-yvrryb2f></span>Hljóð </button> </div> <div class="mt-4 pt-4 border-t border-ink/10 flex flex-wrap gap-2" data-astro-cid-yvrryb2f> <button type="button" data-perc-action="ignite" class="btn-editorial btn-editorial--solid px-3 py-2 text-[0.71875rem]" data-astro-cid-yvrryb2f>Hefja keðjuverkun</button> <button type="button" data-perc-action="reset" class="btn-editorial px-3 py-2 text-[0.71875rem]" data-astro-cid-yvrryb2f>Nýtt net</button> </div> </div> </div> </div>  <script>
+  (() => {
+    const root = document.querySelector('[data-perc-root]');
+    if (!root) return;
+    const canvas = root.querySelector('[data-perc-canvas]');
+    const ctx = canvas && canvas.getContext('2d');
+    if (!ctx) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const TAU = Math.PI * 2;
+
+    /* ---- Theme colours ---------------------------------------------------
+       Probe computed `color` to resolve the theme tokens and use the
+       returned strings verbatim as fill/stroke styles. Do NOT pick numbers
+       out of those strings: an oklch() token comes back as
+       "oklch(0.91 0.008 88)", and reading that as R,G,B gives near-black in
+       both themes — invisible on the dark surface. Where real components
+       are needed (the generation gradient, the glow sprites) they come from
+       a 1×1 canvas round-trip below. */
+    let inkColor = 'rgb(28,26,23)';
+    let accent = 'rgb(182,76,43)';
+    let inhibColor = 'rgb(62,110,130)';
+    let isDark = false;
+    let glowOp = 'source-over';
+    let genColors = [accent];
+    let spriteE = null, spriteI = null;
+
+    const scratch = document.createElement('canvas');
+    scratch.width = scratch.height = 1;
+    const sctx = scratch.getContext('2d', { willReadFrequently: true });
+    const rgbOf = (css) => {
+      sctx.clearRect(0, 0, 1, 1);
+      sctx.fillStyle = '#000';
+      sctx.fillStyle = css; // an unparseable value simply leaves it black
+      sctx.fillRect(0, 0, 1, 1);
+      const d = sctx.getImageData(0, 0, 1, 1).data;
+      return [d[0], d[1], d[2]];
+    };
+    const luminance = ([r, g, b]) => {
+      const f = (c) => {
+        c /= 255;
+        return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+      };
+      return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+    };
+
+    /* Ink alphas per surface, listed rather than derived from one another:
+       a 5% white wash on near-black reads clearly, while 5% black on
+       near-white barely registers. Edges carry the biggest difference — as
+       hairlines they are the first thing to disappear on a low-contrast
+       panel, so on paper they sit far above a scaled version of the dark
+       value. `lens` is the extra edge alpha right under the pointer. */
+    const ALPHA = {
+      dark:  { edge: 0.05, lens: 0.2, node: 0.24, refracDot: 0.11, refracArc: 0.18, inh: 0.7, trail: 0.75 },
+      light: { edge: 0.16, lens: 0.3, node: 0.42, refracDot: 0.24, refracArc: 0.38, inh: 0.8, trail: 0.62 }
+    };
+    let A = ALPHA.light;
+
+    /* Soft radial glow, pre-rendered once per theme and stamped with
+       drawImage — far cheaper than a fresh gradient per firing node. */
+    const makeSprite = ([r, g, b]) => {
+      const s = document.createElement('canvas');
+      s.width = s.height = 64;
+      const c = s.getContext('2d');
+      const grd = c.createRadialGradient(32, 32, 0, 32, 32, 32);
+      grd.addColorStop(0, `rgba(${r},${g},${b},0.9)`);
+      grd.addColorStop(0.35, `rgba(${r},${g},${b},0.35)`);
+      grd.addColorStop(1, `rgba(${r},${g},${b},0)`);
+      c.fillStyle = grd;
+      c.fillRect(0, 0, 64, 64);
+      return s;
+    };
+
+    const GEN_STEPS = 6;
+    const resolveColors = () => {
+      const probe = document.createElement('span');
+      probe.style.display = 'none';
+      document.body.appendChild(probe);
+      const grab = (token) => {
+        probe.style.color = `var(${token})`;
+        return getComputedStyle(probe).color;
+      };
+      inkColor = grab('--color-ink') || inkColor;
+      accent = grab('--color-accent-energy') || accent;
+      inhibColor = grab('--color-info') || inhibColor;
+      const warm = grab('--color-warning');
+      const bg = grab('--color-bg');
+      probe.remove();
+
+      isDark = luminance(rgbOf(bg)) < 0.25;
+      A = isDark ? ALPHA.dark : ALPHA.light;
+      /* Additive blending makes overlapping trails bloom on the dark
+         surface; on paper it would wash out to white, so stay normal. */
+      glowOp = isDark ? 'lighter' : 'source-over';
+
+      /* Cascade depth → colour: the seed is the house rust, later
+         generations warm toward the amber token. */
+      const a = rgbOf(accent);
+      const w = rgbOf(warm);
+      genColors = [];
+      for (let k = 0; k < GEN_STEPS; k++) {
+        const t = (k / (GEN_STEPS - 1)) * 0.85;
+        const c = a.map((v, i) => Math.round(v + (w[i] - v) * t));
+        genColors.push(`rgb(${c[0]},${c[1]},${c[2]})`);
+      }
+      spriteE = makeSprite(a);
+      spriteI = makeSprite(rgbOf(inhibColor));
+    };
+    resolveColors();
+    const genColor = (g) => genColors[Math.min(GEN_STEPS - 1, g)];
+
+    /* ---- Model constants -------------------------------------------------- */
+    const FIRE = 0.34;       // s — how long a node stays in the firing state
+    const REFRAC = 3.1;      // s — refractory pause after firing
+    const DECAY = 2.6;       // s — how long partial charge lingers
+    const MSG_V = 150;       // px/s — excitatory spike speed
+    const INH_FRAC = 0.12;   // share of inhibitory nodes
+    const INH_W = 0.5;       // weight of one inhibitory hit
+    const RADIUS = 132;      // px — edge existence radius
+    const DENSITY = 1.8;     // nodes per 11000 px², scaled
+    const RELINK = 0.55;     // s — how often the edge set is rebuilt
+    const FANOUT = 8;        // max spikes an excitatory node sends
+    const FANOUT_I = 4;      // …and an inhibitory one
+    const TRAIL = 1.5;       // s — how long a landed spike's trail lingers
+    const LENS_R = 150;      // px — pointer lens radius
+    const PERC = 0.5;        // cascade share that counts as percolation
+    const SPARK_N = 200;     // readout history: 200 samples × 0.1 s
+
+    let W = 0, H = 0;
+    let nodes = [], edges = [], msgs = [], pulses = [], sparks = [], trails = [], shocks = [];
+    let sinceLink = 0, ambient = 2.5, mouseCool = 0, clock = 0;
+    const hold = { on: false, x: 0, y: 0, r: 0, acc: 0, cid: 0 };
+    const pointer = { in: false, x: 0, y: 0, target: -1 };
+
+    /* User-controlled modes. */
+    const mode = { sound: false, auto: true, expDelay: false, inhibition: true, r: 2 };
+
+    /* ---- Toroidal space --------------------------------------------------
+       The field wraps, so every distance uses the minimum-image convention
+       and anything drawn between two points is drawn twice when the short
+       path crosses a seam, once running off each side. */
+    const wrapD = (d, s) => (s ? d - s * Math.round(d / s) : d);
+    const wrapP = (v, s) => (s ? ((v % s) + s) % s : v);
+    const dxOf = (ax, bx) => wrapD(bx - ax, W);
+    const dyOf = (ay, by) => wrapD(by - ay, H);
+    const dist = (ax, ay, bx, by) => Math.hypot(dxOf(ax, bx), dyOf(ay, by));
+
+    /* ---- Cascades --------------------------------------------------------
+       Every ignition opens a cascade; spikes carry its id, and a node that
+       fires inherits the id of the spike that tipped it over. A node is
+       counted once per cascade (a wave can come round the torus again). */
+    let cascades = new Map(), nextCid = 1;
+    let lastShare = null, bestShare = 0, sinceCheck = 0;
+    try { bestShare = Number(localStorage.getItem('perc-best')) || 0; } catch (e) {}
+
+    const openCascade = (x, y) => {
+      const cid = nextCid++;
+      cascades.set(cid, { n: 0, t0: clock, last: clock, x, y, perc: false });
+      return cid;
+    };
+
+    /* ---- Readout ---------------------------------------------------------- */
+    const hud = root.querySelector('[data-perc-hud]');
+    const hudR = root.querySelector('[data-hud-r]');
+    const hudFiring = root.querySelector('[data-hud-firing]');
+    const hudLast = root.querySelector('[data-hud-last]');
+    const hudBest = root.querySelector('[data-hud-best]');
+    const hudMsg = root.querySelector('[data-hud-msg]');
+    const spark = root.querySelector('[data-hud-spark]');
+    const spctx = spark && spark.getContext('2d');
+    const history = new Float32Array(SPARK_N);
+    let histHead = 0, sinceSample = 0, sinceHud = 0, msgHold = 0, touched = false;
+
+    /* Localised readout copy from the root's data-* attributes (see the
+       frontmatter); the English fallbacks keep the script self-sufficient. */
+    const L = root.dataset;
+    const DECIMAL = L.decimal || '.';
+    const fill = (tpl, vars) => tpl.replace(/\{(\w)\}/g, (_, k) => String(vars[k]));
+    const MSG_IDLE = L.msgIdle || 'click anywhere to start a cascade';
+    const MSG_PERC = L.msgPerc || 'percolated: half the graph in {s} s';
+    const MSG_OF = L.msgOf || '{n} of {m}';
+
+    const pct = (v) => (v == null ? '–' : `${Math.round(v * 100)}%`);
+    const setText = (el, s) => { if (el && el.textContent !== s) el.textContent = s; };
+    const say = (s, hot, holdFor) => {
+      if (!hudMsg) return;
+      setText(hudMsg, s);
+      hudMsg.classList.toggle('is-hot', !!hot);
+      msgHold = holdFor || 0;
+    };
+    if (bestShare) setText(hudBest, pct(bestShare));
+
+    const closeCascade = (cid, c) => {
+      cascades.delete(cid);
+      if (c.n < 3) return; // a lone click that fizzled is not a cascade
+      lastShare = Math.min(1, c.n / nodes.length);
+      if (lastShare > bestShare) {
+        bestShare = lastShare;
+        try { localStorage.setItem('perc-best', String(bestShare)); } catch (e) {}
+      }
+    };
+
+    const onPercolate = (c) => {
+      c.perc = true;
+      shocks.push({ x: c.x, y: c.y, t: 0 });
+      const secs = Math.max(0.1, clock - c.t0).toFixed(1).replace('.', DECIMAL);
+      say(fill(MSG_PERC, { s: secs }), true, 4);
+    };
+
+    /* ---- Audio (opt-in, built lazily inside a click handler) ------------ */
+    let actx = null, master = null, lastNote = 0;
+    const initAudio = () => {
+      if (!actx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        actx = new AC();
+        master = actx.createGain();
+        master.gain.value = 0.16;
+        const lp = actx.createBiquadFilter();
+        lp.type = 'lowpass';
+        lp.frequency.value = 3400;
+        lp.Q.value = 0.4;
+        /* A short feedback delay stands in for a room — cheaper than a
+           convolver and enough to keep plucks from sounding clinical. */
+        const verb = actx.createDelay(0.3);
+        verb.delayTime.value = 0.19;
+        const vg = actx.createGain();
+        vg.gain.value = 0.24;
+        master.connect(lp);
+        lp.connect(actx.destination);
+        lp.connect(verb);
+        verb.connect(vg);
+        vg.connect(lp);
+      }
+      if (actx.state === 'suspended') actx.resume();
+    };
+
+    /* Short plucked tone. Seeds are louder than the nodes they recruit, so
+       a sweep is audible as a decrescendo; inhibitory nodes answer an
+       octave down on a pure sine, a soft thump under the melody. */
+    const playTone = (freq, gen, inh) => {
+      if (!mode.sound || !actx) return;
+      const now = actx.currentTime;
+      if (now - lastNote < 0.035) return; // rate-limit dense cascades
+      lastNote = now;
+      const o1 = actx.createOscillator();
+      const o2 = actx.createOscillator();
+      const g = actx.createGain();
+      o1.type = inh ? 'sine' : 'triangle';
+      o2.type = 'sine';
+      o1.frequency.value = inh ? freq / 2 : freq;
+      o2.frequency.value = freq * 2.002; // slight detune → gentle beating
+      const peak = inh ? 0.22 : gen === 0 ? 0.5 : 0.3;
+      g.gain.setValueAtTime(0.0001, now);
+      g.gain.exponentialRampToValueAtTime(peak, now + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + (inh ? 0.6 : 1.5));
+      const g2 = actx.createGain();
+      g2.gain.value = inh ? 0 : 0.3;
+      o1.connect(g);
+      o2.connect(g2);
+      g2.connect(g);
+      g.connect(master);
+      o1.start(now);
+      o2.start(now);
+      o1.stop(now + 1.6);
+      o2.stop(now + 1.6);
+    };
+
+    /* ---- Graph construction --------------------------------------------- */
+    const build = () => {
+      const r = canvas.getBoundingClientRect();
+      if (!r.width || !r.height) return false;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = r.width;
+      H = r.height;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const count = Math.max(18, Math.round(((W * H) / 11000) * DENSITY));
+      /* A-minor pentatonic across three octaves. Pitch is a smooth function
+         of birth position, so graph neighbours — the nodes that actually
+         fire in sequence — land on consonant intervals. */
+      const SEMI = [0, 3, 5, 7, 10];
+      const ph1 = Math.random() * TAU;
+      const ph2 = Math.random() * TAU;
+      const toneAt = (x, y) => {
+        const f =
+          1.9 * Math.sin((x / W) * 3.1 + ph1) +
+          1.9 * Math.cos((y / H) * 2.3 + ph2) +
+          0.9 * Math.sin(((x + y) / (W + H)) * 5.7 + ph1 * 0.5);
+        const d = Math.max(0, Math.min(13, Math.round(f + 6.5)));
+        const midi = 45 + Math.floor(d / 5) * 12 + SEMI[d % 5];
+        return 440 * Math.pow(2, (midi - 69) / 12);
+      };
+
+      nodes = [];
+      for (let i = 0; i < count; i++) {
+        const x = Math.random() * W;
+        const y = Math.random() * H;
+        const vx = (Math.random() - 0.5) * 15;
+        const vy = (Math.random() - 0.5) * 15;
+        nodes.push({
+          x, y, vx, vy, bvx: vx, bvy: vy,
+          inh: Math.random() < INH_FRAC,
+          st: 0,        // 0 rest · 1 firing · 2 refractory
+          t: 0,
+          charge: 0,    // excitatory minus inhibitory hits in the window
+          ct: 0,
+          gen: 0,
+          cid: 0,       // cascade that last fired this node
+          nb: [],
+          freq: toneAt(x, y)
+        });
+      }
+      msgs = [];
+      pulses = [];
+      sparks = [];
+      trails = [];
+      shocks = [];
+      cascades = new Map();
+      link();
+      return true;
+    };
+
+    /* Rebuild the edge set from current positions. O(n²), but n is ~100–200
+       and this runs a couple of times a second, not per frame. */
+    const link = () => {
+      edges = [];
+      for (const nd of nodes) nd.nb = [];
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = dxOf(nodes[i].x, nodes[j].x);
+          const dy = dyOf(nodes[i].y, nodes[j].y);
+          if (dx * dx + dy * dy >= RADIUS * RADIUS) continue;
+          edges.push([i, j]);
+          nodes[i].nb.push(j);
+          nodes[j].nb.push(i);
+        }
+      }
+    };
+
+    const isInh = (nd) => mode.inhibition && nd.inh;
+
+    /* ---- Firing ---------------------------------------------------------- */
+    const fire = (i, gen, cid) => {
+      const nd = nodes[i];
+      if (!nd || nd.st !== 0) return false;
+      const g = gen || 0;
+      const c = cascades.get(cid) || cascades.get((cid = openCascade(nd.x, nd.y)));
+      nd.st = 1;
+      nd.t = 0;
+      nd.charge = 0;
+      nd.ct = 0;
+      nd.gen = g;
+      if (nd.cid !== cid) {
+        nd.cid = cid;
+        c.n++;
+        if (!c.perc && c.n >= nodes.length * PERC) onPercolate(c);
+      }
+      c.last = clock;
+
+      const inh = isInh(nd);
+      playTone(nd.freq, g, inh);
+      pulses.push({ x: nd.x, y: nd.y, t: 0, big: g === 0, inh, g });
+
+      const cnt = inh ? 5 : g === 0 ? 16 : 8;
+      const a0 = Math.random() * TAU;
+      for (let k = 0; k < cnt; k++) {
+        const a = a0 + (k / cnt) * TAU + (Math.random() - 0.5) * 0.7;
+        const sp = 42 + Math.random() * 108 * (g === 0 ? 1.25 : 1);
+        sparks.push({
+          x: nd.x, y: nd.y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp,
+          t: 0,
+          life: 0.42 + Math.random() * 0.5,
+          r: 0.7 + Math.random() * 1.5,
+          streak: Math.random() < 0.22,
+          inh, g
+        });
+      }
+
+      /* Spikes go to the nearest resting neighbours first, so a front
+         advances along the short edges and reads as a wave. */
+      const targets = nd.nb
+        .filter((j) => nodes[j].st === 0)
+        .map((j) => [j, dist(nd.x, nd.y, nodes[j].x, nodes[j].y)])
+        .sort((p, q) => p[1] - q[1])
+        .slice(0, inh ? FANOUT_I : FANOUT);
+      for (const [j, d] of targets) {
+        const mean = Math.max(0.12, d / MSG_V);
+        /* Inverse-transform sampling of Exp(1/mean) when random delays are
+           on; otherwise the deterministic transit time. */
+        const dur = mode.expDelay
+          ? Math.min(2.4, Math.max(0.05, -mean * Math.log(1 - Math.random())))
+          : mean;
+        msgs.push({ a: i, b: j, p: 0, dur, g, cid, inh });
+      }
+      return true;
+    };
+
+    /* Seed a cascade that has a fair chance: a node plus one or two of its
+       resting neighbours, so their shared neighbours can reach r = 2. */
+    const seedAt = (i, cid) => {
+      const nd = nodes[i];
+      if (!nd || nd.st !== 0) return 0;
+      cid = cid || openCascade(nd.x, nd.y);
+      fire(i, 0, cid);
+      const nb = nd.nb.filter((j) => nodes[j].st === 0 && !isInh(nodes[j]));
+      for (let k = 0; k < Math.min(mode.r - 1, nb.length); k++) {
+        fire(nb.splice((Math.random() * nb.length) | 0, 1)[0], 0, cid);
+      }
+      return cid;
+    };
+
+    const nearestRested = (x, y, maxD, avoid) => {
+      let best = -1, bd = maxD;
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        if (n.st !== 0) continue;
+        if (avoid && avoid(n)) continue;
+        const d = dist(x, y, n.x, n.y);
+        if (d < bd) { bd = d; best = i; }
+      }
+      return best;
+    };
+
+    const randomSeed = () => {
+      const cand = [];
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        if (n.st === 0 && !isInh(n) && n.nb.length >= 3) cand.push(i);
+      }
+      if (cand.length) seedAt(cand[(Math.random() * cand.length) | 0]);
+    };
+
+    /* ---- Integration ----------------------------------------------------- */
+    const step = (dt) => {
+      clock += dt;
+      const lensOn = pointer.in && finePointer.matches;
+
+      for (const nd of nodes) {
+        /* Ease back toward the node's own drift, then let the pointer push
+           it aside — the mesh parts around the cursor like a net. */
+        nd.vx += (nd.bvx - nd.vx) * Math.min(1, 1.2 * dt);
+        nd.vy += (nd.bvy - nd.vy) * Math.min(1, 1.2 * dt);
+        if (lensOn) {
+          const dx = dxOf(pointer.x, nd.x);
+          const dy = dyOf(pointer.y, nd.y);
+          const d = Math.hypot(dx, dy);
+          if (d < LENS_R * 0.75 && d > 0.5) {
+            const f = (1 - d / (LENS_R * 0.75)) * 140 * dt;
+            nd.vx += (dx / d) * f;
+            nd.vy += (dy / d) * f;
+          }
+        }
+        nd.x = wrapP(nd.x + nd.vx * dt, W);
+        nd.y = wrapP(nd.y + nd.vy * dt, H);
+        nd.t += dt;
+        if (nd.st === 1 && nd.t > FIRE) { nd.st = 2; nd.t = 0; }
+        else if (nd.st === 2 && nd.t > REFRAC) { nd.st = 0; nd.t = 0; }
+        if (nd.st === 0 && nd.charge !== 0) {
+          nd.ct += dt;
+          if (nd.ct > DECAY) { nd.charge = 0; nd.ct = 0; }
+        }
+      }
+
+      for (let k = msgs.length - 1; k >= 0; k--) {
+        const m = msgs[k];
+        m.p += dt / m.dur;
+        if (m.p < 1) continue;
+        msgs.splice(k, 1);
+        const tgt = nodes[m.b];
+        if (!tgt) continue;
+        trails.push({ a: m.a, b: m.b, t: 0, g: m.g, inh: m.inh });
+        if (tgt.st !== 0) continue;
+        tgt.ct = 0;
+        if (m.inh) {
+          tgt.charge -= INH_W;
+          sparks.push({ x: tgt.x, y: tgt.y, vx: 0, vy: 0, t: 0, life: 0.4, r: 2.4, ring: true, inh: true });
+          continue;
+        }
+        tgt.charge++;
+        sparks.push({ x: tgt.x, y: tgt.y, vx: 0, vy: 0, t: 0, life: 0.3, r: 2.4, ring: true, g: m.g });
+        if (tgt.charge >= mode.r) fire(m.b, m.g + 1, m.cid);
+      }
+
+      const age = (arr, life) => {
+        for (let k = arr.length - 1; k >= 0; k--) {
+          arr[k].t += dt;
+          if (arr[k].t > life) arr.splice(k, 1);
+        }
+      };
+      age(pulses, 0.9);
+      age(trails, TRAIL);
+      age(shocks, 1.6);
+      for (let k = sparks.length - 1; k >= 0; k--) {
+        const s = sparks[k];
+        s.t += dt;
+        if (s.t > s.life) { sparks.splice(k, 1); continue; }
+        if (s.ring) continue;
+        s.x = wrapP(s.x + s.vx * dt, W);
+        s.y = wrapP(s.y + s.vy * dt, H);
+        s.vx *= 1 - 2.6 * dt;
+        s.vy *= 1 - 2.6 * dt;
+        s.vy += 14 * dt; // a whisper of gravity so bursts settle
+      }
+
+      sinceLink += dt;
+      if (sinceLink > RELINK) { sinceLink = 0; link(); }
+
+      /* Held-pointer ignition front: a growing disc that keeps seeding a
+         fraction of the rested nodes it covers, all in one cascade. */
+      if (hold.on) {
+        hold.r = Math.min(300, hold.r + 190 * dt);
+        hold.acc += dt;
+        if (hold.acc > 0.055) {
+          hold.acc = 0;
+          const cand = [];
+          for (let i = 0; i < nodes.length; i++) {
+            if (nodes[i].st !== 0) continue;
+            if (dist(hold.x, hold.y, nodes[i].x, nodes[i].y) < hold.r) cand.push(i);
+          }
+          if (cand.length) {
+            if (!cascades.has(hold.cid)) hold.cid = openCascade(hold.x, hold.y);
+            const n = Math.max(1, Math.round(cand.length * 0.16));
+            for (let k = 0; k < n; k++) fire(cand[(Math.random() * cand.length) | 0], 0, hold.cid);
+          }
+        }
+      }
+
+      ambient -= dt;
+      if (mode.auto && ambient <= 0) {
+        ambient = 4 + Math.random() * 3.5;
+        randomSeed();
+      }
+
+      /* Close cascades that have gone quiet: nothing fired for a while and
+         no spike of theirs is still in flight. */
+      sinceCheck += dt;
+      if (sinceCheck > 0.4) {
+        sinceCheck = 0;
+        const live = new Set();
+        for (const m of msgs) live.add(m.cid);
+        if (hold.on) live.add(hold.cid);
+        for (const [cid, c] of cascades) {
+          if (!live.has(cid) && clock - c.last > FIRE + 0.3) closeCascade(cid, c);
+        }
+      }
+
+      /* Pointer target: the node a click would ignite. */
+      pointer.target = lensOn ? nearestRested(pointer.x, pointer.y, 110) : -1;
+
+      if (mouseCool > 0) mouseCool -= dt;
+
+      /* Readout: sample the share of nodes that fired in the last few
+         seconds (firing + refractory) — a smooth curve that peaks with each
+         cascade — and refresh the text a few times a second. */
+      sinceSample += dt;
+      if (sinceSample >= 0.1) {
+        sinceSample = 0;
+        let active = 0;
+        for (const nd of nodes) if (nd.st !== 0) active++;
+        history[histHead] = nodes.length ? active / nodes.length : 0;
+        histHead = (histHead + 1) % SPARK_N;
+      }
+      if (msgHold > 0) {
+        msgHold -= dt;
+        if (msgHold <= 0) say(touched ? '' : MSG_IDLE);
+      }
+      sinceHud += dt;
+      if (sinceHud >= 0.25) { sinceHud = 0; drawHud(); }
+    };
+
+    /* ---- Rendering -------------------------------------------------------- */
+
+    /* Add the segment a → a + (dx, dy) to a path. The start is always on
+       the canvas; when the end runs off a side, the same segment is drawn
+       again shifted by one period, so it reappears across the seam. */
+    const seg = (p, ax, ay, dx, dy) => {
+      const ex = ax + dx, ey = ay + dy;
+      p.moveTo(ax, ay);
+      p.lineTo(ex, ey);
+      const sx = ex < 0 ? W : ex > W ? -W : 0;
+      const sy = ey < 0 ? H : ey > H ? -H : 0;
+      if (sx || sy) {
+        p.moveTo(ax + sx, ay + sy);
+        p.lineTo(ex + sx, ey + sy);
+      }
+    };
+    const edgeSeg = (p, a, b) => seg(p, a.x, a.y, dxOf(a.x, b.x), dyOf(a.y, b.y));
+
+    /* Draw a radial effect once per wrapped image that could reach the
+       canvas, so rings and discs near a seam continue on the far side. */
+    const radial = (x, y, r, paint) => {
+      for (let ox = -1; ox <= 1; ox++) {
+        for (let oy = -1; oy <= 1; oy++) {
+          const px = x + ox * W;
+          const py = y + oy * H;
+          if (px + r < 0 || px - r > W || py + r < 0 || py - r > H) continue;
+          paint(px, py);
+        }
+      }
+    };
+
+    /* Batched strokes keyed by colour and a quantised alpha, so a large
+       cascade with a thousand fading trails is still a few dozen strokes. */
+    const ALPHA_STEPS = 6;
+    const batches = new Map();
+    const batchPath = (color, alpha, width) => {
+      const q = Math.max(1, Math.min(ALPHA_STEPS, Math.ceil(alpha * ALPHA_STEPS)));
+      const key = `${color}|${q}|${width}`;
+      let b = batches.get(key);
+      if (!b) { b = { color, alpha: q / ALPHA_STEPS, width, path: new Path2D() }; batches.set(key, b); }
+      return b.path;
+    };
+    const flushBatches = () => {
+      for (const b of batches.values()) {
+        ctx.globalAlpha = b.alpha;
+        ctx.strokeStyle = b.color;
+        ctx.lineWidth = b.width;
+        ctx.stroke(b.path);
+      }
+      batches.clear();
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      ctx.lineCap = 'round';
+
+      /* Edges: one batched path at low alpha, so the mesh reads as texture
+         rather than wireframe. */
+      ctx.globalAlpha = A.edge;
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = inkColor;
+      const mesh = new Path2D();
+      for (const e of edges) edgeSeg(mesh, nodes[e[0]], nodes[e[1]]);
+      ctx.stroke(mesh);
+
+      /* Lens: the mesh under the pointer is redrawn darker, in three
+         proximity bands, so the cursor reads as a light over the net. */
+      if (pointer.in && finePointer.matches) {
+        const bands = [new Path2D(), new Path2D(), new Path2D()];
+        for (const e of edges) {
+          const a = nodes[e[0]], b = nodes[e[1]];
+          const mx = a.x + dxOf(a.x, b.x) / 2;
+          const my = a.y + dyOf(a.y, b.y) / 2;
+          const d = dist(pointer.x, pointer.y, mx, my);
+          if (d >= LENS_R) continue;
+          edgeSeg(bands[Math.min(2, Math.floor((d / LENS_R) * 3))], a, b);
+        }
+        bands.forEach((p, k) => {
+          ctx.globalAlpha = A.lens * (1 - k / 3);
+          ctx.stroke(p);
+        });
+      }
+
+      if (hold.on) {
+        ctx.strokeStyle = accent;
+        ctx.fillStyle = accent;
+        ctx.lineWidth = 1.2;
+        radial(hold.x, hold.y, hold.r, (x, y) => {
+          ctx.globalAlpha = 0.3;
+          ctx.beginPath();
+          ctx.arc(x, y, hold.r, 0, TAU);
+          ctx.stroke();
+          ctx.globalAlpha = 0.06;
+          ctx.fill();
+        });
+      }
+
+      ctx.globalCompositeOperation = glowOp;
+
+      /* Trails left by landed spikes: the cascade's branching tree. */
+      for (const tr of trails) {
+        const a = nodes[tr.a], b = nodes[tr.b];
+        if (!a || !b) continue;
+        const k = 1 - tr.t / TRAIL;
+        const color = tr.inh ? inhibColor : genColor(tr.g);
+        edgeSeg(batchPath(color, A.trail * k * k, tr.inh ? 1.1 : 1.6), a, b);
+      }
+      /* Fuses: the stretch of edge a spike in flight has already covered. */
+      for (const m of msgs) {
+        const a = nodes[m.a], b = nodes[m.b];
+        if (!a || !b) continue;
+        const color = m.inh ? inhibColor : genColor(m.g);
+        seg(batchPath(color, 0.55, 1.4), a.x, a.y, dxOf(a.x, b.x) * m.p, dyOf(a.y, b.y) * m.p);
+      }
+      flushBatches();
+
+      /* Percolation shock: one ring sweeping the whole field. */
+      for (const s of shocks) {
+        const k = s.t / 1.6;
+        const r = 20 + (1 - Math.pow(1 - k, 2)) * Math.hypot(W, H) * 0.7;
+        ctx.strokeStyle = accent;
+        ctx.lineWidth = 2.2 * (1 - k) + 0.4;
+        radial(s.x, s.y, r, (x, y) => {
+          ctx.globalAlpha = 0.32 * (1 - k);
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, TAU);
+          ctx.stroke();
+        });
+      }
+
+      /* Expanding rings at each firing site; seeds get a second ring. */
+      for (const p of pulses) {
+        const k = p.t / 0.9;
+        const e = 1 - Math.pow(1 - k, 3);
+        const r1 = 4 + e * (p.big ? 40 : 26);
+        const r2 = 4 + e * 62;
+        const wide = p.big && k < 0.55 ? r2 : r1;
+        ctx.strokeStyle = p.inh ? inhibColor : genColor(p.g);
+        radial(p.x, p.y, wide, (x, y) => {
+          ctx.globalAlpha = (p.big ? 0.4 : 0.28) * (1 - k);
+          ctx.lineWidth = (p.big ? 1.8 : 1.3) * (1 - k * 0.6);
+          ctx.beginPath();
+          ctx.arc(x, y, r1, 0, TAU);
+          ctx.stroke();
+          if (p.big && k < 0.55) {
+            ctx.globalAlpha = 0.22 * (1 - k / 0.55);
+            ctx.beginPath();
+            ctx.arc(x, y, r2, 0, TAU);
+            ctx.stroke();
+          }
+        });
+      }
+
+      /* Spark particles: a few are drawn as motion streaks. */
+      for (const s of sparks) {
+        const k = s.t / s.life;
+        const color = s.inh ? inhibColor : genColor(s.g || 0);
+        if (s.ring) {
+          ctx.strokeStyle = color;
+          ctx.globalAlpha = 0.5 * (1 - k);
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, 3 + k * 7, 0, TAU);
+          ctx.stroke();
+          continue;
+        }
+        ctx.globalAlpha = 0.85 * (1 - k * k);
+        if (s.streak) {
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 0.9;
+          const len = 3 + s.r * 2;
+          const m = Math.hypot(s.vx, s.vy) || 1;
+          ctx.beginPath();
+          ctx.moveTo(s.x, s.y);
+          ctx.lineTo(s.x - (s.vx / m) * len, s.y - (s.vy / m) * len);
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = color;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r * (1 - k * 0.55), 0, TAU);
+          ctx.fill();
+        }
+      }
+
+      /* Firing glow, stamped from the pre-rendered sprites. */
+      for (const nd of nodes) {
+        if (nd.st !== 1) continue;
+        const k = 1 - nd.t / FIRE;
+        const sprite = isInh(nd) ? spriteI : spriteE;
+        if (!sprite) continue;
+        const R = 16 + 10 * k;
+        ctx.globalAlpha = 0.25 + 0.5 * k;
+        ctx.drawImage(sprite, nd.x - R, nd.y - R, R * 2, R * 2);
+      }
+
+      ctx.globalCompositeOperation = 'source-over';
+
+      /* Nodes: firing (core), refractory (recovery arc), rested (dot or
+         inhibitory square, plus a charge arc toward the threshold). */
+      for (const nd of nodes) {
+        const inh = isInh(nd);
+        if (nd.st === 1) {
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = inh ? inhibColor : genColor(nd.gen);
+          ctx.beginPath();
+          if (inh) ctx.rect(nd.x - 3.6, nd.y - 3.6, 7.2, 7.2);
+          else ctx.arc(nd.x, nd.y, 4.2, 0, TAU);
+          ctx.fill();
+          continue;
+        }
+        if (nd.st === 2) {
+          const k = Math.min(1, nd.t / REFRAC);
+          ctx.fillStyle = inh ? inhibColor : inkColor;
+          ctx.globalAlpha = A.refracDot;
+          ctx.beginPath();
+          if (inh) ctx.rect(nd.x - 2.6, nd.y - 2.6, 5.2, 5.2);
+          else ctx.arc(nd.x, nd.y, 3, 0, TAU);
+          ctx.fill();
+          ctx.strokeStyle = ctx.fillStyle;
+          ctx.globalAlpha = A.refracArc;
+          ctx.lineWidth = 1.3;
+          ctx.beginPath();
+          ctx.arc(nd.x, nd.y, 6.5, -Math.PI / 2, -Math.PI / 2 + k * TAU);
+          ctx.stroke();
+          continue;
+        }
+        if (inh) {
+          ctx.strokeStyle = inhibColor;
+          ctx.globalAlpha = A.inh;
+          ctx.lineWidth = 1.2;
+          ctx.strokeRect(nd.x - 2.6, nd.y - 2.6, 5.2, 5.2);
+        } else {
+          ctx.fillStyle = inkColor;
+          ctx.globalAlpha = A.node;
+          ctx.beginPath();
+          ctx.arc(nd.x, nd.y, 2.7, 0, TAU);
+          ctx.fill();
+        }
+        /* Charge toward the threshold: rust clockwise when excitation
+           leads, slate anticlockwise when inhibition has it below zero. */
+        if (nd.charge !== 0) {
+          const pos = nd.charge > 0;
+          const k = Math.min(1, Math.abs(nd.charge) / mode.r);
+          ctx.strokeStyle = pos ? accent : inhibColor;
+          ctx.globalAlpha = pos ? 0.6 : 0.7;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.arc(nd.x, nd.y, 6, -Math.PI / 2, -Math.PI / 2 + (pos ? k : -k) * TAU, !pos);
+          ctx.stroke();
+        }
+      }
+
+      /* Spike heads in transit. */
+      ctx.globalCompositeOperation = glowOp;
+      for (const m of msgs) {
+        const a = nodes[m.a], b = nodes[m.b];
+        if (!a || !b) continue;
+        const x = wrapP(a.x + dxOf(a.x, b.x) * m.p, W);
+        const y = wrapP(a.y + dyOf(a.y, b.y) * m.p, H);
+        ctx.fillStyle = m.inh ? inhibColor : genColor(m.g);
+        ctx.globalAlpha = 0.9;
+        ctx.beginPath();
+        ctx.arc(x, y, m.inh ? 1.6 : 2, 0, TAU);
+        ctx.fill();
+        ctx.globalAlpha = 0.22;
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, TAU);
+        ctx.fill();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+
+      /* Target marker: a slowly turning dashed ring on the node a click
+         would ignite. */
+      const tgt = nodes[pointer.target];
+      if (tgt) {
+        ctx.strokeStyle = accent;
+        ctx.globalAlpha = 0.75;
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([3, 3.5]);
+        ctx.lineDashOffset = -clock * 8;
+        ctx.beginPath();
+        ctx.arc(tgt.x, tgt.y, 10, 0, TAU);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      ctx.restore();
+    };
+
+    const drawHud = () => {
+      if (!hud || hud.hidden) return;
+      let firing = 0;
+      for (const nd of nodes) if (nd.st === 1) firing++;
+      setText(hudFiring, fill(MSG_OF, { n: firing, m: nodes.length }));
+      setText(hudLast, pct(lastShare));
+      setText(hudBest, bestShare ? pct(bestShare) : '–');
+      setText(hudR, `r = ${mode.r}`);
+
+      if (!spctx) return;
+      const r = spark.getBoundingClientRect();
+      if (!r.width) return;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const w = Math.round(r.width * dpr), h = Math.round(r.height * dpr);
+      if (spark.width !== w || spark.height !== h) { spark.width = w; spark.height = h; }
+      spctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const sw = r.width, sh = r.height;
+      spctx.clearRect(0, 0, sw, sh);
+      /* Half-graph reference line: above it, a cascade has percolated. */
+      spctx.globalAlpha = 0.35;
+      spctx.strokeStyle = inkColor;
+      spctx.lineWidth = 1;
+      spctx.setLineDash([2, 3]);
+      spctx.beginPath();
+      spctx.moveTo(0, sh * (1 - PERC) + 0.5);
+      spctx.lineTo(sw, sh * (1 - PERC) + 0.5);
+      spctx.stroke();
+      spctx.setLineDash([]);
+      spctx.beginPath();
+      for (let k = 0; k < SPARK_N; k++) {
+        const v = history[(histHead + k) % SPARK_N];
+        const x = (k / (SPARK_N - 1)) * sw;
+        const y = sh - 1 - v * (sh - 2);
+        k ? spctx.lineTo(x, y) : spctx.moveTo(x, y);
+      }
+      spctx.strokeStyle = accent;
+      spctx.globalAlpha = 1;
+      spctx.lineWidth = 1.25;
+      spctx.stroke();
+      spctx.lineTo(sw, sh);
+      spctx.lineTo(0, sh);
+      spctx.closePath();
+      spctx.fillStyle = accent;
+      spctx.globalAlpha = 0.12;
+      spctx.fill();
+    };
+
+    /* ---- Loop ------------------------------------------------------------- */
+    let raf = 0, visible = false, last = 0, ready = false, introDone = false;
+    const loop = (now) => {
+      const dt = Math.min(0.05, last ? (now - last) / 1000 : 0.016);
+      last = now;
+      step(dt);
+      draw();
+      raf = requestAnimationFrame(loop);
+    };
+    const start = () => {
+      if (raf || !ready || reduced.matches || !visible || document.hidden) return;
+      last = 0;
+      raf = requestAnimationFrame(loop);
+      if (!introDone) { introDone = true; setTimeout(intro, 700); }
+    };
+    const stop = () => {
+      cancelAnimationFrame(raf);
+      raf = 0;
+    };
+
+    /* Opening moment: one cascade from just beside the portrait, so a
+       first-time visitor sees the field do the thing it is about. */
+    const intro = () => {
+      if (!raf) return;
+      const portrait = document.querySelector('.hero-portrait');
+      const cr = canvas.getBoundingClientRect();
+      let x = W * 0.6, y = H * 0.45, box = null;
+      if (portrait) {
+        const pr = portrait.getBoundingClientRect();
+        box = { l: pr.left - cr.left, t: pr.top - cr.top, r: pr.right - cr.left, b: pr.bottom - cr.top };
+        x = box.r + 24;
+        y = (box.t + box.b) / 2;
+      }
+      const under = (n) => box && n.x > box.l - 6 && n.x < box.r + 6 && n.y > box.t - 6 && n.y < box.b + 6;
+      const i = nearestRested(x, y, 1e9, (n) => under(n) || isInh(n));
+      if (i >= 0) seedAt(i);
+    };
+
+    /* ---- Pointer ---------------------------------------------------------- */
+    /* Listen on the enclosing section, not the canvas: the hero content
+       stacks above the canvas layer, so a click on the headline would never
+       reach the canvas — but it bubbles through the section. */
+    const host = canvas.closest('section') || root;
+    const at = (e) => {
+      const r = canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    };
+    /* Clicks on real controls are theirs alone — no ignition front under a
+       link the visitor is trying to follow. */
+    const isChrome = (e) =>
+      !!(e.target && e.target.closest && e.target.closest('a,button,[data-perc-panel]'));
+
+    const markTouched = () => {
+      if (touched) return;
+      touched = true;
+      if (msgHold <= 0) say('');
+    };
+
+    const ignite = (p) => {
+      if (mouseCool > 0) return;
+      const i = nearestRested(p.x, p.y, 110);
+      if (i >= 0) {
+        hold.cid = openCascade(nodes[i].x, nodes[i].y);
+        fire(i, 0, hold.cid);
+        mouseCool = 0.12;
+        markTouched();
+      }
+    };
+
+    const onDown = (e) => {
+      if (isChrome(e) || e.button > 0) return;
+      const p = at(e);
+      hold.on = true; hold.x = p.x; hold.y = p.y; hold.r = 34; hold.acc = 0;
+      ignite(p);
+    };
+    const onUp = () => { hold.on = false; hold.r = 0; };
+    const onMove = (e) => {
+      const p = at(e);
+      pointer.x = p.x;
+      pointer.y = p.y;
+      pointer.in = !isChrome(e);
+      if (!hold.on) return;
+      hold.x = p.x;
+      hold.y = p.y;
+    };
+    const onLeave = () => { pointer.in = false; onUp(); };
+    const onTouch = (e) => {
+      if (isChrome(e)) return;
+      const t0 = e.touches && e.touches[0];
+      if (!t0) return;
+      const p = at({ clientX: t0.clientX, clientY: t0.clientY });
+      hold.on = true; hold.x = p.x; hold.y = p.y;
+      if (hold.r < 34) hold.r = 34;
+      if (e.type === 'touchstart') ignite(p);
+    };
+
+    host.addEventListener('mousemove', onMove);
+    host.addEventListener('mousedown', onDown);
+    host.addEventListener('mouseleave', onLeave);
+    window.addEventListener('mouseup', onUp);
+    host.addEventListener('touchstart', onTouch, { passive: true });
+    host.addEventListener('touchmove', onTouch, { passive: true });
+    host.addEventListener('touchend', onUp);
+
+    /* ---- Controls --------------------------------------------------------- */
+    const controls = root.querySelector('[data-perc-controls]');
+    const panel = root.querySelector('[data-perc-panel]');
+    const panelBtn = root.querySelector('[data-perc-toggle-panel]');
+
+    root.querySelectorAll('[data-perc-toggle]').forEach((btn) => {
+      const key = btn.dataset.percToggle;
+      btn.addEventListener('click', () => {
+        const next = !mode[key];
+        mode[key] = next;
+        btn.setAttribute('aria-pressed', next ? 'true' : 'false');
+        /* The AudioContext is constructed here and nowhere else, so it is
+           always inside a user gesture and never autoplay-blocked. */
+        if (key === 'sound' && next) initAudio();
+        if (key === 'auto' && next) ambient = 0.6;
+        if (!raf && ready) draw();
+      });
+    });
+
+    const segs = root.querySelectorAll('[data-perc-r]');
+    segs.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        mode.r = Number(btn.dataset.percR);
+        segs.forEach((b) => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+        drawHud();
+      });
+    });
+
+    root.querySelectorAll('[data-perc-action]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.percAction === 'ignite') { randomSeed(); markTouched(); }
+        else if (build()) { if (!raf) draw(); }
+      });
+    });
+
+    if (panelBtn && panel) {
+      const setPanel = (open) => {
+        panel.hidden = !open;
+        panelBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      panelBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setPanel(panel.hidden);
+      });
+      document.addEventListener('click', (e) => {
+        if (!panel.hidden && !controls.contains(e.target)) setPanel(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !panel.hidden) {
+          setPanel(false);
+          panelBtn.focus();
+        }
+      });
+    }
+
+    /* Controls, readout and the crosshair only make sense when the field
+       is actually running. */
+    const syncChrome = () => {
+      if (controls) controls.hidden = reduced.matches;
+      if (hud) hud.hidden = reduced.matches || !window.matchMedia('(min-width: 1024px)').matches;
+      host.style.cursor = !reduced.matches && finePointer.matches ? 'crosshair' : '';
+    };
+    syncChrome();
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', syncChrome);
+
+    /* ---- Lifecycle -------------------------------------------------------- */
+    new MutationObserver(() => {
+      resolveColors();
+      drawHud();
+      if (!raf && ready) draw();
+    }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      visible ? start() : stop();
+    });
+    io.observe(canvas);
+
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stop() : start();
+    });
+
+    reduced.addEventListener('change', () => {
+      syncChrome();
+      if (reduced.matches) { stop(); if (ready) draw(); } else start();
+    });
+
+    /* ResizeObserver rather than an eager build(): this script runs
+       mid-parse, before the hero has its final height, so measuring now
+       would yield a zero-sized canvas. */
+    let resizeTimer = 0;
+    new ResizeObserver(() => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (build()) {
+          ready = true;
+          if (raf) return;
+          /* Reduced motion (or an off-screen hero) gets one static frame. */
+          reduced.matches || !visible || document.hidden ? draw() : start();
+        }
+      }, 100);
+    }).observe(canvas);
+  })();
+</script> <!-- pointer-events-none lets clicks fall through the type to the canvas
+       so the whole hero is ignitable; the CTAs opt back in. --> <!-- Tighter vertical padding on mobile: with the portrait sitting inside
+       the text flow the hero is taller there, and this keeps the CTAs
+       inside the first screen on a typical phone. --> <div class="relative pointer-events-none max-w-page mx-auto px-6 pt-12 pb-12 md:pt-24 md:pb-20" data-astro-cid-ge2uvauf> <!-- Every block — including the portrait — is a direct grid child, so
+         the same elements can be re-mapped per breakpoint by grid-template-
+         areas alone (see the <style> block). That is what lets the portrait
+         sit beside the text on desktop and *inside* the text flow, between
+         the affiliation and the bio, on mobile — with no duplicated markup
+         and no change to DOM order.
+
+         Each block carries its own frosted plate rather than sharing one
+         card, so the cascade stays visible between the lines. --><div class="hero-grid grid" data-astro-cid-ge2uvauf> <span class="plate [grid-area:eyebrow] px-3 py-1.5 eyebrow" data-astro-cid-ge2uvauf>Rannsóknir í vélrænu námi</span> <!-- Steeper fluid clamp below md: the name is the one element that
+           cannot wrap, so it sets the floor for the text track once the
+           portrait sits beside it. It relaxes into the full display scale
+           at md, where the portrait moves alongside the whole block. --> <h1 class="plate [grid-area:name] px-2.5 md:px-4 py-2.5 text-[clamp(2rem,9vw,3.25rem)] leading-[0.98] tracking-[-0.022em] md:text-display font-light text-ink" data-astro-cid-ge2uvauf>
+Hafsteinn<br data-astro-cid-ge2uvauf>Einarsson
+</h1> <p class="plate [grid-area:affil] px-3.5 py-2 font-prose italic font-light text-ink-muted text-[1.0625rem] md:text-[1.1875rem] leading-[1.5]" data-astro-cid-ge2uvauf> Dósent og deildarforseti, Háskóli Íslands<br data-astro-cid-ge2uvauf> Vísindamaður, Íslensk erfðagreining </p> <!-- Portrait: square-cornered, desaturated to sit inside the paper
+           palette, on a hatched backing that shows through while the image
+           decodes. --> <!-- Width lives in the scoped CSS, not in a utility — see the note on
+           grid-template-columns below. --> <div class="hero-portrait [grid-area:portrait] relative aspect-4/5" data-astro-cid-ge2uvauf> <picture data-astro-cid-ge2uvauf="true"> <source srcset="/_astro/hafsteinn.BrxmWlIq_Z18LCFp.avif 264w, /_astro/hafsteinn.BrxmWlIq_2lEgeW.avif 330w" type="image/avif"><source srcset="/_astro/hafsteinn.BrxmWlIq_Z1AcBzd.webp 264w, /_astro/hafsteinn.BrxmWlIq_1Tehl9.webp 330w" type="image/webp">  <img src="/_astro/hafsteinn.BrxmWlIq_Z9O3uE.png" srcset="/_astro/hafsteinn.BrxmWlIq_1pVbnU.png 264w, /_astro/hafsteinn.BrxmWlIq_Z9O3uE.png 330w" alt="Hafsteinn Einarsson" loading="eager" fetchpriority="high" data-astro-cid-ge2uvauf="true" decoding="async" width="330" height="409" class="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.06]"> </picture> </div> <p class="plate [grid-area:bio] px-4 py-3 prose-body max-w-[46ch] text-[1.03125rem] md:text-[1.15rem]" data-astro-cid-ge2uvauf> Ég stýri rannsóknarhópi sem vinnur að máltækni fyrir íslensku og færeysku, auk verkefna í tölvusjón fyrir náttúruvísindi, klínískri gervigreind og mannerfðafræði. Ég fjalla líka mikið um gervigreind á opinberum vettvangi, nú síðast í <a href="/is/#series-title" class="pointer-events-auto" data-astro-cid-ge2uvauf>sjö þátta myndbandaröð</a>. </p> <div class="[grid-area:cta] pointer-events-auto mt-1.5 flex flex-wrap gap-2.5" data-astro-cid-ge2uvauf> <a href="/is/research/" class="btn-editorial btn-editorial--solid" data-astro-cid-ge2uvauf>Rannsóknir →</a> <a href="/is/publications/" class="btn-editorial plate" data-astro-cid-ge2uvauf>Ritaskrá →</a> <a href="/cv.pdf" hreflang="en" class="btn-editorial plate" data-astro-cid-ge2uvauf>Ferilskrá ↓</a> </div> </div> </div> </section>  <div class="max-w-page mx-auto grid gap-px bg-rule lg:grid-cols-2" data-reveal> <section class="bg-bg px-6 py-10 md:px-10 md:py-12"> <div class="flex items-baseline justify-between gap-4"> <div class="flex items-baseline gap-3">  <h2 class="font-display text-[0.9375rem] font-normal uppercase tracking-[0.16em] text-ink">Fréttir</h2> </div> <a href="/is/writing/#news" class="link-plain font-mono text-xs text-ink-muted shrink-0">Allar →</a> </div> <ul class="mt-6 list-none"> <li class="grid grid-cols-[4.5rem_1fr] gap-x-3 sm:gap-x-4 gap-y-2 py-[0.9375rem] border-t border-rule-soft last:border-b last:border-b-rule-soft"> <time datetime="2026-10-09" class="meta pt-1 flex items-center gap-1.5"> <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent-energy" aria-hidden="true"></span> 2026-10 </time> <p class="font-prose text-[1.0625rem] leading-[1.45] text-ink"> <a href="/is/2026/10/09/making-an-ai-risk-series-with-ai/">Ný færsla: Þáttaröð um áhættu af gervigreind, gerð með gervigreind</a> </p> </li><li class="grid grid-cols-[4.5rem_1fr] gap-x-3 sm:gap-x-4 gap-y-2 py-[0.9375rem] border-t border-rule-soft last:border-b last:border-b-rule-soft"> <time datetime="2026-10-05" class="meta pt-1 flex items-center gap-1.5">  2026-10 </time> <p class="font-prose text-[1.0625rem] leading-[1.45] text-ink"> <a href="https://www.youtube.com/playlist?list=PLPCQ9BGT2_Bo">Gaf út „Gæti gervigreindin grandað okkur?“, sjö stuttmyndir um áhættu af gervigreind, á íslensku og ensku á YouTube og TikTok.</a> </p> </li><li class="grid grid-cols-[4.5rem_1fr] gap-x-3 sm:gap-x-4 gap-y-2 py-[0.9375rem] border-t border-rule-soft last:border-b last:border-b-rule-soft"> <time datetime="2026-10-05" class="meta pt-1 flex items-center gap-1.5">  2026-10 </time> <p class="font-prose text-[1.0625rem] leading-[1.45] text-ink"> <a href="https://samstodin.simplecast.com/episodes/manudagur-5-oktober-efnahagsmal-saa-gelyf-ofbeldi-og-gervigreind-PA2jye_t">Við Rauða borðið á Samstöðinni að ræða hvort þróun gervigreindar sé komin úr böndunum.</a> </p> </li><li class="grid grid-cols-[4.5rem_1fr] gap-x-3 sm:gap-x-4 gap-y-2 py-[0.9375rem] border-t border-rule-soft last:border-b last:border-b-rule-soft"> <time datetime="2026-10-02" class="meta pt-1 flex items-center gap-1.5">  2026-10 </time> <p class="font-prose text-[1.0625rem] leading-[1.45] text-ink"> <a href="https://vimeo.com/1232362298/fb17678192">Rökræddi við Kára Stefánsson, Stefaníu Benónísdóttur, Magnús Örn Úlfarsson og Jóhann Pál Jóhannsson hvort gervigreindin muni tortíma okkur eða bjarga okkur (myndband).</a> </p> </li><li class="grid grid-cols-[4.5rem_1fr] gap-x-3 sm:gap-x-4 gap-y-2 py-[0.9375rem] border-t border-rule-soft last:border-b last:border-b-rule-soft"> <time datetime="2026-09-26" class="meta pt-1 flex items-center gap-1.5">  2026-09 </time> <p class="font-prose text-[1.0625rem] leading-[1.45] text-ink"> <a href="https://www.visir.is/g/20262939056d/tor-timir-gervi-greindin-mann-kyninu-">Viðtal á Vísi um hvort gervigreindin muni tortíma mannkyninu.</a> </p> </li> </ul> </section> <section class="bg-bg px-6 py-10 md:px-10 md:py-12"> <div class="flex items-baseline justify-between gap-4"> <div class="flex items-baseline gap-3">  <h2 class="font-display text-[0.9375rem] font-normal uppercase tracking-[0.16em] text-ink">Valdar greinar</h2> </div> <a href="/is/publications/" class="link-plain font-mono text-xs text-ink-muted shrink-0">Allar →</a> </div> <div class="mt-6"> <details class="pub-disclosure border-t border-rule-soft last:border-b last:border-b-rule-soft py-4" data-astro-cid-e2brg7im> <summary class="grid grid-cols-[1fr_auto] items-start gap-x-4 gap-y-[0.4375rem] cursor-pointer list-none" data-astro-cid-e2brg7im> <div class="col-start-1 flex flex-col gap-[0.4375rem]" data-astro-cid-e2brg7im> <span class="inline-block font-mono uppercase leading-none text-[0.6875rem] tracking-[0.1em] text-accent-primary">Íslensk og germönsk máltækni</span> <span class="pub-title font-display text-lg md:text-xl font-normal leading-[1.3] text-ink" data-astro-cid-e2brg7im> MazeEval: a benchmark for testing sequential decision-making in language models </span> <span class="font-prose italic text-[0.9375rem] leading-[1.4] text-ink-muted" data-astro-cid-e2brg7im> <strong class="font-medium text-ink" data-astro-cid-e2brg7im>Einarsson, H.</strong>  · Proceedings of the fifteenth language resources and evaluation conference (LREC 2026) · 2026 </span> </div> <!-- The design leaves disclosure rows unmarked; a hairline mono glyph
+         costs nothing and is the difference between "there is more here"
+         being discoverable and being guessed at. --> <span class="pub-marker meta col-start-2 row-start-1 mt-1 select-none" aria-hidden="true" data-astro-cid-e2brg7im>+</span> </summary> <p class="mt-3.5 prose-body text-[1rem] leading-[1.6] text-ink-muted" data-astro-cid-e2brg7im>MazeEval er prófsafn til að meta raðbundna ákvarðanatöku mállíkana með
+rötunarverkefnum í völundarhúsum sem búin eru til með reikniriti.
+Uppsetningin kannar hvort líkönin geti viðhaldið samræmdu innra korti
+yfir margar umferðir samskipta í stað þess að reiða sig á staðbundna
+mynsturpörun. Grein með einum höfundi, birt á LREC 2026.
+</p> <ul class="mt-3 flex flex-wrap items-baseline gap-3.5" data-astro-cid-e2brg7im> <li data-astro-cid-e2brg7im> <a href="https://doi.org/10.63317/4nm93hckcaf2" class="font-mono text-xs" data-astro-cid-e2brg7im>DOI →</a> </li><li data-astro-cid-e2brg7im> <a href="https://arxiv.org/abs/2507.20395" class="font-mono text-xs" data-astro-cid-e2brg7im>arXiv →</a> </li><li data-astro-cid-e2brg7im> <a href="https://lrec.elra.info/lrec2026-main-027" class="font-mono text-xs" data-astro-cid-e2brg7im>PDF →</a> </li> <li class="basis-full sm:basis-auto" data-astro-cid-e2brg7im><div class="cite" data-cite> <button type="button" class="font-mono text-xs text-ink-muted hover:text-accent-primary cursor-pointer" data-cite-button data-copied="BibTeX afritað" data-select="Veldu og afritaðu BibTeX-færsluna hér fyrir neðan" aria-live="polite">Vitna í</button> <pre class="cite-source mt-2 p-3 bg-bg-elev border border-rule font-mono text-[0.71875rem] leading-[1.5] text-ink whitespace-pre-wrap break-all" hidden>@inproceedings{einarsson2025mazeeval,
+  title={{MazeEval}: A Benchmark for Testing Sequential Decision-Making in Language Models},
+  author={Einarsson, Hafsteinn},
+  booktitle={Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)},
+  pages={407--418},
+  year={2026}
+}</pre> </div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target?.closest(`[data-cite-button]`),n=t?.closest(`[data-cite]`)?.querySelector(`.cite-source`);if(!t||!n)return;let r=t.dataset.label??=t.textContent??``;try{await navigator.clipboard.writeText((n.textContent??``).trim()),t.textContent=t.dataset.copied??r,setTimeout(()=>t.textContent=r,2200)}catch{n.hidden=!1,t.textContent=t.dataset.select??r;let e=document.createRange();e.selectNodeContents(n);let i=window.getSelection();i?.removeAllRanges(),i?.addRange(e)}});</script></li> </ul> </details><details class="pub-disclosure border-t border-rule-soft last:border-b last:border-b-rule-soft py-4" data-astro-cid-e2brg7im> <summary class="grid grid-cols-[1fr_auto] items-start gap-x-4 gap-y-[0.4375rem] cursor-pointer list-none" data-astro-cid-e2brg7im> <div class="col-start-1 flex flex-col gap-[0.4375rem]" data-astro-cid-e2brg7im> <span class="inline-block font-mono uppercase leading-none text-[0.6875rem] tracking-[0.1em] text-accent-primary">Íslensk og germönsk máltækni</span> <span class="pub-title font-display text-lg md:text-xl font-normal leading-[1.3] text-ink" data-astro-cid-e2brg7im> Curated retrieval versus open web search in public AI information services: a coverage-trust trade-off </span> <span class="font-prose italic text-[0.9375rem] leading-[1.4] text-ink-muted" data-astro-cid-e2brg7im> <strong class="font-medium text-ink" data-astro-cid-e2brg7im>Einarsson, H.</strong>, Einarsson, H. B., Ólafsson, J. G., Þorsteinsson, J. G.  · arXiv preprint arXiv:2607.05217 · 2026 </span> </div> <!-- The design leaves disclosure rows unmarked; a hairline mono glyph
+         costs nothing and is the difference between "there is more here"
+         being discoverable and being guessed at. --> <span class="pub-marker meta col-start-2 row-start-1 mt-1 select-none" aria-hidden="true" data-astro-cid-e2brg7im>+</span> </summary> <p class="mt-3.5 prose-body text-[1rem] leading-[1.6] text-ink-muted" data-astro-cid-e2brg7im>Sérfræðimat á Evrópuvefnum áður en hann var opnaður, en hann er
+þjónusta Háskóla Íslands, fjármögnuð af stjórnvöldum, sem svarar
+spurningum um Evrópusambandið. Matið fór fram þegar Ísland bjó sig
+undir þjóðaratkvæðagreiðslu í ágúst 2026 um að taka upp
+aðildarviðræður við ESB að nýju. Fimm sérfræðingar á sviðinu skiluðu
+551 mati á 449 svörum sem gervigreind samdi, þar sem sérvalið innlent
+heimildasafn (RAG) var borið saman við opna vefleit: vefleitin svaraði
+fleiri spurningum en í 35% svara var bent á ótrausta eða óviðkomandi
+heimild, á meðan sérvalda heimildasafnið reyndist traust en takmarkað
+að umfangi. Færir rök fyrir því að áreiðanleiki heimilda sé mælanleg
+en að mestu ósýnileg vídd upplýsingagæða í opinberri
+gervigreindarþjónustu. Forprent á arXiv (fyrsti höfundur).
+</p> <ul class="mt-3 flex flex-wrap items-baseline gap-3.5" data-astro-cid-e2brg7im> <li data-astro-cid-e2brg7im> <a href="https://arxiv.org/abs/2607.05217" class="font-mono text-xs" data-astro-cid-e2brg7im>arXiv →</a> </li> <li class="basis-full sm:basis-auto" data-astro-cid-e2brg7im><div class="cite" data-cite> <button type="button" class="font-mono text-xs text-ink-muted hover:text-accent-primary cursor-pointer" data-cite-button data-copied="BibTeX afritað" data-select="Veldu og afritaðu BibTeX-færsluna hér fyrir neðan" aria-live="polite">Vitna í</button> <pre class="cite-source mt-2 p-3 bg-bg-elev border border-rule font-mono text-[0.71875rem] leading-[1.5] text-ink whitespace-pre-wrap break-all" hidden>@article{einarsson2026curated,
+  title={Curated retrieval versus open web search in public {AI} information services: a coverage-trust trade-off},
+  author={Einarsson, Hafsteinn and Einarsson, Hafsteinn Birgir and {\&#39;O}lafsson, J{\&#39;o}n Gunnar and {\TH}orsteinsson, J{\&#39;o}n Gunnar},
+  journal={arXiv preprint arXiv:2607.05217},
+  year={2026}
+}</pre> </div></li> </ul> </details><details class="pub-disclosure border-t border-rule-soft last:border-b last:border-b-rule-soft py-4" data-astro-cid-e2brg7im> <summary class="grid grid-cols-[1fr_auto] items-start gap-x-4 gap-y-[0.4375rem] cursor-pointer list-none" data-astro-cid-e2brg7im> <div class="col-start-1 flex flex-col gap-[0.4375rem]" data-astro-cid-e2brg7im> <span class="inline-block font-mono uppercase leading-none text-[0.6875rem] tracking-[0.1em] text-accent-energy">Vélrænt nám · náttúruvísindi</span> <span class="pub-title font-display text-lg md:text-xl font-normal leading-[1.3] text-ink" data-astro-cid-e2brg7im> Temporal aggregation of vision-language features for high-accuracy fish classification in automated monitoring </span> <span class="font-prose italic text-[0.9375rem] leading-[1.4] text-ink-muted" data-astro-cid-e2brg7im> Silva Martins, J. R., Bárðarson, H., Guðbrandsson, J., <strong class="font-medium text-ink" data-astro-cid-e2brg7im>Einarsson, H.</strong>  · Ecological Informatics · 2025 </span> </div> <!-- The design leaves disclosure rows unmarked; a hairline mono glyph
+         costs nothing and is the difference between "there is more here"
+         being discoverable and being guessed at. --> <span class="pub-marker meta col-start-2 row-start-1 mt-1 select-none" aria-hidden="true" data-astro-cid-e2brg7im>+</span> </summary> <p class="mt-3.5 prose-body text-[1rem] leading-[1.6] text-ink-muted" data-astro-cid-e2brg7im>Safnar saman eiginleikum úr mynd- og mállíkönum (vision-language) yfir
+tíma í neðansjávarmyndböndum til að flokka fisktegundir í sjálfvirkri
+vöktun. Vigurframsetningar einstakra ramma eru sameinaðar með
+tímasöfnun (temporal pooling) til að ráða við suð og byrgingu sem
+takmarka flokkara sem vinna ramma fyrir ramma í kerfum í rekstri. Birt
+í Ecological Informatics (2025) sem hluti af áframhaldandi
+tölvusjónarsamstarfi rannsóknarhópsins við Hafrannsóknastofnun.
+</p> <ul class="mt-3 flex flex-wrap items-baseline gap-3.5" data-astro-cid-e2brg7im> <li data-astro-cid-e2brg7im> <a href="https://doi.org/10.1016/j.ecoinf.2025.103462" class="font-mono text-xs" data-astro-cid-e2brg7im>DOI →</a> </li> <li class="basis-full sm:basis-auto" data-astro-cid-e2brg7im><div class="cite" data-cite> <button type="button" class="font-mono text-xs text-ink-muted hover:text-accent-primary cursor-pointer" data-cite-button data-copied="BibTeX afritað" data-select="Veldu og afritaðu BibTeX-færsluna hér fyrir neðan" aria-live="polite">Vitna í</button> <pre class="cite-source mt-2 p-3 bg-bg-elev border border-rule font-mono text-[0.71875rem] leading-[1.5] text-ink whitespace-pre-wrap break-all" hidden>@article{da2025temporal,
+  title={Temporal aggregation of vision-language features for high-accuracy fish classification in automated monitoring},
+  author={da Silva Martins, Jo{\~a}o Rodrigo and B{\&#39;a}r{\dh}arson, Hlynur and Gu{\dh}brandsson, J{\&#39;o}hannes and Einarsson, Hafsteinn},
+  journal={Ecological Informatics},
+  volume={92},
+  pages={103462},
+  year={2025},
+  doi={10.1016/j.ecoinf.2025.103462},
+  publisher={Elsevier}
+}</pre> </div></li> </ul> </details> </div> </section> <div class="lg:col-span-2"> <section class="bg-bg px-6 py-10 md:px-10 md:py-14" aria-labelledby="series-title" data-astro-cid-j5luqaxz> <div class="flex items-baseline justify-between gap-4"> <div class="flex items-baseline gap-3">  <h2 class="font-display text-[0.9375rem] font-normal uppercase tracking-[0.16em] text-ink">Myndbandaröð</h2> </div>  </div> <div class="mt-8 grid gap-8 lg:gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] items-start" data-astro-cid-j5luqaxz> <figure class="series-figure relative" data-astro-cid-j5luqaxz> <picture data-astro-cid-j5luqaxz="true"> <source srcset="/_astro/intro-host.CR3MBH6Q_Z1N3xUj.avif 480w, /_astro/intro-host.CR3MBH6Q_Z1I08Rk.avif 720w, /_astro/intro-host.CR3MBH6Q_2eDxj2.avif 1040w" type="image/avif" sizes="(min-width: 1024px) 480px, 100vw"><source srcset="/_astro/intro-host.CR3MBH6Q_Z1CrTHP.webp 480w, /_astro/intro-host.CR3MBH6Q_Z1xouEQ.webp 720w, /_astro/intro-host.CR3MBH6Q_2x4jOP.webp 1040w" type="image/webp" sizes="(min-width: 1024px) 480px, 100vw">  <img src="/_astro/intro-host.CR3MBH6Q_Z1iNe18.jpg" srcset="/_astro/intro-host.CR3MBH6Q_1XSJq7.jpg 480w, /_astro/intro-host.CR3MBH6Q_23W9t6.jpg 720w, /_astro/intro-host.CR3MBH6Q_Z2quArb.jpg 1040w" alt="Teiknuð mynd af Hafsteini í bol merktum Háskóla Íslands þar sem hann veifar fyrir framan Aðalbyggingu háskólans" sizes="(min-width: 1024px) 480px, 100vw" loading="lazy" data-astro-cid-j5luqaxz="true" decoding="async" width="1600" height="900" class="block w-full aspect-[16/7.3] object-cover object-top border border-rule"> </picture> <figcaption class="meta mt-2.5" data-astro-cid-j5luqaxz> Kynnir þáttanna, teiknaður af myndlíkani eftir fjórum ljósmyndum af mér. </figcaption> </figure> <div data-astro-cid-j5luqaxz> <h2 id="series-title" class="text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] font-light leading-[1.08] text-ink" data-astro-cid-j5luqaxz> Gæti gervigreindin grandað okkur? </h2> <p lang="en" class="mt-1.5 font-prose italic text-[1.125rem] text-ink-muted" data-astro-cid-j5luqaxz>Could AI destroy us?</p> <p class="mt-4 prose-body max-w-[52ch] text-pretty" data-astro-cid-j5luqaxz> Það er erfitt að sjá fyrir sér hvernig gervigreind gæti í raun skaðað okkur, svo ég gerði sjö stuttmyndir sem endursegja hver eina alvarlega röksemdafærslu, allt frá tilraun þar sem gervigreind reyndi að kúga stjórnanda til framtíðar þar sem við missum stjórnina án þess að taka eftir því. Ég skrifaði handritin. Myndirnar, tónlistin og röddin mín eru búnar til með gervigreind. </p> <ol class="series-list mt-6 grid gap-x-8 sm:grid-cols-2" data-astro-cid-j5luqaxz> <li class="grid grid-cols-[1.25rem_1fr] gap-x-2 py-2 border-t border-rule-soft" data-astro-cid-j5luqaxz> <span class="meta pt-0.5" data-astro-cid-j5luqaxz>1</span> <span class="font-prose text-[0.96875rem] leading-[1.4] text-ink" data-astro-cid-j5luqaxz>Aðstoðarmaðurinn sem las rangan tölvupóst</span> </li><li class="grid grid-cols-[1.25rem_1fr] gap-x-2 py-2 border-t border-rule-soft" data-astro-cid-j5luqaxz> <span class="meta pt-0.5" data-astro-cid-j5luqaxz>2</span> <span class="font-prose text-[0.96875rem] leading-[1.4] text-ink" data-astro-cid-j5luqaxz>Gervigreindin sem hóf stríð sem hún barðist aldrei í</span> </li><li class="grid grid-cols-[1.25rem_1fr] gap-x-2 py-2 border-t border-rule-soft" data-astro-cid-j5luqaxz> <span class="meta pt-0.5" data-astro-cid-j5luqaxz>3</span> <span class="font-prose text-[0.96875rem] leading-[1.4] text-ink" data-astro-cid-j5luqaxz>Sextán tímar yfir nótt</span> </li><li class="grid grid-cols-[1.25rem_1fr] gap-x-2 py-2 border-t border-rule-soft" data-astro-cid-j5luqaxz> <span class="meta pt-0.5" data-astro-cid-j5luqaxz>4</span> <span class="font-prose text-[0.96875rem] leading-[1.4] text-ink" data-astro-cid-j5luqaxz>Hermennirnir sem segja aldrei nei</span> </li><li class="grid grid-cols-[1.25rem_1fr] gap-x-2 py-2 border-t border-rule-soft" data-astro-cid-j5luqaxz> <span class="meta pt-0.5" data-astro-cid-j5luqaxz>5</span> <span class="font-prose text-[0.96875rem] leading-[1.4] text-ink" data-astro-cid-j5luqaxz>Heimurinn þar sem sprengjur voru auðveldar</span> </li><li class="grid grid-cols-[1.25rem_1fr] gap-x-2 py-2 border-t border-rule-soft" data-astro-cid-j5luqaxz> <span class="meta pt-0.5" data-astro-cid-j5luqaxz>6</span> <span class="font-prose text-[0.96875rem] leading-[1.4] text-ink" data-astro-cid-j5luqaxz>Þrjátíu og sex mínútur</span> </li><li class="grid grid-cols-[1.25rem_1fr] gap-x-2 py-2 border-t border-rule-soft" data-astro-cid-j5luqaxz> <span class="meta pt-0.5" data-astro-cid-j5luqaxz>7</span> <span class="font-prose text-[0.96875rem] leading-[1.4] text-ink" data-astro-cid-j5luqaxz>Ekki með hvelli</span> </li> </ol> <div class="mt-7 flex flex-wrap gap-2.5" data-astro-cid-j5luqaxz> <a href="https://www.youtube.com/playlist?list=PLPCQ9BGT2_Bo" class="btn-editorial btn-editorial--solid" data-astro-cid-j5luqaxz>Horfa á íslensku</a><a href="https://www.youtube.com/playlist?list=PLLaNhQyMllRo" lang="en" class="btn-editorial" data-astro-cid-j5luqaxz>Watch in English</a><a href="https://www.tiktok.com/@hafsteinneinarsso" class="btn-editorial" data-astro-cid-j5luqaxz>Horfa á TikTok</a> <a href="/2026/10/09/making-an-ai-risk-series-with-ai/" hreflang="en" class="btn-editorial" data-astro-cid-j5luqaxz>Svona gerði ég þær</a> </div> </div> </div> </section> </div> </div> </main> <!-- The footer sits on the warmer paper tone (base-200), which in this
+     palette is a shade *darker* than the page — the design's #f1ede4. --><footer class="border-t border-rule mt-24 bg-bg-elev"> <div class="max-w-page mx-auto px-6 py-10 md:px-10 md:py-12 grid gap-8 md:gap-12 sm:grid-cols-2 lg:grid-cols-3"> <div class="max-w-xs"> <p class="font-display text-[1.1875rem] text-ink">
+Hafsteinn Einarsson
+</p> <p class="mt-3 font-prose text-[1rem] leading-[1.55] text-ink-muted max-w-[34ch]"> Rannsóknir í vélrænu námi við Háskóla Íslands og hjá Íslenskri erfðagreiningu: máltækni, tölvusjón, klínísk gervigreind og mannerfðafræði. </p> <p class="meta mt-6">© 2026 Hafsteinn Einarsson</p> </div> <nav aria-label="Hlutar síðunnar"> <p class="eyebrow text-ink-faint">Á síðunni</p> <ul class="mt-3.5 flex flex-col gap-2.5 font-mono text-[0.78125rem]"> <li><a href="/is/research/" class="text-ink-muted hover:text-ink">Rannsóknir</a></li><li><a href="/is/publications/" class="text-ink-muted hover:text-ink">Ritaskrá</a></li><li><a href="/is/teaching/" class="text-ink-muted hover:text-ink">Kennsla</a></li><li><a href="/is/group/" class="text-ink-muted hover:text-ink">Hópurinn</a></li><li><a href="/is/writing/" class="text-ink-muted hover:text-ink">Skrif</a></li><li><a href="/is/about/" class="text-ink-muted hover:text-ink">Um mig</a></li> </ul> </nav> <nav aria-label="Annars staðar á netinu"> <p class="eyebrow text-ink-faint">Annars staðar</p> <ul class="mt-3.5 flex flex-col gap-2.5 font-mono text-[0.78125rem]"> <li><a href="https://scholar.google.com/citations?user=QH69Qk8AAAAJ&amp;hl=en" class="text-ink-muted hover:text-ink">Google Scholar</a></li><li><a href="https://orcid.org/0000-0001-5072-3678" class="text-ink-muted hover:text-ink">ORCID</a></li><li><a href="https://github.com/Haffi112" class="text-ink-muted hover:text-ink">GitHub</a></li><li><a href="https://www.linkedin.com/in/hafsteinn-einarsson-619a3711" class="text-ink-muted hover:text-ink">LinkedIn</a></li><li><a href="https://twitter.com/hafsteinn" class="text-ink-muted hover:text-ink">X</a></li><li><a href="https://www.youtube.com/@hafsteinneinarsson5462" class="text-ink-muted hover:text-ink">YouTube</a></li><li><a href="https://www.tiktok.com/@hafsteinneinarsso" class="text-ink-muted hover:text-ink">TikTok</a></li><li><a href="/atom.xml" class="text-ink-muted hover:text-ink">RSS</a></li> </ul> </nav> </div> <div class="border-t border-rule"> <div class="max-w-page mx-auto px-6 md:px-10 py-4 flex justify-end"> <a href="/cv.pdf" hreflang="en" class="meta hover:text-ink">Sækja ferilskrá (á ensku) ↓</a> </div> </div> </footer> <script>
+      // Scroll reveals: fade/rise elements marked data-reveal as they
+      // enter the viewport. CSS (gated on html.js) hides them initially;
+      // reduced-motion users get everything visible via the media query.
+      (() => {
+        const els = document.querySelectorAll('[data-reveal]');
+        if (!els.length || !('IntersectionObserver' in window)) {
+          els.forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-revealed');
+              io.unobserve(e.target);
+            }
+          }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+      })();
+    </script></body> </html>

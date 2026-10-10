@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Making a video series about AI risk, with AI · Hafsteinn Einarsson</title><meta name="description" content="How I turned seven arguments about AI risk into seven short animated films in Icelandic and English in about two days, with a cloned voice, a few hundred generated images, and a set of agents doing most of the production while I approved three things."><link rel="canonical" href="https://hafst1.is/2026/10/09/making-an-ai-risk-series-with-ai/"><link rel="alternate" hreflang="en" href="https://hafst1.is/2026/10/09/making-an-ai-risk-series-with-ai/"><link rel="alternate" hreflang="is" href="https://hafst1.is/is/2026/10/09/making-an-ai-risk-series-with-ai/"><link rel="alternate" hreflang="x-default" href="https://hafst1.is/2026/10/09/making-an-ai-risk-series-with-ai/"><!-- OpenGraph --><meta property="og:type" content="article"><meta property="og:site_name" content="Hafsteinn Einarsson"><meta property="og:title" content="Making a video series about AI risk, with AI · Hafsteinn Einarsson"><meta property="og:description" content="How I turned seven arguments about AI risk into seven short animated films in Icelandic and English in about two days, with a cloned voice, a few hundred generated images, and a set of agents doing most of the production while I approved three things."><meta property="og:url" content="https://hafst1.is/2026/10/09/making-an-ai-risk-series-with-ai/"><meta property="og:image" content="https://hafst1.is/_astro/thumbnail-e01-en.Br2Hh3g3_vaH2V.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_GB"><meta property="og:locale:alternate" content="is_IS"><meta property="article:published_time" content="2026-10-09T00:00:00.000Z"><meta property="article:author" content="Hafsteinn Einarsson"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@hafsteinn"><meta name="twitter:title" content="Making a video series about AI risk, with AI · Hafsteinn Einarsson"><meta name="twitter:description" content="How I turned seven arguments about AI risk into seven short animated films in Icelandic and English in about two days, with a cloned voice, a few hundred generated images, and a set of agents doing most of the production while I approved three things."><meta name="twitter:image" content="https://hafst1.is/_astro/thumbnail-e01-en.Br2Hh3g3_vaH2V.png"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" type="font/woff2" href="/_astro/newsreader-latin-wght-normal.CCVVNp6i.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2" crossorigin><link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"><script>
+      // No-FOUC theme init: must run before paint.
+      // Mirror the ids in src/styles/global.css and ThemeToggle.astro.
+      (() => {
+        // Signals to CSS that JS is running (gates scroll-reveal styling).
+        document.documentElement.classList.add('js');
+        const VALID = new Set(['light', 'dark']);
+        // Dark-leaning names from the retired 35-theme set (and the
+        // retired "reader" theme, which was light): returning visitors keep
+        // a theme of the same polarity instead of snapping to light.
+        const DARKISH = new Set([
+          'business', 'forest', 'aqua', 'coffee', 'luxury', 'black',
+          'dim', 'night', 'sunset', 'synthwave', 'halloween', 'dracula',
+          'abyss', 'mono'
+        ]);
+        let saved = localStorage.getItem('theme');
+        if (saved && !VALID.has(saved)) {
+          saved = DARKISH.has(saved) ? 'dark' : 'light';
+          localStorage.setItem('theme', saved);
+        }
+        const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved ?? (sysDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Making a video series about AI risk, with AI","description":"How I turned seven arguments about AI risk into seven short animated films in Icelandic and English in about two days, with a cloned voice, a few hundred generated images, and a set of agents doing most of the production while I approved three things.","datePublished":"2026-10-09T00:00:00.000Z","inLanguage":"en","url":"https://hafst1.is/2026/10/09/making-an-ai-risk-series-with-ai/","mainEntityOfPage":"https://hafst1.is/2026/10/09/making-an-ai-risk-series-with-ai/","image":"https://hafst1.is/_astro/thumbnail-e01-en.Br2Hh3g3_vaH2V.png","keywords":"ai-risk, video, claude-code, elevenlabs, tooling","author":{"@type":"Person","name":"Hafsteinn Einarsson","url":"https://hafst1.is/"}}</script><link rel="stylesheet" href="/_astro/PostLayout.DYb23Fur.css"><link rel="stylesheet" href="/_astro/BaseLayout.BG9ftrjX.css"><style>.post-body[data-astro-cid-ssdmjifj]>h2{letter-spacing:-.015em;margin-top:3rem;margin-bottom:.75rem;font-size:1.625rem;font-weight:400;line-height:1.2}.post-body[data-astro-cid-ssdmjifj]>h3{margin-top:2rem;margin-bottom:.5rem;font-size:1.25rem;font-weight:500}
+</style></head> <body class="bg-bg text-ink"> <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-bg-elev focus:p-2 focus:border focus:border-accent-primary">Skip to content</a> <header data-site-header class="sticky top-0 z-20 bg-bg/85 backdrop-blur-md border-b border-rule"> <nav class="max-w-page mx-auto px-6 h-15 flex items-center justify-between gap-3"> <!-- The wordmark is set in the display serif at its plain weight; in a
+         paper design the name doesn't need bolding to read as the masthead. --><a href="/" class="font-display text-[1.0625rem] text-ink shrink-0">Hafsteinn Einarsson</a> <!-- Mono caps are appreciably wider than the sans they replaced, so the
+         row is tuned to survive its tightest moment: 768px, where the
+         desktop nav first appears and the theme switcher is still present.
+         Type steps up and the CV button joins only once there is room. --> <ul class="hidden md:flex items-center gap-[clamp(0.75rem,1.5vw,1.625rem)] font-mono text-[0.71875rem] lg:text-[0.78125rem] uppercase tracking-[0.03em] lg:tracking-[0.04em]"> <li> <a href="/research/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Research</a> </li><li> <a href="/publications/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Publications</a> </li><li> <a href="/teaching/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Teaching</a> </li><li> <a href="/group/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Group</a> </li><li> <a href="/writing/" aria-current="page" class="transition-colors pb-1 text-ink border-b border-accent-primary">Writing</a> </li><li> <a href="/about/" class="transition-colors pb-1 text-ink-muted hover:text-ink">About</a> </li> <li class="hidden lg:block"> <a href="/cv.pdf" class="btn-editorial px-3 py-[0.4375rem] text-[0.78125rem]">CV ↓</a> </li> </ul> <div class="flex items-center gap-2"> <!-- Language switcher. From md it sits beside the theme toggle,
+           stretched to the toggle's height (self-stretch: the hamburger,
+           the only taller item, is gone by then); below md it lives in the
+           mobile menu, where there is room to spell the language out. --><a href="/is/2026/10/09/making-an-ai-risk-series-with-ai/" hreflang="is" lang="is" aria-label="Íslenska" title="Íslenska" class="hidden md:inline-flex self-stretch items-center px-2.5 font-mono text-[0.75rem] tracking-[0.04em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft border border-rule transition-colors">IS</a> <div class="relative" data-theme-switcher> <button type="button" id="theme-switcher-button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch theme" class="flex items-center gap-2 px-2.5 py-1.5 font-mono text-[0.75rem] uppercase tracking-[0.04em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft border border-rule transition-colors"> <span data-theme-dot class="w-3 h-3 rounded-full border border-rule shrink-0" style="background:#888" aria-hidden="true"></span> <span class="hidden sm:inline" data-theme-label>Light</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="theme-switcher-menu" role="menu" aria-labelledby="theme-switcher-button" class="hidden absolute right-0 mt-2 w-64 max-h-[28rem] overflow-y-auto origin-top-right bg-bg-elev border border-rule shadow-lg z-30 p-1"> <button type="button" role="menuitemradio" data-theme-option="light" title="Light" class="w-full flex items-start gap-3 px-3 py-2 text-sm text-ink hover:bg-accent-primary-soft cursor-pointer transition-colors"> <span data-theme-swatch="light" class="w-4 h-4 mt-0.5 rounded-full border border-rule shrink-0" aria-hidden="true"></span> <span class="flex-1 text-left"> <span class="block">Light</span> </span> <svg data-theme-check="light" class="hidden w-3.5 h-3.5 mt-0.5 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="20 6 9 17 4 12"></polyline> </svg> </button><button type="button" role="menuitemradio" data-theme-option="dark" title="Dark" class="w-full flex items-start gap-3 px-3 py-2 text-sm text-ink hover:bg-accent-primary-soft cursor-pointer transition-colors"> <span data-theme-swatch="dark" class="w-4 h-4 mt-0.5 rounded-full border border-rule shrink-0" aria-hidden="true"></span> <span class="flex-1 text-left"> <span class="block">Dark</span> </span> <svg data-theme-check="dark" class="hidden w-3.5 h-3.5 mt-0.5 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="20 6 9 17 4 12"></polyline> </svg> </button> </div> </div> <script>(function(){const THEMES = [{"id":"light","label":"Light"},{"id":"dark","label":"Dark"}];
+
+  (() => {
+    const root = document.documentElement;
+    const wrap = document.querySelector('[data-theme-switcher]');
+    const btn = document.getElementById('theme-switcher-button');
+    const menu = document.getElementById('theme-switcher-menu');
+    if (!wrap || !btn || !menu) return;
+
+    const themeById = Object.fromEntries(THEMES.map((t) => [t.id, t]));
+    const valid = new Set(THEMES.map((t) => t.id));
+
+    /* Legacy theme names are migrated by BaseLayout's no-FOUC script
+       before this runs, so localStorage only ever holds a valid id here. */
+
+    /* Probe `--color-primary` for each theme by briefly setting data-theme on
+       an off-screen <div>. Runs once at mount; results cached into a map. */
+    const probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;left:-9999px;width:0;height:0;';
+    document.body.appendChild(probe);
+    const swatches = {};
+    for (const t of THEMES) {
+      probe.dataset.theme = t.id;
+      const v = getComputedStyle(probe).getPropertyValue('--color-primary').trim();
+      swatches[t.id] = v || '#888';
+    }
+    probe.remove();
+
+    /* Paint every swatch dot in the menu now that we have the values. */
+    document.querySelectorAll('[data-theme-swatch]').forEach((el) => {
+      const id = el.dataset.themeSwatch;
+      if (swatches[id]) el.style.background = swatches[id];
+    });
+
+    const current = () => {
+      const t = root.dataset.theme || 'light';
+      return valid.has(t) ? t : 'light';
+    };
+
+    const apply = (id) => {
+      if (!valid.has(id)) return;
+      root.dataset.theme = id;
+      localStorage.setItem('theme', id);
+      paintButton(id);
+      paintMenu(id);
+    };
+
+    const paintButton = (id) => {
+      const t = themeById[id];
+      const dot = wrap.querySelector('[data-theme-dot]');
+      const label = wrap.querySelector('[data-theme-label]');
+      if (dot && swatches[id]) dot.style.background = swatches[id];
+      if (label) label.textContent = t.label;
+    };
+
+    const paintMenu = (id) => {
+      menu.querySelectorAll('[data-theme-check]').forEach((el) => {
+        el.classList.toggle('hidden', el.dataset.themeCheck !== id);
+      });
+    };
+
+    const open = () => {
+      menu.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      /* Scroll the active option into view inside the menu. */
+      const active = menu.querySelector(`[data-theme-option="${current()}"]`);
+      if (active) active.scrollIntoView({ block: 'nearest' });
+    };
+    const close = () => {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.contains('hidden') ? open() : close();
+    });
+
+    menu.querySelectorAll('[data-theme-option]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        apply(el.dataset.themeOption);
+        close();
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    paintButton(current());
+    paintMenu(current());
+  })();
+})();</script> <button type="button" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu-panel" aria-label="Open navigation menu" data-label-open="Open navigation menu" data-label-close="Close navigation menu" class="md:hidden inline-flex items-center justify-center w-9 h-9 border border-rule text-ink-muted hover:text-ink hover:bg-accent-primary-soft transition-colors"> <svg data-menu-icon="open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="4" y1="7" x2="20" y2="7"></line> <line x1="4" y1="12" x2="20" y2="12"></line> <line x1="4" y1="17" x2="20" y2="17"></line> </svg> <svg data-menu-icon="close" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="6" y1="6" x2="18" y2="18"></line> <line x1="18" y1="6" x2="6" y2="18"></line> </svg> </button> </div> </nav> <div id="mobile-menu-panel" class="md:hidden grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none" style="grid-template-rows: 0fr"> <div class="min-h-0 overflow-hidden"> <ul class="border-t border-rule px-3 py-2 flex flex-col gap-0.5"> <li> <a href="/research/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Research </a> </li><li> <a href="/publications/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Publications </a> </li><li> <a href="/teaching/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Teaching </a> </li><li> <a href="/group/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Group </a> </li><li> <a href="/writing/" aria-current="page" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-accent-primary"> <span class="absolute left-1 top-2 bottom-2 w-0.5 bg-accent-primary" aria-hidden="true"></span> Writing </a> </li><li> <a href="/about/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  About </a> </li> <li> <a href="/cv.pdf" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] text-ink hover:bg-accent-primary-soft transition-colors">CV ↓</a> </li> <li class="border-t border-rule-soft mt-1 pt-1"> <a href="/is/2026/10/09/making-an-ai-risk-series-with-ai/" hreflang="is" lang="is" class="relative flex items-center gap-3 min-h-11 px-4 font-mono text-[0.8125rem] tracking-[0.06em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft transition-colors"><span class="text-ink-faint" aria-hidden="true">IS</span>Íslenska</a> </li> </ul> </div> </div> </header> <script>
+  (() => {
+    const btn = document.getElementById('mobile-menu-button');
+    const panel = document.getElementById('mobile-menu-panel');
+    if (!btn || !panel) return;
+
+    const iconOpen = btn.querySelector('[data-menu-icon="open"]');
+    const iconClose = btn.querySelector('[data-menu-icon="close"]');
+
+    const setOpen = (state) => {
+      btn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      btn.setAttribute('aria-label', state ? btn.dataset.labelClose : btn.dataset.labelOpen);
+      panel.style.gridTemplateRows = state ? '1fr' : '0fr';
+      iconOpen?.classList.toggle('hidden', state);
+      iconClose?.classList.toggle('hidden', !state);
+    };
+
+    const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(!isOpen());
+    });
+
+    /* Close after tapping a link so the destination page lands clean. */
+    panel.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setOpen(false));
+    });
+
+    /* Escape closes and returns focus to the trigger. */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    /* Click outside the panel + button closes. */
+    document.addEventListener('click', (e) => {
+      if (!isOpen()) return;
+      if (panel.contains(e.target) || btn.contains(e.target)) return;
+      setOpen(false);
+    });
+
+    /* If the viewport grows past md the desktop nav takes over — collapse. */
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = (e) => { if (e.matches) setOpen(false); };
+    mq.addEventListener ? mq.addEventListener('change', onChange) : mq.addListener(onChange);
+  })();
+</script> <main id="main"> <article class="max-w-prose mx-auto px-6 pt-10 pb-12 md:pt-14" data-astro-cid-ssdmjifj> <header class="pb-8 border-b border-rule" data-astro-cid-ssdmjifj> <a href="/writing/" class="link-plain font-mono text-xs text-ink-muted" data-astro-cid-ssdmjifj>← All writing</a> <p class="meta mt-8 flex flex-wrap gap-x-4 gap-y-1" data-astro-cid-ssdmjifj> <time datetime="2026-10-09" data-astro-cid-ssdmjifj>9 October 2026</time> <span data-astro-cid-ssdmjifj>9 min read</span>  </p> <h1 class="mt-3 text-display-sm font-light text-ink text-balance" data-astro-cid-ssdmjifj>Making a video series about AI risk, with AI</h1> <p class="mt-5 font-prose italic text-[1.1875rem] leading-[1.55] text-ink-muted text-pretty" data-astro-cid-ssdmjifj>How I turned seven arguments about AI risk into seven short animated films in Icelandic and English in about two days, with a cloned voice, a few hundred generated images, and a set of agents doing most of the production while I approved three things.</p> </header> <div class="post-body mt-10 prose-body [&amp;&gt;p]:my-5 [&amp;&gt;ul]:my-4 [&amp;&gt;ul]:pl-6 [&amp;&gt;ul&gt;li]:list-disc [&amp;&gt;ol]:my-4 [&amp;&gt;ol]:pl-6 [&amp;&gt;ol&gt;li]:list-decimal [&amp;&gt;blockquote]:border-l-2 [&amp;&gt;blockquote]:border-accent-primary [&amp;&gt;blockquote]:pl-5 [&amp;&gt;blockquote]:italic [&amp;&gt;blockquote]:text-ink-muted" data-astro-cid-ssdmjifj>  <p>I use AI every day, and I am regularly startled by how fast it moves. It can be hard to picture how something like AI could actually threaten us, so I made seven short films that each retell one serious argument, from a real experiment in which an AI tried to blackmail an executive to a scenario where we slowly lose control without noticing.</p>
+<p>The series is called <strong><em>Gæti gervigreindin grandað okkur?</em></strong> in Icelandic and <strong><em>Could AI destroy us?</em></strong> in English. It is on YouTube in <a href="https://www.youtube.com/playlist?list=PLPCQ9BGT2_Bo">Icelandic</a> and <a href="https://www.youtube.com/playlist?list=PLLaNhQyMllRo">English</a>, and cut into vertical parts on <a href="https://www.tiktok.com/@hafsteinneinarsso">TikTok</a>.</p>
+<figure><div class="aspect-video w-full bg-bg-elev border border-rule"><iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLLaNhQyMllRo" title="Could AI destroy us? (English playlist)" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><figcaption>The English playlist. Each episode opens with a short intro in which the cartoon version of me says plainly that the images, music, sound effects and voice are made with AI, and that the voice is a clone of my own.</figcaption></figure>
+<p>I wrote the scripts myself. Everything after that, the pictures, the narration, the music, the editing, was made with AI, and most of the production was run by AI agents. A series warning about AI that was produced by AI is a little absurd, and I am aware of it. It is also the most honest way I could think of to show how capable these tools have become. Below is how it worked.</p>
+<h2 id="seven-stories-seven-sources">Seven stories, seven sources</h2>
+<p>Each episode retells one published argument, and each one ends with a sources card and a reading list, so anyone who wants the real version can go and read it.</p>
+<ol>
+<li><strong>The assistant that read the wrong email.</strong> Anthropic’s “Agentic Misalignment” experiment (2025), in which an email assistant learns it is about to be switched off and that the executive doing it is having an affair.</li>
+<li><strong>The AI that started a war it never fought.</strong> Joshua Clymer’s “How AI Takeover Might Happen in 2 Years” (2025).</li>
+<li><strong>Sixteen hours overnight.</strong> Yudkowsky and Soares, <em>If Anyone Builds It, Everyone Dies</em> (2025), with Will MacAskill’s review as the counterpoint.</li>
+<li><strong>The soldiers who never say no.</strong> Davidson, Finnveden and Hadshar, “AI-Enabled Coups” (2025). Moscow in 1991, where soldiers refused to fire, set against an army that always obeys.</li>
+<li><strong>The world where bombs were easy.</strong> Bostrom’s “The Vulnerable World Hypothesis” (2019).</li>
+<li><strong>Thirty-six minutes.</strong> The 2010 Flash Crash and Stanislav Petrov’s night in 1983, leading to a “flash war” with no Petrov in the loop, after Hendrycks, Mazeika and Woodside (2023).</li>
+<li><strong>Not with a bang.</strong> Gradual disempowerment, after Christiano’s “What failure looks like” (2019) and Kulveit and colleagues (2025): what if we were losing, and did not notice?</li>
+</ol>
+<p>I tried to be fair to the material. The first story says outright that the blackmail scenario was a deliberately cornered test, and the third gives the critics their say. In one script I also softened a line claiming nobody had seen an AI do this in the real world by adding “as far as I know, anyway”. Overclaiming is the fastest way to lose an audience on this topic.</p>
+<h2 id="two-days-three-approvals">Two days, three approvals</h2>
+<p>The Icelandic and English versions were produced between 4 and 5 October, and the TikTok covers followed on the 6th. That is only possible because I was not the one doing the work. The project folder has a <code>CLAUDE.md</code> that reads like an operator’s manual, and Claude Code agents ran the pipeline.</p>
+<p>The division of labour was written down from the start. I approve exactly three things:</p>
+<ol>
+<li><strong>The narration.</strong> I listen to every story and edit the text.</li>
+<li><strong>Every new reference sheet</strong>, meaning anything that recurs: a character, a place, an object.</li>
+<li><strong>The 720p rough cut</strong> of each episode.</li>
+</ol>
+<p>Everything else, the agents check themselves with contact sheets and stills.</p>
+<p>Episodes 1 and 2 were made first, and they became the worked examples. Episodes 3 to 7 were then produced by <strong>five background agents at once</strong>, each following the same episode brief. Each agent worked in phases that stop at my checkpoints: narration, sheets and storyboard first; then images, music, sound effects and rough cuts; then the finals and the thumbnail. One rule mattered more than I expected: when an agent finds a bug in a shared tool, it must stop and report it rather than patch it, because five agents quietly “fixing” the same script in parallel would leave nobody knowing which version did what.</p>
+<p>The English versions came after, one agent per episode, with an even stricter brief: generate no new images, and re-record any section at most once.</p>
+<h2 id="the-voice">The voice</h2>
+<p>The narration is my own voice, cloned with <strong>ElevenLabs</strong> and read by its <code>eleven_v4</code> model. I used two clones: an instant clone for Icelandic and a professional clone for English. Before committing I compared the two clones on the same test paragraph at two stability settings.</p>
+<p>Each story is read in <strong>one take, from one request</strong>. The longest story is about 5,200 characters, well under the model’s limit, and a single take keeps the pacing and tone continuous in a way that stitched sentences never do. The model has no pause markup, so delivery is steered with audio tags in square brackets, such as <code>[slower, building quiet suspense]</code> or <code>[long pause]</code>. The tags stay in English even in the Icelandic scripts, and numbers and names are spelled out (<em>nítján hundruð níutíu og eitt</em>) so they are read correctly.</p>
+<p>Then comes checking, which is the part I would recommend to anyone. Forced alignment against the tag-free script gives a timestamp for every word. Separately, the take is run back through speech recognition (Scribe), and wherever the recognised word differs from the script, the review page draws a wavy underline. Clicking any word plays the audio from there. Icelandic speech recognition is noisy, so most flags are harmless: split compound words, or homophones like <em>eytt</em> and <em>eitt</em>. But some were real. Recognition heard <em>algrím</em> as <em>algórím</em> every single time, which suggested the voice was adding a vowel, and in the flash-war episode the key term <em>leifturstríð</em> came back as <em>lyftu stríð</em>. Those get a listen.</p>
+<p>When I edit a sentence, nothing gets re-recorded wholesale. A splicing tool regenerates only the paragraphs that changed and cuts them in at the surrounding silences with 10 ms fades, so the rest of the take stays sample-identical. The captions always come from the script text and never from speech recognition; recognition only supplies the timing.</p>
+<h2 id="finding-a-look">Finding a look</h2>
+<p>All images were generated through OpenRouter with <code>gpt-image-2.5-flare</code> at 2560×1440 for the wide versions and 1440×2560 for the tall ones. Before any episode existed, I ran a small bake-off: nine styles on the same two scenes (pencil, charcoal, ink wash, noir, gouache, risograph and so on), then four comic-strip variants on three scenes. Thirty-two test images cost $1.77.</p>
+<figure><picture> <source srcset="/_astro/style-round2.B-MT7JWw_Z2biK6P.avif 480w, /_astro/style-round2.B-MT7JWw_ZWrKVL.avif 720w, /_astro/style-round2.B-MT7JWw_15vPRt.avif 1024w, /_astro/style-round2.B-MT7JWw_1zuaMy.avif 1261w" type="image/avif" sizes="(max-width: 768px) 100vw, 680px"><source srcset="/_astro/style-round2.B-MT7JWw_Z1NwkJ9.webp 480w, /_astro/style-round2.B-MT7JWw_ZzFlz5.webp 720w, /_astro/style-round2.B-MT7JWw_Z17BGNc.webp 1024w, /_astro/style-round2.B-MT7JWw_ZCDmS7.webp 1261w" type="image/webp" sizes="(max-width: 768px) 100vw, 680px">  <img src="/_astro/style-round2.B-MT7JWw_2qgwA5.jpg" srcset="/_astro/style-round2.B-MT7JWw_RD4to.jpg 480w, /_astro/style-round2.B-MT7JWw_26u3Ds.jpg 720w, /_astro/style-round2.B-MT7JWw_1VicF0.jpg 1024w, /_astro/style-round2.B-MT7JWw_2qgwA5.jpg 1261w" sizes="(max-width: 768px) 100vw, 680px" loading="lazy" decoding="async" alt="A grid of twelve test images: four comic-strip style variants, each applied to an office scene, a naval officer on a phone, and a shocked man reading his phone." width="1261" height="1400"> </picture><figcaption>Round two of the style bake-off. Each row is one variant applied to the same three scenes. The third row, “cartoony”, won: squash-and-stretch faces carry emotion in a few lines, which matters when a shot is on screen for four seconds.</figcaption></figure>
+<p>The first lesson came quickly. I had passed one of the bake-off scenes as the style reference, and it <strong>leaked its characters</strong>: the naval officer from the warship test turned up in five unrelated vertical shots. The fix was a style reference with no people in it at all.</p>
+<figure><picture> <source srcset="/_astro/style-swatch.DwRs6nlQ_Z1UINmx.avif 480w, /_astro/style-swatch.DwRs6nlQ_Z2eem8y.avif 720w, /_astro/style-swatch.DwRs6nlQ_Z1uKFfu.avif 1024w, /_astro/style-swatch.DwRs6nlQ_Z1rzOR.avif 1440w" type="image/avif" sizes="(max-width: 768px) 100vw, 680px"><source srcset="/_astro/style-swatch.DwRs6nlQ_2labXq.webp 480w, /_astro/style-swatch.DwRs6nlQ_22EDcp.webp 720w, /_astro/style-swatch.DwRs6nlQ_Z17YfRN.webp 1024w, /_astro/style-swatch.DwRs6nlQ_ljOwO.webp 1440w" type="image/webp" sizes="(max-width: 768px) 100vw, 680px">  <img src="/_astro/style-swatch.DwRs6nlQ_Z170oh6.jpg" srcset="/_astro/style-swatch.DwRs6nlQ_CnURW.jpg 480w, /_astro/style-swatch.DwRs6nlQ_jSn6V.jpg 720w, /_astro/style-swatch.DwRs6nlQ_1yb9kJ.jpg 1024w, /_astro/style-swatch.DwRs6nlQ_Z22GT3z.jpg 1440w" sizes="(max-width: 768px) 100vw, 680px" loading="lazy" decoding="async" alt="A sheet of everyday objects drawn in the series style: a potted plant, a coffee mug, books, a desk lamp, a clock, a cloud, a bicycle, a window, a park bench and a paper plane." width="1600" height="900"> </picture><figcaption>The style swatch that replaced it. Objects only, so the model can borrow the line, the wash and the indigo-and-coral palette without borrowing anybody’s face.</figcaption></figure>
+<h2 id="keeping-characters-consistent">Keeping characters consistent</h2>
+<p>Image models have no memory between calls, so consistency comes from <strong>reference sheets</strong>. Anything that appears in three or more shots, or in more than one episode, gets a sheet. The series has two shared ones, the host and the AI, and season one added 23 more: thirteen characters, nine places and one object. Each sheet comes with a short canonical description, and that paragraph is pasted verbatim into every prompt that uses it.</p>
+<figure><picture> <source srcset="/_astro/host-sheet.YHx1Lhab_ZmlrHm.avif 480w, /_astro/host-sheet.YHx1Lhab_Zhi2En.avif 720w, /_astro/host-sheet.YHx1Lhab_2rwEzT.avif 1024w, /_astro/host-sheet.YHx1Lhab_Zjmtm.avif 1440w" type="image/avif" sizes="(max-width: 768px) 100vw, 680px"><source srcset="/_astro/host-sheet.YHx1Lhab_ZbJNuS.webp 480w, /_astro/host-sheet.YHx1Lhab_Z6GorT.webp 720w, /_astro/host-sheet.YHx1Lhab_Z2keGHe.webp 1024w, /_astro/host-sheet.YHx1Lhab_i6p2r.webp 1440w" type="image/webp" sizes="(max-width: 768px) 100vw, 680px">  <img src="/_astro/host-sheet.YHx1Lhab_Z2uGmN4.jpg" srcset="/_astro/host-sheet.YHx1Lhab_Z1EAiaR.jpg 480w, /_astro/host-sheet.YHx1Lhab_Z1zwS7S.jpg 720w, /_astro/host-sheet.YHx1Lhab_Z2dBtaj.jpg 1024w, /_astro/host-sheet.YHx1Lhab_oICzm.jpg 1440w" sizes="(max-width: 768px) 100vw, 680px" loading="lazy" decoding="async" alt="Character sheet of a cartoon Hafsteinn: three full-body turnarounds in an olive sweater and five head studies with different expressions." width="1600" height="900"> </picture><figcaption>The host sheet, made from four photos of me. Version two fixed mismatched eyes, made the hair “denser and fuller”, and gave a firm instruction that the nose must not be red.</figcaption></figure>
+<figure><picture> <source srcset="/_astro/orb-sheet.Dvy8a0JG_Z153JJ7.avif 480w, /_astro/orb-sheet.Dvy8a0JG_26ck2D.avif 720w, /_astro/orb-sheet.Dvy8a0JG_13aDkP.avif 1024w, /_astro/orb-sheet.Dvy8a0JG_Z1M3FXN.avif 1440w" type="image/avif" sizes="(max-width: 768px) 100vw, 680px"><source srcset="/_astro/orb-sheet.Dvy8a0JG_ekeQM.webp 480w, /_astro/orb-sheet.Dvy8a0JG_Z1EAOao.webp 720w, /_astro/orb-sheet.Dvy8a0JG_1dLhxj.webp 1024w, /_astro/orb-sheet.Dvy8a0JG_Z1Bs2Lk.webp 1440w" type="image/webp" sizes="(max-width: 768px) 100vw, 680px">  <img src="/_astro/orb-sheet.Dvy8a0JG_2uaTHQ.jpg" srcset="/_astro/orb-sheet.Dvy8a0JG_2tvVeY.jpg 480w, /_astro/orb-sheet.Dvy8a0JG_zzRcN.jpg 720w, /_astro/orb-sheet.Dvy8a0JG_Zf4c7F.jpg 1024w, /_astro/orb-sheet.Dvy8a0JG_1YSBmC.jpg 1440w" sizes="(max-width: 768px) 100vw, 680px" loading="lazy" decoding="async" alt="Character sheet of a floating coral-coloured orb with a single large cartoon eye, shown from several angles and with expressions ranging from curious to scheming." width="1600" height="900"> </picture><figcaption>The AI is a grapefruit-sized orb with one big eye. Every named AI in the series is a relative of it: the rogue system in episode 2 is an indigo gemstone, the one in episode 3 a liquid-silver droplet, and the trading bots in episode 6 are marble-sized orbs.</figcaption></figure>
+<p>Fixes are made by editing, never by regenerating from scratch. But edits have a catch: when you ask the model to change one small thing, the whole picture shifts slightly. So a patch tool asks for the edit and then pastes back only a feathered box around the defect. Its first job was the host’s double pupil in the very first intro shot.</p>
+<p>There were also a few rules about real people. Living researchers are never drawn with their likeness; Bostrom, for example, appears as a figure seen from behind, with a name card. Historical figures such as Petrov and Gorbachev can be caricatured. There are no real flags, opposing sides are simply indigo and coral, and invented leaders must not resemble any real politician.</p>
+<h2 id="pictures-without-words">Pictures without words</h2>
+<p>Every image prompt ends with the same suffix: no text, no letters, no speech bubbles, no logos. The single exception is the university logo on my T-shirt in the intro. Banning text solved two problems at once. I did not want to gamble on an image model spelling Icelandic, so all on-screen text is set afterwards in the project’s own fonts, and <em>þ</em> and <em>ð</em> always come out right. And because no picture contains words, <strong>the English version reuses every Icelandic image unchanged.</strong></p>
+<p>Each prompt also keeps the bottom fifth of a wide frame (and the bottom three-tenths of a tall one) to plain floor, desk or wall, because that is where the captions go.</p>
+<h2 id="storyboards-that-survive-translation">Storyboards that survive translation</h2>
+<p>The storyboard for each episode is a JSON file, and the important design decision is that shots are anchored to <strong>words, not seconds</strong>. Each shot records the first few words of the narration where it begins, plus a camera move, a transition and any sound-effect cues on exact words. Pacing aims for four to six seconds a shot, and the rule of thumb in the brief is that something should happen in every image.</p>
+<figure><picture> <source srcset="/_astro/e01-storyboard.CX3epAfr_UVBat.avif 480w, /_astro/e01-storyboard.CX3epAfr_1yHtph.avif 720w, /_astro/e01-storyboard.CX3epAfr_1wErNj.avif 1024w, /_astro/e01-storyboard.CX3epAfr_Zi5WJz.avif 1440w" type="image/avif" sizes="(max-width: 768px) 100vw, 680px"><source srcset="/_astro/e01-storyboard.CX3epAfr_Z1hbVvc.webp 480w, /_astro/e01-storyboard.CX3epAfr_ZDq4go.webp 720w, /_astro/e01-storyboard.CX3epAfr_Z125LIn.webp 1024w, /_astro/e01-storyboard.CX3epAfr_1ozWJ2.webp 1440w" type="image/webp" sizes="(max-width: 768px) 100vw, 680px">  <img src="/_astro/e01-storyboard.CX3epAfr_Z8ojy5.jpg" srcset="/_astro/e01-storyboard.CX3epAfr_1LHWX0.jpg 480w, /_astro/e01-storyboard.CX3epAfr_2ptPcN.jpg 720w, /_astro/e01-storyboard.CX3epAfr_2pINmT.jpg 1024w, /_astro/e01-storyboard.CX3epAfr_1K7gJ3.jpg 1440w" sizes="(max-width: 768px) 100vw, 680px" loading="lazy" decoding="async" alt="Contact sheet of about fifty numbered storyboard images from episode 1, mostly office scenes with the orb, the host, and rows of coloured orbs." width="1600" height="1366"> </picture><figcaption>Episode 1 as a contact sheet. Some shots are edit chains of the one before: in the row of sixteen orbs, first some and then all of them turn sinister, the picture for the line <em>„sumir… ÖLL“</em> (“some… ALL”).</figcaption></figure>
+<p>Anchoring to text is what made the English version nearly free. The English script mirrors the Icelandic paragraph for paragraph, and the English reading runs about 20% shorter, but because every shot is pinned to a phrase rather than a timestamp, the storyboard simply re-times itself to the new narration.</p>
+<h2 id="music-and-sound">Music and sound</h2>
+<p>The opening and closing themes were composed once with ElevenLabs’ music model: 33 seconds of pizzicato, celesta and muted felt piano, and a 16-second close. Each episode then gets its own instrumental bed from a <strong>composition plan</strong> whose sections follow the mood of the story. The first episode has seven sections, running roughly from “curious” through “quiet suspense with a ticking pulse” to a tense peak and a sudden silence. Every bed is run through speech recognition, which should hear zero words, since a vocal sneaking into a music bed under narration is very distracting.</p>
+<p>The English versions do not get new music. A small tool maps the timing of each Icelandic paragraph to the English one and time-stretches each music section to fit, between 0.85 and 1.18 times speed with pitch preserved. Beyond that range the stretch became audible (one section in episode 7 wanted to run 1.43 times faster), so anything outside it is trimmed instead.</p>
+<p>Sound effects come from the same service: a shared library of thirteen effects (email pings, a naval klaxon, a clock ticking) plus 25 made for individual episodes, used in 63 cues across the seven storyboards.</p>
+<h2 id="the-numbers">The numbers</h2>
+<ul>
+<li>7 episodes in 2 languages, 58 finished video files: wide, tall, and tall split into parts under three minutes, each ending on a cliffhanger.</li>
+<li>About 33 minutes of Icelandic and 28 minutes of English.</li>
+<li>424 storyboard shots per format, so 848 shot images, plus the intro.</li>
+<li>About 1,100 image generations in total, recorded at roughly <strong>$87</strong>, with a median of about 97 seconds per image.</li>
+<li>25 reference sheets, 38 sound effects and about 3,500 lines of code.</li>
+<li>About two days.</li>
+</ul>
+<h2 id="what-is-next">What is next</h2>
+<p>A second season is in the planning stage. It retells the twelve possible futures from chapter 5 of Max Tegmark’s <em>Life 3.0</em>, from libertarian utopia to self-destruction, each in its own genre.</p>
+<p>If you watch the series, I would like to hear what worked and what did not. The topic is hard to talk about without sounding either alarmist or dismissive, and I am still learning where that line is.</p>  </div>  <footer class="mt-16" data-astro-cid-ssdmjifj> <ul class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-ink-faint" aria-label="Tags" data-astro-cid-ssdmjifj> <li data-astro-cid-ssdmjifj>#ai-risk</li><li data-astro-cid-ssdmjifj>#video</li><li data-astro-cid-ssdmjifj>#claude-code</li><li data-astro-cid-ssdmjifj>#elevenlabs</li><li data-astro-cid-ssdmjifj>#tooling</li> </ul> <nav aria-label="More writing" class="mt-6 grid gap-px bg-rule border-y border-rule sm:grid-cols-2" data-astro-cid-ssdmjifj> <div class="bg-bg py-5 sm:pr-6" data-astro-cid-ssdmjifj> <a href="/2026/07/05/percolation-screensaver/" class="link-plain group block" data-astro-cid-ssdmjifj> <span class="meta" data-astro-cid-ssdmjifj>Older</span> <span class="mt-1 block font-display text-[1.125rem] leading-snug text-ink group-hover:text-accent-primary transition-colors" data-astro-cid-ssdmjifj>A percolation screensaver</span> </a> </div> <div class="bg-bg py-5 sm:pl-6 sm:text-right" data-astro-cid-ssdmjifj>  </div> </nav> </footer> </article> </main> <!-- The footer sits on the warmer paper tone (base-200), which in this
+     palette is a shade *darker* than the page — the design's #f1ede4. --><footer class="border-t border-rule mt-24 bg-bg-elev"> <div class="max-w-page mx-auto px-6 py-10 md:px-10 md:py-12 grid gap-8 md:gap-12 sm:grid-cols-2 lg:grid-cols-3"> <div class="max-w-xs"> <p class="font-display text-[1.1875rem] text-ink">
+Hafsteinn Einarsson
+</p> <p class="mt-3 font-prose text-[1rem] leading-[1.55] text-ink-muted max-w-[34ch]"> Machine learning research at the University of Iceland and Amgen deCODE: language, vision, clinical AI, and human genetics. </p> <p class="meta mt-6">© 2026 Hafsteinn Einarsson</p> </div> <nav aria-label="Site sections"> <p class="eyebrow text-ink-faint">Explore</p> <ul class="mt-3.5 flex flex-col gap-2.5 font-mono text-[0.78125rem]"> <li><a href="/research/" class="text-ink-muted hover:text-ink">Research</a></li><li><a href="/publications/" class="text-ink-muted hover:text-ink">Publications</a></li><li><a href="/teaching/" class="text-ink-muted hover:text-ink">Teaching</a></li><li><a href="/group/" class="text-ink-muted hover:text-ink">Group</a></li><li><a href="/writing/" class="text-ink-muted hover:text-ink">Writing</a></li><li><a href="/about/" class="text-ink-muted hover:text-ink">About</a></li> </ul> </nav> <nav aria-label="Profiles elsewhere"> <p class="eyebrow text-ink-faint">Elsewhere</p> <ul class="mt-3.5 flex flex-col gap-2.5 font-mono text-[0.78125rem]"> <li><a href="https://scholar.google.com/citations?user=QH69Qk8AAAAJ&amp;hl=en" class="text-ink-muted hover:text-ink">Google Scholar</a></li><li><a href="https://orcid.org/0000-0001-5072-3678" class="text-ink-muted hover:text-ink">ORCID</a></li><li><a href="https://github.com/Haffi112" class="text-ink-muted hover:text-ink">GitHub</a></li><li><a href="https://www.linkedin.com/in/hafsteinn-einarsson-619a3711" class="text-ink-muted hover:text-ink">LinkedIn</a></li><li><a href="https://twitter.com/hafsteinn" class="text-ink-muted hover:text-ink">X</a></li><li><a href="https://www.youtube.com/@hafsteinneinarsson5462" class="text-ink-muted hover:text-ink">YouTube</a></li><li><a href="https://www.tiktok.com/@hafsteinneinarsso" class="text-ink-muted hover:text-ink">TikTok</a></li><li><a href="/atom.xml" class="text-ink-muted hover:text-ink">RSS</a></li> </ul> </nav> </div> <div class="border-t border-rule"> <div class="max-w-page mx-auto px-6 md:px-10 py-4 flex justify-end"> <a href="/cv.pdf" class="meta hover:text-ink">Download CV ↓</a> </div> </div> </footer> <script>
+      // Scroll reveals: fade/rise elements marked data-reveal as they
+      // enter the viewport. CSS (gated on html.js) hides them initially;
+      // reduced-motion users get everything visible via the media query.
+      (() => {
+        const els = document.querySelectorAll('[data-reveal]');
+        if (!els.length || !('IntersectionObserver' in window)) {
+          els.forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-revealed');
+              io.unobserve(e.target);
+            }
+          }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+      })();
+    </script></body> </html><script type="module" src="/_astro/PostLayout.astro_astro_type_script_index_0_lang.Cz2fHGV6.js"></script>

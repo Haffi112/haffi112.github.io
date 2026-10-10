@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="is"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Kennsla · Hafsteinn Einarsson</title><meta name="description" content="Námskeið sem Hafsteinn Einarsson kennir og hefur byggt upp við Háskóla Íslands."><link rel="canonical" href="https://hafst1.is/is/teaching/"><link rel="alternate" hreflang="en" href="https://hafst1.is/teaching/"><link rel="alternate" hreflang="is" href="https://hafst1.is/is/teaching/"><link rel="alternate" hreflang="x-default" href="https://hafst1.is/teaching/"><!-- OpenGraph --><meta property="og:type" content="website"><meta property="og:site_name" content="Hafsteinn Einarsson"><meta property="og:title" content="Kennsla · Hafsteinn Einarsson"><meta property="og:description" content="Námskeið sem Hafsteinn Einarsson kennir og hefur byggt upp við Háskóla Íslands."><meta property="og:url" content="https://hafst1.is/is/teaching/"><meta property="og:image" content="https://hafst1.is/og/default-is.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="is_IS"><meta property="og:locale:alternate" content="en_GB"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@hafsteinn"><meta name="twitter:title" content="Kennsla · Hafsteinn Einarsson"><meta name="twitter:description" content="Námskeið sem Hafsteinn Einarsson kennir og hefur byggt upp við Háskóla Íslands."><meta name="twitter:image" content="https://hafst1.is/og/default-is.png"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" type="font/woff2" href="/_astro/newsreader-latin-wght-normal.CCVVNp6i.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2" crossorigin><link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"><link rel="alternate" type="application/rss+xml" title="RSS" href="/is/atom.xml"><script>
+      // No-FOUC theme init: must run before paint.
+      // Mirror the ids in src/styles/global.css and ThemeToggle.astro.
+      (() => {
+        // Signals to CSS that JS is running (gates scroll-reveal styling).
+        document.documentElement.classList.add('js');
+        const VALID = new Set(['light', 'dark']);
+        // Dark-leaning names from the retired 35-theme set (and the
+        // retired "reader" theme, which was light): returning visitors keep
+        // a theme of the same polarity instead of snapping to light.
+        const DARKISH = new Set([
+          'business', 'forest', 'aqua', 'coffee', 'luxury', 'black',
+          'dim', 'night', 'sunset', 'synthwave', 'halloween', 'dracula',
+          'abyss', 'mono'
+        ]);
+        let saved = localStorage.getItem('theme');
+        if (saved && !VALID.has(saved)) {
+          saved = DARKISH.has(saved) ? 'dark' : 'light';
+          localStorage.setItem('theme', saved);
+        }
+        const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved ?? (sysDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BG9ftrjX.css"></head> <body class="bg-bg text-ink"> <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-bg-elev focus:p-2 focus:border focus:border-accent-primary">Fara beint í efnið</a> <header data-site-header class="sticky top-0 z-20 bg-bg/85 backdrop-blur-md border-b border-rule"> <nav class="max-w-page mx-auto px-6 h-15 flex items-center justify-between gap-3"> <!-- The wordmark is set in the display serif at its plain weight; in a
+         paper design the name doesn't need bolding to read as the masthead. --><a href="/is/" class="font-display text-[1.0625rem] text-ink shrink-0">Hafsteinn Einarsson</a> <!-- Mono caps are appreciably wider than the sans they replaced, so the
+         row is tuned to survive its tightest moment: 768px, where the
+         desktop nav first appears and the theme switcher is still present.
+         Type steps up and the CV button joins only once there is room. --> <ul class="hidden md:flex items-center gap-[clamp(0.75rem,1.5vw,1.625rem)] font-mono text-[0.71875rem] lg:text-[0.78125rem] uppercase tracking-[0.03em] lg:tracking-[0.04em]"> <li> <a href="/is/research/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Rannsóknir</a> </li><li> <a href="/is/publications/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Ritaskrá</a> </li><li> <a href="/is/teaching/" aria-current="page" class="transition-colors pb-1 text-ink border-b border-accent-primary">Kennsla</a> </li><li> <a href="/is/group/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Hópurinn</a> </li><li> <a href="/is/writing/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Skrif</a> </li><li> <a href="/is/about/" class="transition-colors pb-1 text-ink-muted hover:text-ink">Um mig</a> </li> <li class="hidden lg:block"> <a href="/cv.pdf" hreflang="en" class="btn-editorial px-3 py-[0.4375rem] text-[0.78125rem]">Ferilskrá ↓</a> </li> </ul> <div class="flex items-center gap-2"> <!-- Language switcher. From md it sits beside the theme toggle,
+           stretched to the toggle's height (self-stretch: the hamburger,
+           the only taller item, is gone by then); below md it lives in the
+           mobile menu, where there is room to spell the language out. --><a href="/teaching/" hreflang="en" lang="en" aria-label="English" title="English" class="hidden md:inline-flex self-stretch items-center px-2.5 font-mono text-[0.75rem] tracking-[0.04em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft border border-rule transition-colors">EN</a> <div class="relative" data-theme-switcher> <button type="button" id="theme-switcher-button" aria-haspopup="menu" aria-expanded="false" aria-label="Skipta um útlit" class="flex items-center gap-2 px-2.5 py-1.5 font-mono text-[0.75rem] uppercase tracking-[0.04em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft border border-rule transition-colors"> <span data-theme-dot class="w-3 h-3 rounded-full border border-rule shrink-0" style="background:#888" aria-hidden="true"></span> <span class="hidden sm:inline" data-theme-label>Ljóst</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="theme-switcher-menu" role="menu" aria-labelledby="theme-switcher-button" class="hidden absolute right-0 mt-2 w-64 max-h-[28rem] overflow-y-auto origin-top-right bg-bg-elev border border-rule shadow-lg z-30 p-1"> <button type="button" role="menuitemradio" data-theme-option="light" title="Ljóst" class="w-full flex items-start gap-3 px-3 py-2 text-sm text-ink hover:bg-accent-primary-soft cursor-pointer transition-colors"> <span data-theme-swatch="light" class="w-4 h-4 mt-0.5 rounded-full border border-rule shrink-0" aria-hidden="true"></span> <span class="flex-1 text-left"> <span class="block">Ljóst</span> </span> <svg data-theme-check="light" class="hidden w-3.5 h-3.5 mt-0.5 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="20 6 9 17 4 12"></polyline> </svg> </button><button type="button" role="menuitemradio" data-theme-option="dark" title="Dökkt" class="w-full flex items-start gap-3 px-3 py-2 text-sm text-ink hover:bg-accent-primary-soft cursor-pointer transition-colors"> <span data-theme-swatch="dark" class="w-4 h-4 mt-0.5 rounded-full border border-rule shrink-0" aria-hidden="true"></span> <span class="flex-1 text-left"> <span class="block">Dökkt</span> </span> <svg data-theme-check="dark" class="hidden w-3.5 h-3.5 mt-0.5 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polyline points="20 6 9 17 4 12"></polyline> </svg> </button> </div> </div> <script>(function(){const THEMES = [{"id":"light","label":"Ljóst"},{"id":"dark","label":"Dökkt"}];
+
+  (() => {
+    const root = document.documentElement;
+    const wrap = document.querySelector('[data-theme-switcher]');
+    const btn = document.getElementById('theme-switcher-button');
+    const menu = document.getElementById('theme-switcher-menu');
+    if (!wrap || !btn || !menu) return;
+
+    const themeById = Object.fromEntries(THEMES.map((t) => [t.id, t]));
+    const valid = new Set(THEMES.map((t) => t.id));
+
+    /* Legacy theme names are migrated by BaseLayout's no-FOUC script
+       before this runs, so localStorage only ever holds a valid id here. */
+
+    /* Probe `--color-primary` for each theme by briefly setting data-theme on
+       an off-screen <div>. Runs once at mount; results cached into a map. */
+    const probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;left:-9999px;width:0;height:0;';
+    document.body.appendChild(probe);
+    const swatches = {};
+    for (const t of THEMES) {
+      probe.dataset.theme = t.id;
+      const v = getComputedStyle(probe).getPropertyValue('--color-primary').trim();
+      swatches[t.id] = v || '#888';
+    }
+    probe.remove();
+
+    /* Paint every swatch dot in the menu now that we have the values. */
+    document.querySelectorAll('[data-theme-swatch]').forEach((el) => {
+      const id = el.dataset.themeSwatch;
+      if (swatches[id]) el.style.background = swatches[id];
+    });
+
+    const current = () => {
+      const t = root.dataset.theme || 'light';
+      return valid.has(t) ? t : 'light';
+    };
+
+    const apply = (id) => {
+      if (!valid.has(id)) return;
+      root.dataset.theme = id;
+      localStorage.setItem('theme', id);
+      paintButton(id);
+      paintMenu(id);
+    };
+
+    const paintButton = (id) => {
+      const t = themeById[id];
+      const dot = wrap.querySelector('[data-theme-dot]');
+      const label = wrap.querySelector('[data-theme-label]');
+      if (dot && swatches[id]) dot.style.background = swatches[id];
+      if (label) label.textContent = t.label;
+    };
+
+    const paintMenu = (id) => {
+      menu.querySelectorAll('[data-theme-check]').forEach((el) => {
+        el.classList.toggle('hidden', el.dataset.themeCheck !== id);
+      });
+    };
+
+    const open = () => {
+      menu.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      /* Scroll the active option into view inside the menu. */
+      const active = menu.querySelector(`[data-theme-option="${current()}"]`);
+      if (active) active.scrollIntoView({ block: 'nearest' });
+    };
+    const close = () => {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.contains('hidden') ? open() : close();
+    });
+
+    menu.querySelectorAll('[data-theme-option]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        apply(el.dataset.themeOption);
+        close();
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    paintButton(current());
+    paintMenu(current());
+  })();
+})();</script> <button type="button" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu-panel" aria-label="Opna valmynd" data-label-open="Opna valmynd" data-label-close="Loka valmynd" class="md:hidden inline-flex items-center justify-center w-9 h-9 border border-rule text-ink-muted hover:text-ink hover:bg-accent-primary-soft transition-colors"> <svg data-menu-icon="open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="4" y1="7" x2="20" y2="7"></line> <line x1="4" y1="12" x2="20" y2="12"></line> <line x1="4" y1="17" x2="20" y2="17"></line> </svg> <svg data-menu-icon="close" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="6" y1="6" x2="18" y2="18"></line> <line x1="18" y1="6" x2="6" y2="18"></line> </svg> </button> </div> </nav> <div id="mobile-menu-panel" class="md:hidden grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none" style="grid-template-rows: 0fr"> <div class="min-h-0 overflow-hidden"> <ul class="border-t border-rule px-3 py-2 flex flex-col gap-0.5"> <li> <a href="/is/research/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Rannsóknir </a> </li><li> <a href="/is/publications/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Ritaskrá </a> </li><li> <a href="/is/teaching/" aria-current="page" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-accent-primary"> <span class="absolute left-1 top-2 bottom-2 w-0.5 bg-accent-primary" aria-hidden="true"></span> Kennsla </a> </li><li> <a href="/is/group/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Hópurinn </a> </li><li> <a href="/is/writing/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Skrif </a> </li><li> <a href="/is/about/" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] transition-colors text-ink hover:text-ink hover:bg-accent-primary-soft">  Um mig </a> </li> <li> <a href="/cv.pdf" hreflang="en" class="relative flex items-center min-h-11 px-4 font-mono text-[0.8125rem] uppercase tracking-[0.06em] text-ink hover:bg-accent-primary-soft transition-colors">Ferilskrá ↓</a> </li> <li class="border-t border-rule-soft mt-1 pt-1"> <a href="/teaching/" hreflang="en" lang="en" class="relative flex items-center gap-3 min-h-11 px-4 font-mono text-[0.8125rem] tracking-[0.06em] text-ink-muted hover:text-ink hover:bg-accent-primary-soft transition-colors"><span class="text-ink-faint" aria-hidden="true">EN</span>English</a> </li> </ul> </div> </div> </header> <script>
+  (() => {
+    const btn = document.getElementById('mobile-menu-button');
+    const panel = document.getElementById('mobile-menu-panel');
+    if (!btn || !panel) return;
+
+    const iconOpen = btn.querySelector('[data-menu-icon="open"]');
+    const iconClose = btn.querySelector('[data-menu-icon="close"]');
+
+    const setOpen = (state) => {
+      btn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      btn.setAttribute('aria-label', state ? btn.dataset.labelClose : btn.dataset.labelOpen);
+      panel.style.gridTemplateRows = state ? '1fr' : '0fr';
+      iconOpen?.classList.toggle('hidden', state);
+      iconClose?.classList.toggle('hidden', !state);
+    };
+
+    const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(!isOpen());
+    });
+
+    /* Close after tapping a link so the destination page lands clean. */
+    panel.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setOpen(false));
+    });
+
+    /* Escape closes and returns focus to the trigger. */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    /* Click outside the panel + button closes. */
+    document.addEventListener('click', (e) => {
+      if (!isOpen()) return;
+      if (panel.contains(e.target) || btn.contains(e.target)) return;
+      setOpen(false);
+    });
+
+    /* If the viewport grows past md the desktop nav takes over — collapse. */
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = (e) => { if (e.matches) setOpen(false); };
+    mq.addEventListener ? mq.addEventListener('change', onChange) : mq.addListener(onChange);
+  })();
+</script> <main id="main"> <section class="max-w-prose mx-auto px-6 pb-12"> <header class="pt-12 md:pt-16 pb-8 border-b border-rule">  <h1 class="mt-3 text-display-sm font-light text-ink">Kennsla</h1> <p class="mt-4 font-prose text-[1.0625rem] leading-[1.6] text-ink-muted max-w-prose">Námskeið sem ég kenni eða hef byggt upp við Háskóla Íslands. Yfir 300 nemendur sitja þau á hverju ári.</p>  </header> <div class="mt-8" data-reveal> <article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Gervigreind og forysta</h2> <p class="mt-1 text-sm text-ink-muted"> Framhaldsnám · Kennt á íslensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Námskeið í Executive MBA-námi við Háskóla Íslands um gervigreind fyrir stjórnendur. Þátttakendur kynnast því hvað gervigreindarkerfi nútímans geta og geta ekki, hvar gervigreind nýtist í daglegu starfi stjórnenda (gögn, ákvarðanataka, frammistaða og vellíðan starfsfólks og eigin þróun stjórnandans) og hvaða siðferðilegu spurningar vakna þegar gervigreind er tekin í notkun innan fyrirtækja. Í tímum er unnið beint með spunagreindartól. Árið 2025 kenndi ég námskeiðið með Sigrúnu Gunnarsdóttur, sem rannsakar þjónandi forystu, en einn árið 2026. Kennt á íslensku.</p> <p class="mt-2 text-xs text-ink-muted"> <span class="font-medium">Kennt:</span> 2025, 2026 </p> </article><article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Inngangur að djúpnámi</h2> <p class="mt-1 text-sm text-ink-muted"> Framhaldsnám · Kennt á ensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Inngangsnámskeið á meistarastigi um djúp tauganet: bakdreifingu, þjálfun og reglun líkana og högun sem notuð er fyrir myndir, hljóð og texta. Spunalíkön, gagnstæð líkön og runulíkön eru hluti af námsefninu og PyTorch er notað við alla útfærslu. Nemendur kynna grein eða eigið verkefni á sviðinu sem hluta af námsmatinu. Kennt á ensku.</p> <p class="mt-2 text-xs text-ink-muted"> <span class="font-medium">Kennt:</span> haust 2025 </p> </article><article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Lífsferill gervigreindarlausna</h2> <p class="mt-1 text-sm text-ink-muted"> Framhaldsnám · Kennt á ensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Meistaranámskeið um allan lífsferil gervigreindarkerfis í rekstri: söfnun og undirbúning gagna, val á breytum, þjálfun og mat líkana, innleiðingu, framsetningu sem þjónustu og vöktun og viðhald eftir að kerfið er komið í notkun. Misserið hverfist um þrjú stærri hópverkefni þar sem nemendahópar keppa um að smíða bestu lausnina.</p> <p class="mt-2 text-xs text-ink-muted"> <span class="font-medium">Kennt:</span> vor 2021, vor 2022, vor 2023, vor 2024, vor 2025, vor 2026 </p> </article><article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Máltækni (hluti af námskeiðinu Viðskiptagreind)</h2> <p class="mt-1 text-sm text-ink-muted"> Framhaldsnám · Kennt á ensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Tveggja vikna hluti um máltækni innan meistaranámskeiðsins Viðskiptagreind við Viðskiptafræðideild, þar sem Helga Ingimundardóttir er umsjónarkennari. Fjallað er um forvinnslu texta, greypingar, flokkun, nafnakennsl og notkun risamállíkana í starfi greinenda. Kennt á ensku.</p> <p class="mt-2 text-xs text-ink-muted"> <span class="font-medium">Kennt:</span> vor 2022, vor 2023, vor 2024 </p> </article><article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Risamállíkön í íslensku samhengi</h2> <p class="mt-1 text-sm text-ink-muted"> Framhaldsnám · Kennt á íslensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Meistaranámskeið á Hugvísindasviði þar sem spurt er hversu vel risamállíkön virka á íslensku og hvað hegðun þeirra segir okkur bæði um líkönin og mannlegt mál. Meðal efnis eru aðferðir til að meta málfærni risamállíkana á íslensku, áhættan sem fylgir útbreiddri notkun spjallmenna í litlum málsamfélögum (rangfærslur, bjögun og fordómar) og hvað frammistaða líkananna á ólíkum tungumálum gefur til kynna um það hvernig börn og vélar tileinka sér mál. Umsjónarkennari: Iris Edda Nowenstein. Kennt á íslensku.</p> <p class="mt-2 text-xs text-ink-muted"> <span class="font-medium">Kennt:</span> vor 2026 </p> </article><article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Greining reiknirita</h2> <p class="mt-1 text-sm text-ink-muted"> Grunn- og framhaldsnám · Kennt á ensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Hönnun og greining reiknirita, kennd sem brúarnámskeið milli BS- og MS-náms í tölvunarfræði. Fjallað er um tímaflækju, reiknirit fyrir röðun og leit, reiknirit á netum og fylkjareikninga og hefðbundnar hönnunaraðferðir: deila og drottna, gráðug reiknirit og kvika bestun. Námskeiðinu lýkur á grunnatriðum torleystra verkefna: NP-fullkomleika, nálgunarreikniritum og slembireikniritum. Kennt til skiptis með Steini Guðmundssyni og Páli Melsted. Kennt á ensku.</p> <p class="mt-2 text-xs text-ink-muted"> <span class="font-medium">Kennt:</span> vor 2021, vor 2023, vor 2025 </p> </article><article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Strjál stærðfræði fyrir tölvunarfræði</h2> <p class="mt-1 text-sm text-ink-muted"> Grunnnám · Kennt á íslensku og ensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Námskeið á fyrsta ári sem fer yfir þann grunn í strjálli stærðfræði sem byggt er á í öllu tölvunarfræðináminu: yrðinga- og umsagnarökfræði, mengjafræði og Boole-algebru, þrepun og endurkvæmni, talningu og einfalda greiningu reiknirita, vensl og framsetningu þeirra, tré og net og grunnatriði strengja, stöðuvéla og formlegra mállýsinga. Í hverjum árgangi eru 200–230 nemendur, bæði íslenskir og erlendir.</p> <p class="mt-2 text-xs text-ink-muted"> <span class="font-medium">Kennt:</span> haust 2020, haust 2021, haust 2022, haust 2023 </p> </article><article class="py-5 border-t border-rule first:border-t-0"> <h2 class="text-[1.1875rem] font-medium text-ink">Tölvur, stýrikerfi og stafrænt læsi</h2> <p class="mt-1 text-sm text-ink-muted"> Grunnnám · Kennt á íslensku og ensku  </p> <p class="mt-2 prose-body max-w-prose text-ink">Sjálfsnámsnámskeið í grunnnámi sem ég byggði upp árið 2020 að fyrirmynd „The Missing Semester of Your CS Education“ frá MIT. Fjallað er um uppbyggingu tölva, grunnatriði stýrikerfa og þá færni á skipanalínu og með verkfæri sem nemendur þurfa í gegnum allt námið. Námskeiðið er hannað bæði fyrir íslenska og erlenda nemendur sem fara í gegnum efnið á eigin hraða.</p>  </article> </div> </section> </main> <!-- The footer sits on the warmer paper tone (base-200), which in this
+     palette is a shade *darker* than the page — the design's #f1ede4. --><footer class="border-t border-rule mt-24 bg-bg-elev"> <div class="max-w-page mx-auto px-6 py-10 md:px-10 md:py-12 grid gap-8 md:gap-12 sm:grid-cols-2 lg:grid-cols-3"> <div class="max-w-xs"> <p class="font-display text-[1.1875rem] text-ink">
+Hafsteinn Einarsson
+</p> <p class="mt-3 font-prose text-[1rem] leading-[1.55] text-ink-muted max-w-[34ch]"> Rannsóknir í vélrænu námi við Háskóla Íslands og hjá Íslenskri erfðagreiningu: máltækni, tölvusjón, klínísk gervigreind og mannerfðafræði. </p> <p class="meta mt-6">© 2026 Hafsteinn Einarsson</p> </div> <nav aria-label="Hlutar síðunnar"> <p class="eyebrow text-ink-faint">Á síðunni</p> <ul class="mt-3.5 flex flex-col gap-2.5 font-mono text-[0.78125rem]"> <li><a href="/is/research/" class="text-ink-muted hover:text-ink">Rannsóknir</a></li><li><a href="/is/publications/" class="text-ink-muted hover:text-ink">Ritaskrá</a></li><li><a href="/is/teaching/" class="text-ink-muted hover:text-ink">Kennsla</a></li><li><a href="/is/group/" class="text-ink-muted hover:text-ink">Hópurinn</a></li><li><a href="/is/writing/" class="text-ink-muted hover:text-ink">Skrif</a></li><li><a href="/is/about/" class="text-ink-muted hover:text-ink">Um mig</a></li> </ul> </nav> <nav aria-label="Annars staðar á netinu"> <p class="eyebrow text-ink-faint">Annars staðar</p> <ul class="mt-3.5 flex flex-col gap-2.5 font-mono text-[0.78125rem]"> <li><a href="https://scholar.google.com/citations?user=QH69Qk8AAAAJ&amp;hl=en" class="text-ink-muted hover:text-ink">Google Scholar</a></li><li><a href="https://orcid.org/0000-0001-5072-3678" class="text-ink-muted hover:text-ink">ORCID</a></li><li><a href="https://github.com/Haffi112" class="text-ink-muted hover:text-ink">GitHub</a></li><li><a href="https://www.linkedin.com/in/hafsteinn-einarsson-619a3711" class="text-ink-muted hover:text-ink">LinkedIn</a></li><li><a href="https://twitter.com/hafsteinn" class="text-ink-muted hover:text-ink">X</a></li><li><a href="https://www.youtube.com/@hafsteinneinarsson5462" class="text-ink-muted hover:text-ink">YouTube</a></li><li><a href="https://www.tiktok.com/@hafsteinneinarsso" class="text-ink-muted hover:text-ink">TikTok</a></li><li><a href="/atom.xml" class="text-ink-muted hover:text-ink">RSS</a></li> </ul> </nav> </div> <div class="border-t border-rule"> <div class="max-w-page mx-auto px-6 md:px-10 py-4 flex justify-end"> <a href="/cv.pdf" hreflang="en" class="meta hover:text-ink">Sækja ferilskrá (á ensku) ↓</a> </div> </div> </footer> <script>
+      // Scroll reveals: fade/rise elements marked data-reveal as they
+      // enter the viewport. CSS (gated on html.js) hides them initially;
+      // reduced-motion users get everything visible via the media query.
+      (() => {
+        const els = document.querySelectorAll('[data-reveal]');
+        if (!els.length || !('IntersectionObserver' in window)) {
+          els.forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-revealed');
+              io.unobserve(e.target);
+            }
+          }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+      })();
+    </script></body> </html>
